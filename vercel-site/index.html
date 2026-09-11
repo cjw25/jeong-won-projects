@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+            name="description"
+            content="개발과 정보보안을 배우고, 직접 만들고, 문제의 원인을 추적하는 최정원의 인터랙티브 자기소개 웹툰입니다."
+    >
+
+    <title>최정원의 이야기 | CJW's STORY</title>
+
+    <link
+            rel="stylesheet"
+            href="/css/index.css"
+    >
+</head>
+
+
+<body>
+
+<main
+        class="webtoon"
+        aria-label="최정원의 자기소개 웹툰"
+>
+
+
+    <!-- ==================================================
+         PAGE 1
+         INTRO
+    =================================================== -->
+    <section
+            class="page active image-page"
+            data-page="1"
+            aria-label="1페이지, 최정원 소개"
+    >
+
+        <div class="webtoon-image-container">
+
+            <img
+                    src="/images/page01.png"
+                    alt="최정원을 소개하는 첫 번째 웹툰 페이지. 개발과 정보보안을 배우며 직접 만들고 성장하고 싶은 모습을 표현하고 있습니다."
+                    class="webtoon-page-image"
+            >
+
+        </div>
+
+
+        <!--
+            과제 요구사항:
+            첫 화면에서 소개 / 활동 / 근거에 접근 가능
+        -->
+        <nav
+                class="story-quick-menu"
+                aria-label="주요 내용 바로가기"
+        >
+
+            <button
+                    type="button"
+                    class="story-menu-button"
+                    data-target="2"
+            >
+                <span class="menu-number">01</span>
+
+                <span class="menu-text">
+                    <strong>소개</strong>
+                    <small>내가 좋아하는 것</small>
+                </span>
+            </button>
+
+
+            <button
+                    type="button"
+                    class="story-menu-button"
+                    data-target="4"
+            >
+                <span class="menu-number">02</span>
+
+                <span class="menu-text">
+                    <strong>활동</strong>
+                    <small>지금까지의 경험</small>
+                </span>
+            </button>
+
+
+            <button
+                    type="button"
+                    class="story-menu-button"
+                    data-target="5"
+            >
+                <span class="menu-number">03</span>
+
+                <span class="menu-text">
+                    <strong>근거</strong>
+                    <small>함께한 사람들이 본 나</small>
+                </span>
+            </button>
+
+
+            <button
+                    type="button"
+                    class="story-start"
+                    data-next
+                    aria-label="두 번째 페이지로 이동"
+            >
+                STORY START
+                <span aria-hidden="true">→</span>
+            </button>
+
+        </nav>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         PAGE 2
+         WHAT I LIKE
+    =================================================== -->
+    <section
+            class="page image-page"
+            data-page="2"
+            aria-label="2페이지, 내가 좋아하는 것"
+    >
+
+        <div class="webtoon-image-container">
+
+            <img
+                    src="/images/page02.png"
+                    alt="최정원이 좋아하는 개발, 정보보안, 새로운 기술 학습, 아이디어 기획과 문제 해결 과정을 소개하는 웹툰입니다."
+                    class="webtoon-page-image"
+            >
+
+        </div>
+
+
+        <nav
+                class="image-page-navigation"
+                aria-label="웹툰 페이지 이동"
+        >
+
+            <button
+                    type="button"
+                    class="comic-nav-button"
+                    data-prev
+                    aria-label="1페이지로 이동"
+            >
+                <span aria-hidden="true">←</span>
+                이전 이야기
+            </button>
+
+
+            <span
+                    class="current-page"
+                    aria-label="현재 2페이지, 전체 6페이지"
+            >
+                02 / 06
+            </span>
+
+
+            <button
+                    type="button"
+                    class="comic-nav-button"
+                    data-next
+                    aria-label="3페이지로 이동"
+            >
+                다음 이야기
+                <span aria-hidden="true">→</span>
+            </button>
+
+        </nav>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         PAGE 3
+         PROBLEM SOLVING
+    =================================================== -->
+    <section
+            class="page image-page"
+            data-page="3"
+            aria-label="3페이지, 문제를 해결하는 방식"
+    >
+
+        <div class="webtoon-image-container">
+
+            <img
+                    src="/images/page03.png"
+                    alt="문제가 생겼을 때 오류를 확인하고 로그를 분석하며 원인을 추적하고 직접 실행해 해결하는 최정원의 문제 해결 방식을 보여주는 웹툰입니다."
+                    class="webtoon-page-image"
+            >
+
+        </div>
+
+
+        <nav
+                class="image-page-navigation"
+                aria-label="웹툰 페이지 이동"
+        >
+
+            <button
+                    type="button"
+                    class="comic-nav-button"
+                    data-prev
+                    aria-label="2페이지로 이동"
+            >
+                <span aria-hidden="true">←</span>
+                이전 이야기
+            </button>
+
+
+            <span
+                    class="current-page"
+                    aria-label="현재 3페이지, 전체 6페이지"
+            >
+                03 / 06
+            </span>
+
+
+            <button
+                    type="button"
+                    class="comic-nav-button"
+                    data-next
+                    aria-label="4페이지로 이동"
+            >
+                다음 이야기
+                <span aria-hidden="true">→</span>
+            </button>
+
+        </nav>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         PAGE 4
+         MY JOURNEY
+    =================================================== -->
+    <section
+            class="page image-page"
+            data-page="4"
+            aria-label="4페이지, 지금의 내가 되기까지"
+    >
+
+        <div class="webtoon-image-container">
+
+            <img
+                    src="/images/page04.png"
+                    alt="여러 경험과 변화의 시간을 지나 현재까지 성장해 온 최정원의 이야기를 연도별 웹툰으로 표현한 페이지입니다."
+                    class="webtoon-page-image"
+            >
+
+        </div>
+
+
+        <nav
+                class="image-page-navigation"
+                aria-label="웹툰 페이지 이동"
+        >
+
+            <button
+                    type="button"
+                    class="comic-nav-button"
+                    data-prev
+                    aria-label="3페이지로 이동"
+            >
+                <span aria-hidden="true">←</span>
+                이전 이야기
+            </button>
+
+
+            <span
+                    class="current-page"
+                    aria-label="현재 4페이지, 전체 6페이지"
+            >
+                04 / 06
+            </span>
+
+
+            <button
+                    type="button"
+                    class="comic-nav-button"
+                    data-next
+                    aria-label="5페이지로 이동"
+            >
+                다음 이야기
+                <span aria-hidden="true">→</span>
+            </button>
+
+        </nav>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         PAGE 5
+         PEOPLE
+    =================================================== -->
+    <section
+            class="page image-page"
+            data-page="5"
+            aria-label="5페이지, 함께한 사람들"
+    >
+
+        <div class="webtoon-image-container">
+
+            <img
+                    src="/images/page05.png"
+                    alt="함께 프로젝트를 진행한 사람들과 주변 사람들의 관계 속에서 성장하는 모습을 표현한 최정원의 웹툰 페이지입니다."
+                    class="webtoon-page-image"
+            >
+
+        </div>
+
+
+        <nav
+                class="image-page-navigation"
+                aria-label="웹툰 페이지 이동"
+        >
+
+            <button
+                    type="button"
+                    class="comic-nav-button"
+                    data-prev
+                    aria-label="4페이지로 이동"
+            >
+                <span aria-hidden="true">←</span>
+                이전 이야기
+            </button>
+
+
+            <span
+                    class="current-page"
+                    aria-label="현재 5페이지, 전체 6페이지"
+            >
+                05 / 06
+            </span>
+
+
+            <button
+                    type="button"
+                    class="comic-nav-button"
+                    data-next
+                    aria-label="6페이지로 이동"
+            >
+                마지막 이야기
+                <span aria-hidden="true">→</span>
+            </button>
+
+        </nav>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         PAGE 6
+         EPILOGUE
+    =================================================== -->
+    <section
+            class="page image-page"
+            data-page="6"
+            aria-label="6페이지, 앞으로의 이야기"
+    >
+
+        <div class="webtoon-image-container">
+
+            <img
+                    src="/images/page06.png"
+                    alt="개발과 정보보안을 계속 배우며 더 좋은 개발자와 더 좋은 사람으로 성장하고 싶은 최정원의 앞으로의 목표를 보여주는 마지막 웹툰 페이지입니다."
+                    class="webtoon-page-image"
+            >
+
+        </div>
+
+
+        <!-- 실제 링크 -->
+        <div
+                class="ending-actions"
+                aria-label="관련 링크"
+        >
+
+            <a
+                    href="https://github.com/cjw25/jeong-won-projects"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="ending-action-link"
+            >
+                <span class="action-number">01</span>
+
+                <span>
+                    <strong>GITHUB</strong>
+                    <small>프로젝트 소스 보기</small>
+                </span>
+            </a>
+
+
+            <!--
+                Railway 배포 후
+                button을 a 태그로 변경 예정
+            -->
+            <button
+                    type="button"
+                    class="ending-action-link project-disabled"
+                    disabled
+                    aria-label="프로젝트 배포 주소 연결 예정"
+            >
+                <span class="action-number">02</span>
+
+                <span>
+                    <strong>PROJECT</strong>
+                    <small>배포 후 연결 예정</small>
+                </span>
+            </button>
+
+
+            <button
+                    type="button"
+                    class="ending-action-link"
+                    data-target="1"
+                    aria-label="첫 번째 페이지로 돌아가기"
+            >
+                <span class="action-number">03</span>
+
+                <span>
+                    <strong>RESTART</strong>
+                    <small>처음부터 다시 보기</small>
+                </span>
+            </button>
+
+        </div>
+
+
+        <nav
+                class="image-page-navigation final-navigation"
+                aria-label="웹툰 페이지 이동"
+        >
+
+            <button
+                    type="button"
+                    class="comic-nav-button"
+                    data-prev
+                    aria-label="5페이지로 이동"
+            >
+                <span aria-hidden="true">←</span>
+                이전 이야기
+            </button>
+
+
+            <span
+                    class="current-page"
+                    aria-label="현재 6페이지, 전체 6페이지"
+            >
+                06 / 06
+            </span>
+
+
+            <button
+                    type="button"
+                    class="comic-nav-button"
+                    data-target="1"
+                    aria-label="첫 번째 페이지로 돌아가기"
+            >
+                처음으로
+                <span aria-hidden="true">↻</span>
+            </button>
+
+        </nav>
+
+    </section>
+
+
+</main>
+
+
+<!-- 키보드 사용 안내 -->
+<p
+        class="keyboard-guide"
+        aria-hidden="true"
+>
+    ← → 방향키로도 이야기를 넘길 수 있습니다.
+</p>
+
+
+<noscript>
+
+    <div class="noscript-message">
+        이 웹사이트의 페이지 전환 기능을 사용하려면
+        JavaScript를 활성화해 주세요.
+    </div>
+
+</noscript>
+
+
+<script src="/js/index.js"></script>
+
+</body>
+
+</html>
