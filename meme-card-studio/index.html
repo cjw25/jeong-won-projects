@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+            name="description"
+            content="PNG와 JPEG 이미지에 문구를 넣어 밈, 카드, SNS 이미지를 만드는 짤·카드 스튜디오"
+    >
+
+    <title>짤·카드 스튜디오</title>
+
+    <link
+            rel="stylesheet"
+            href="./css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="top-header">
+
+    <div>
+        <p class="eyebrow">
+            MEME · CARD · SNS
+        </p>
+
+        <h1>
+            짤·카드 스튜디오
+        </h1>
+
+        <p class="header-description">
+            이미지와 문구를 조합해
+            나만의 밈·카드·SNS 이미지를 만들어보세요.
+        </p>
+    </div>
+
+    <div class="header-actions">
+
+        <button
+                id="exportJsonButton"
+                type="button"
+                class="ghost-button"
+        >
+            JSON 내보내기
+        </button>
+
+        <label
+                for="importJsonInput"
+                class="ghost-button file-label"
+        >
+            JSON 가져오기
+        </label>
+
+        <input
+                id="importJsonInput"
+                type="file"
+                accept=".json,application/json"
+                hidden
+        >
+
+    </div>
+
+</header>
+
+
+<main class="studio-grid">
+
+    <!-- ==================================================
+         왼쪽 편집 도구
+    =================================================== -->
+
+    <aside
+            class="tool-panel"
+            aria-label="이미지와 문구 편집 도구"
+    >
+
+        <!-- IMAGE -->
+
+        <section class="tool-section">
+
+            <div class="section-title">
+
+                <span class="section-number">
+                    01
+                </span>
+
+                <div>
+                    <h2>IMAGE</h2>
+                    <p>이미지 편집</p>
+                </div>
+
+            </div>
+
+
+            <label
+                    for="imageInput"
+                    class="upload-box"
+            >
+                <strong>
+                    PNG / JPEG 불러오기
+                </strong>
+
+                <span>
+                    파일을 선택하거나 여기에 놓으세요.
+                </span>
+            </label>
+
+            <input
+                    id="imageInput"
+                    type="file"
+                    accept=".png,.jpg,.jpeg,image/png,image/jpeg"
+                    hidden
+            >
+
+
+            <p
+                    id="fileMessage"
+                    class="field-message"
+                    aria-live="polite"
+            >
+                PNG와 JPEG만 사용할 수 있습니다.
+            </p>
+
+
+            <div class="control-row">
+
+                <label for="imageScale">
+                    이미지 크기
+                </label>
+
+                <output id="imageScaleValue">
+                    100%
+                </output>
+
+            </div>
+
+            <input
+                    id="imageScale"
+                    type="range"
+                    min="50"
+                    max="200"
+                    value="100"
+                    step="1"
+            >
+
+
+            <div class="two-controls">
+
+                <div>
+
+                    <div class="control-row">
+
+                        <label for="imageX">
+                            가로 위치
+                        </label>
+
+                        <output id="imageXValue">
+                            0
+                        </output>
+
+                    </div>
+
+                    <input
+                            id="imageX"
+                            type="range"
+                            min="-50"
+                            max="50"
+                            value="0"
+                            step="1"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <div class="control-row">
+
+                        <label for="imageY">
+                            세로 위치
+                        </label>
+
+                        <output id="imageYValue">
+                            0
+                        </output>
+
+                    </div>
+
+                    <input
+                            id="imageY"
+                            type="range"
+                            min="-50"
+                            max="50"
+                            value="0"
+                            step="1"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="color-control">
+
+                <label for="backgroundColor">
+                    배경색
+                </label>
+
+                <input
+                        id="backgroundColor"
+                        type="color"
+                        value="#101827"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- TEXT -->
+
+        <section class="tool-section">
+
+            <div class="section-title">
+
+                <span class="section-number">
+                    02
+                </span>
+
+                <div>
+                    <h2>TEXT</h2>
+                    <p>문구 편집</p>
+                </div>
+
+            </div>
+
+
+            <label
+                    class="input-label"
+                    for="textInput"
+            >
+                문구
+            </label>
+
+            <textarea
+                    id="textInput"
+                    rows="4"
+                    maxlength="1000"
+            >여기에 문구를 입력하세요</textarea>
+
+
+            <div class="control-row">
+
+                <label for="fontSize">
+                    글자 크기
+                </label>
+
+                <output id="fontSizeValue">
+                    72px
+                </output>
+
+            </div>
+
+            <input
+                    id="fontSize"
+                    type="range"
+                    min="20"
+                    max="180"
+                    value="72"
+                    step="1"
+            >
+
+
+            <div class="control-row">
+
+                <label for="textWidth">
+                    문구 영역 폭
+                </label>
+
+                <output id="textWidthValue">
+                    80%
+                </output>
+
+            </div>
+
+            <input
+                    id="textWidth"
+                    type="range"
+                    min="20"
+                    max="95"
+                    value="80"
+                    step="1"
+            >
+
+
+            <div class="two-controls">
+
+                <div>
+
+                    <div class="control-row">
+
+                        <label for="textX">
+                            가로 위치
+                        </label>
+
+                        <output id="textXValue">
+                            50%
+                        </output>
+
+                    </div>
+
+                    <input
+                            id="textX"
+                            type="range"
+                            min="0"
+                            max="100"
+                            value="50"
+                            step="1"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <div class="control-row">
+
+                        <label for="textY">
+                            세로 위치
+                        </label>
+
+                        <output id="textYValue">
+                            70%
+                        </output>
+
+                    </div>
+
+                    <input
+                            id="textY"
+                            type="range"
+                            min="0"
+                            max="100"
+                            value="70"
+                            step="1"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="control-grid">
+
+                <div>
+
+                    <label
+                            class="input-label"
+                            for="textAlign"
+                    >
+                        정렬
+                    </label>
+
+                    <select id="textAlign">
+
+                        <option value="left">
+                            왼쪽
+                        </option>
+
+                        <option
+                                value="center"
+                                selected
+                        >
+                            가운데
+                        </option>
+
+                        <option value="right">
+                            오른쪽
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div>
+
+                    <label
+                            class="input-label"
+                            for="fontWeight"
+                    >
+                        굵기
+                    </label>
+
+                    <select id="fontWeight">
+
+                        <option value="400">
+                            보통
+                        </option>
+
+                        <option
+                                value="700"
+                                selected
+                        >
+                            굵게
+                        </option>
+
+                        <option value="900">
+                            아주 굵게
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="color-control compact">
+
+                    <label for="textColor">
+                        글자색
+                    </label>
+
+                    <input
+                            id="textColor"
+                            type="color"
+                            value="#ffffff"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </aside>
+
+
+    <!-- ==================================================
+         가운데 미리보기
+    =================================================== -->
+
+    <section class="preview-panel">
+
+        <div class="preview-heading">
+
+            <div>
+                <p class="section-kicker">
+                    LIVE PREVIEW
+                </p>
+
+                <h2>
+                    미리보기
+                </h2>
+            </div>
+
+            <span
+                    id="outputSize"
+                    class="output-size"
+            >
+                1080 × 1080
+            </span>
+
+        </div>
+
+
+        <div
+                class="ratio-buttons"
+                role="group"
+                aria-label="화면 비율"
+        >
+
+            <button
+                    type="button"
+                    class="ratio-button active"
+                    data-ratio="1:1"
+                    aria-pressed="true"
+            >
+                <strong>1:1</strong>
+                <span>정사각형</span>
+            </button>
+
+            <button
+                    type="button"
+                    class="ratio-button"
+                    data-ratio="4:5"
+                    aria-pressed="false"
+            >
+                <strong>4:5</strong>
+                <span>세로 카드</span>
+            </button>
+
+            <button
+                    type="button"
+                    class="ratio-button"
+                    data-ratio="9:16"
+                    aria-pressed="false"
+            >
+                <strong>9:16</strong>
+                <span>스토리</span>
+            </button>
+
+        </div>
+
+
+        <div class="canvas-shell">
+
+            <canvas
+                    id="editorCanvas"
+                    width="1080"
+                    height="1080"
+                    aria-label="편집 결과 미리보기"
+            ></canvas>
+
+        </div>
+
+
+        <div class="preview-actions">
+
+            <button
+                    id="resetEditorButton"
+                    type="button"
+                    class="secondary-button"
+            >
+                새 작업
+            </button>
+
+            <button
+                    id="downloadButton"
+                    type="button"
+                    class="download-button"
+            >
+                PNG 다운로드
+            </button>
+
+        </div>
+
+
+        <p class="privacy-note">
+            업로드 이미지는 Canvas에서 다시 생성해
+            결과 이미지에 원본 EXIF·GPS 메타데이터가
+            전달되지 않도록 처리합니다.
+        </p>
+
+    </section>
+
+
+    <!-- ==================================================
+         오른쪽 템플릿
+    =================================================== -->
+
+    <aside
+            class="template-panel"
+            aria-label="사용자 템플릿"
+    >
+
+        <div class="section-title">
+
+            <span class="section-number">
+                03
+            </span>
+
+            <div>
+                <h2>MY TEMPLATES</h2>
+                <p>사용자 템플릿</p>
+            </div>
+
+        </div>
+
+
+        <label
+                for="templateName"
+                class="input-label"
+        >
+            템플릿 이름
+        </label>
+
+        <input
+                id="templateName"
+                type="text"
+                maxlength="60"
+                placeholder="예: 게임 홍보 카드"
+        >
+
+
+        <button
+                id="saveTemplateButton"
+                type="button"
+                class="template-main-button"
+        >
+            + 새 템플릿 저장
+        </button>
+
+
+        <div class="template-edit-actions">
+
+            <button
+                    id="updateTemplateButton"
+                    type="button"
+                    disabled
+            >
+                선택 템플릿 수정
+            </button>
+
+            <button
+                    id="deleteTemplateButton"
+                    type="button"
+                    class="danger-button"
+                    disabled
+            >
+                삭제
+            </button>
+
+        </div>
+
+
+        <div class="template-list-header">
+
+            <span>
+                저장된 템플릿
+            </span>
+
+            <strong id="templateCount">
+                0개
+            </strong>
+
+        </div>
+
+
+        <div
+                id="templateList"
+                class="template-list"
+        >
+
+            <p class="empty-template">
+                아직 저장된 템플릿이 없습니다.
+            </p>
+
+        </div>
+
+
+        <div class="json-guide">
+
+            <strong>
+                JSON 옮겨 쓰기
+            </strong>
+
+            <p>
+                템플릿을 JSON으로 내보내 다른 브라우저에서
+                다시 가져올 수 있습니다.
+            </p>
+
+        </div>
+
+    </aside>
+
+</main>
+
+
+<div
+        id="statusBar"
+        class="status-bar"
+        role="status"
+        aria-live="polite"
+>
+    준비되었습니다.
+</div>
+
+
+<script src="./js/editor.js"></script>
+
+</body>
+</html>
