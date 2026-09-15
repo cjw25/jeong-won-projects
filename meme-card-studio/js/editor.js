@@ -7,7 +7,6 @@ document.addEventListener(
         ================================================= */
 
         const RATIOS = {
-
             "1:1": {
                 width: 1080,
                 height: 1080
@@ -33,6 +32,9 @@ document.addEventListener(
 
         const STORE_NAME =
             "templates";
+
+        const DRAFT_STORAGE_KEY =
+            "memeCardStudioDraftV1";
 
 
         /* =================================================
@@ -241,7 +243,8 @@ document.addEventListener(
 
         const DEFAULT_STATE = {
 
-            ratio: "1:1",
+            ratio:
+                "1:1",
 
             backgroundColor:
                 "#101827",
@@ -287,10 +290,9 @@ document.addEventListener(
         };
 
 
-        let state =
-            {
-                ...DEFAULT_STATE
-            };
+        let state = {
+            ...DEFAULT_STATE
+        };
 
 
         let selectedTemplateId =
@@ -299,6 +301,368 @@ document.addEventListener(
 
         let renderPending =
             false;
+
+
+        /* =================================================
+           COMMON VALIDATION
+        ================================================= */
+
+        function isFiniteNumber(
+            value
+        ) {
+
+            return (
+                typeof value === "number" &&
+                Number.isFinite(
+                    value
+                )
+            );
+        }
+
+
+        function isHexColor(
+            value
+        ) {
+
+            return (
+                typeof value === "string" &&
+                /^#[0-9a-f]{6}$/i.test(
+                    value
+                )
+            );
+        }
+
+
+        function validNumber(
+            value,
+            min,
+            max,
+            fallback
+        ) {
+
+            const number =
+                Number(
+                    value
+                );
+
+
+            if (
+                Number.isFinite(number) &&
+                number >= min &&
+                number <= max
+            ) {
+
+                return number;
+            }
+
+
+            return fallback;
+        }
+
+
+        /* =================================================
+           T05 DRAFT AUTO SAVE
+        ================================================= */
+
+        function buildDraft() {
+
+            return {
+
+                ratio:
+                    state.ratio,
+
+                backgroundColor:
+                    state.backgroundColor,
+
+                imageScale:
+                    state.imageScale,
+
+                imageX:
+                    state.imageX,
+
+                imageY:
+                    state.imageY,
+
+                text:
+                    state.text,
+
+                fontSize:
+                    state.fontSize,
+
+                textWidth:
+                    state.textWidth,
+
+                textX:
+                    state.textX,
+
+                textY:
+                    state.textY,
+
+                textColor:
+                    state.textColor,
+
+                textAlign:
+                    state.textAlign,
+
+                fontWeight:
+                    state.fontWeight
+            };
+        }
+
+
+        function saveDraft() {
+
+            try {
+
+                localStorage.setItem(
+                    DRAFT_STORAGE_KEY,
+                    JSON.stringify(
+                        buildDraft()
+                    )
+                );
+
+            } catch (error) {
+
+                console.warn(
+                    "초안 자동저장 실패:",
+                    error
+                );
+            }
+        }
+
+
+        function clearDraft() {
+
+            try {
+
+                localStorage.removeItem(
+                    DRAFT_STORAGE_KEY
+                );
+
+            } catch (error) {
+
+                console.warn(
+                    "초안 삭제 실패:",
+                    error
+                );
+            }
+        }
+
+
+        function restoreDraft() {
+
+            let raw;
+
+
+            try {
+
+                raw =
+                    localStorage.getItem(
+                        DRAFT_STORAGE_KEY
+                    );
+
+            } catch (error) {
+
+                return false;
+            }
+
+
+            if (
+                raw === null
+            ) {
+
+                return false;
+            }
+
+
+            let draft;
+
+
+            try {
+
+                draft =
+                    JSON.parse(
+                        raw
+                    );
+
+            } catch (error) {
+
+                clearDraft();
+
+                return false;
+            }
+
+
+            if (
+                !draft ||
+                typeof draft !== "object" ||
+                Array.isArray(draft)
+            ) {
+
+                clearDraft();
+
+                return false;
+            }
+
+
+            const restored = {
+                ...DEFAULT_STATE
+            };
+
+
+            if (
+                RATIOS[
+                    draft.ratio
+                ]
+            ) {
+
+                restored.ratio =
+                    draft.ratio;
+            }
+
+
+            if (
+                isHexColor(
+                    draft.backgroundColor
+                )
+            ) {
+
+                restored.backgroundColor =
+                    draft.backgroundColor;
+            }
+
+
+            restored.imageScale =
+                validNumber(
+                    draft.imageScale,
+                    0.5,
+                    2,
+                    DEFAULT_STATE.imageScale
+                );
+
+
+            restored.imageX =
+                validNumber(
+                    draft.imageX,
+                    -50,
+                    50,
+                    DEFAULT_STATE.imageX
+                );
+
+
+            restored.imageY =
+                validNumber(
+                    draft.imageY,
+                    -50,
+                    50,
+                    DEFAULT_STATE.imageY
+                );
+
+
+            /*
+             * 빈 문자열도 정상적인 편집 상태다.
+             * T05-09를 위해 ""을 기본 문구로
+             * 바꾸면 안 된다.
+             */
+            if (
+                typeof draft.text === "string" &&
+                draft.text.length <= 1000
+            ) {
+
+                restored.text =
+                    draft.text;
+            }
+
+
+            restored.fontSize =
+                validNumber(
+                    draft.fontSize,
+                    20,
+                    180,
+                    DEFAULT_STATE.fontSize
+                );
+
+
+            restored.textWidth =
+                validNumber(
+                    draft.textWidth,
+                    20,
+                    95,
+                    DEFAULT_STATE.textWidth
+                );
+
+
+            restored.textX =
+                validNumber(
+                    draft.textX,
+                    0,
+                    100,
+                    DEFAULT_STATE.textX
+                );
+
+
+            restored.textY =
+                validNumber(
+                    draft.textY,
+                    0,
+                    100,
+                    DEFAULT_STATE.textY
+                );
+
+
+            if (
+                isHexColor(
+                    draft.textColor
+                )
+            ) {
+
+                restored.textColor =
+                    draft.textColor;
+            }
+
+
+            if (
+                [
+                    "left",
+                    "center",
+                    "right"
+                ].includes(
+                    draft.textAlign
+                )
+            ) {
+
+                restored.textAlign =
+                    draft.textAlign;
+            }
+
+
+            const restoredWeight =
+                Number(
+                    draft.fontWeight
+                );
+
+
+            if (
+                [
+                    400,
+                    700,
+                    900
+                ].includes(
+                    restoredWeight
+                )
+            ) {
+
+                restored.fontWeight =
+                    restoredWeight;
+            }
+
+
+            state =
+                restored;
+
+
+            return true;
+        }
 
 
         /* =================================================
@@ -319,7 +683,9 @@ document.addEventListener(
             );
 
 
-            if (type) {
+            if (
+                type
+            ) {
 
                 statusBar.classList.add(
                     type
@@ -342,7 +708,9 @@ document.addEventListener(
             );
 
 
-            if (type) {
+            if (
+                type
+            ) {
 
                 fileMessage.classList.add(
                     type
@@ -470,10 +838,12 @@ document.addEventListener(
 
 
                     request.onerror =
-                        () =>
+                        () => {
+
                             reject(
                                 request.error
                             );
+                        };
                 }
             );
         }
@@ -510,14 +880,19 @@ document.addEventListener(
 
 
                     transaction.oncomplete =
-                        () => resolve();
+                        () => {
+
+                            resolve();
+                        };
 
 
                     transaction.onerror =
-                        () =>
+                        () => {
+
                             reject(
                                 transaction.error
                             );
+                        };
                 }
             );
         }
@@ -554,14 +929,19 @@ document.addEventListener(
 
 
                     transaction.oncomplete =
-                        () => resolve();
+                        () => {
+
+                            resolve();
+                        };
 
 
                     transaction.onerror =
-                        () =>
+                        () => {
+
                             reject(
                                 transaction.error
                             );
+                        };
                 }
             );
         }
@@ -605,14 +985,19 @@ document.addEventListener(
 
 
                     transaction.oncomplete =
-                        () => resolve();
+                        () => {
+
+                            resolve();
+                        };
 
 
                     transaction.onerror =
-                        () =>
+                        () => {
+
                             reject(
                                 transaction.error
                             );
+                        };
                 }
             );
         }
@@ -668,7 +1053,6 @@ document.addEventListener(
 
             const isPng =
                 bytes.length >= 8 &&
-
                 bytes[0] === 0x89 &&
                 bytes[1] === 0x50 &&
                 bytes[2] === 0x4e &&
@@ -681,19 +1065,22 @@ document.addEventListener(
 
             const isJpeg =
                 bytes.length >= 3 &&
-
                 bytes[0] === 0xff &&
                 bytes[1] === 0xd8 &&
                 bytes[2] === 0xff;
 
 
-            if (isPng) {
+            if (
+                isPng
+            ) {
 
                 return "png";
             }
 
 
-            if (isJpeg) {
+            if (
+                isJpeg
+            ) {
 
                 return "jpeg";
             }
@@ -718,19 +1105,23 @@ document.addEventListener(
 
 
                     image.onload =
-                        () =>
+                        () => {
+
                             resolve(
                                 image
                             );
+                        };
 
 
                     image.onerror =
-                        () =>
+                        () => {
+
                             reject(
                                 new Error(
                                     "이미지를 읽을 수 없습니다."
                                 )
                             );
+                        };
 
 
                     image.src =
@@ -739,10 +1130,6 @@ document.addEventListener(
             );
         }
 
-
-        /* =================================================
-           METADATA REMOVAL
-        ================================================= */
 
         async function sanitizeImageFile(
             file
@@ -796,7 +1183,6 @@ document.addEventListener(
 
                 const originalWidth =
                     sourceImage.naturalWidth;
-
 
                 const originalHeight =
                     sourceImage.naturalHeight;
@@ -873,21 +1259,12 @@ document.addEventListener(
                 );
 
 
-                /*
-                 * Canvas로 다시 인코딩해서
-                 * EXIF / GPS 메타데이터 제거
-                 */
-
                 let dataUrl =
                     cleanCanvas.toDataURL(
                         "image/webp",
                         0.9
                     );
 
-
-                /*
-                 * WebP 미지원 브라우저 대비
-                 */
 
                 if (
                     !dataUrl.startsWith(
@@ -929,11 +1306,6 @@ document.addEventListener(
             file
         ) {
 
-            /*
-             * 성공하기 전에는
-             * 현재 state를 건드리지 않는다.
-             */
-
             try {
 
                 const result =
@@ -945,18 +1317,14 @@ document.addEventListener(
                 state.imageDataUrl =
                     result.dataUrl;
 
-
                 state.imageElement =
                     result.image;
-
 
                 state.imageScale =
                     1;
 
-
                 state.imageX =
                     0;
-
 
                 state.imageY =
                     0;
@@ -964,15 +1332,11 @@ document.addEventListener(
 
                 syncControlsFromState();
 
-
                 scheduleRender();
 
 
                 showFileMessage(
-                    `${
-                        result.originalType
-                            .toUpperCase()
-                    } 이미지를 불러왔습니다. 원본 메타데이터는 제거되었습니다.`,
+                    `${result.originalType.toUpperCase()} 이미지를 불러왔습니다. 원본 메타데이터는 제거되었습니다.`,
                     "success"
                 );
 
@@ -983,10 +1347,6 @@ document.addEventListener(
                 );
 
             } catch (error) {
-
-                /*
-                 * 실패해도 기존 편집 상태 유지
-                 */
 
                 showFileMessage(
                     error.message,
@@ -1139,10 +1499,6 @@ document.addEventListener(
 
             words.forEach(
                 word => {
-
-                    /*
-                     * 단어 하나가 영역보다 긴 경우
-                     */
 
                     if (
                         ctx.measureText(
@@ -1312,10 +1668,6 @@ document.addEventListener(
                 `${size.width} × ${size.height}`;
 
 
-            /*
-             * 배경
-             */
-
             ctx.clearRect(
                 0,
                 0,
@@ -1335,10 +1687,6 @@ document.addEventListener(
                 canvas.height
             );
 
-
-            /*
-             * 이미지
-             */
 
             if (
                 state.imageElement
@@ -1416,10 +1764,6 @@ document.addEventListener(
                 );
             }
 
-
-            /*
-             * 텍스트
-             */
 
             const fontSizePx =
                 state.fontSize;
@@ -1546,6 +1890,12 @@ document.addEventListener(
 
         function scheduleRender() {
 
+            /*
+             * 편집 이벤트마다 현재 상태를 저장한다.
+             */
+            saveDraft();
+
+
             if (
                 renderPending
             ) {
@@ -1590,14 +1940,12 @@ document.addEventListener(
             imageX.value =
                 state.imageX;
 
-
             imageXValue.value =
                 state.imageX;
 
 
             imageY.value =
                 state.imageY;
-
 
             imageYValue.value =
                 state.imageY;
@@ -1614,14 +1962,12 @@ document.addEventListener(
             fontSize.value =
                 state.fontSize;
 
-
             fontSizeValue.value =
                 `${state.fontSize}px`;
 
 
             textWidth.value =
                 state.textWidth;
-
 
             textWidthValue.value =
                 `${state.textWidth}%`;
@@ -1630,14 +1976,12 @@ document.addEventListener(
             textX.value =
                 state.textX;
 
-
             textXValue.value =
                 `${state.textX}%`;
 
 
             textY.value =
                 state.textY;
-
 
             textYValue.value =
                 `${state.textY}%`;
@@ -1941,10 +2285,6 @@ document.addEventListener(
         );
 
 
-        /*
-         * Drag & Drop
-         */
-
         [
             "dragenter",
             "dragover"
@@ -1956,6 +2296,7 @@ document.addEventListener(
                     event => {
 
                         event.preventDefault();
+
 
                         uploadBox.classList.add(
                             "dragging"
@@ -1977,6 +2318,7 @@ document.addEventListener(
                     event => {
 
                         event.preventDefault();
+
 
                         uploadBox.classList.remove(
                             "dragging"
@@ -2015,11 +2357,6 @@ document.addEventListener(
         downloadButton.addEventListener(
             "click",
             () => {
-
-                /*
-                 * 화면과 다운로드 파일이
-                 * 같은 renderCanvas를 사용한다.
-                 */
 
                 renderCanvas();
 
@@ -2082,7 +2419,6 @@ document.addEventListener(
 
                         link.click();
 
-
                         link.remove();
 
 
@@ -2093,7 +2429,6 @@ document.addEventListener(
                                     url
                                 );
                             },
-
                             1000
                         );
 
@@ -2104,7 +2439,6 @@ document.addEventListener(
                         );
 
                     },
-
                     "image/png"
                 );
             }
@@ -2133,10 +2467,16 @@ document.addEventListener(
                 }
 
 
-                state =
-                    {
-                        ...DEFAULT_STATE
-                    };
+                /*
+                 * 새 작업:
+                 * 기존 초안을 완전히 제거한다.
+                 */
+                clearDraft();
+
+
+                state = {
+                    ...DEFAULT_STATE
+                };
 
 
                 selectedTemplateId =
@@ -2157,7 +2497,12 @@ document.addEventListener(
 
                 syncControlsFromState();
 
-                scheduleRender();
+                /*
+                 * 여기서는 scheduleRender()를 호출하지 않는다.
+                 * scheduleRender()는 다시 초안을 저장하기 때문이다.
+                 */
+                renderCanvas();
+
 
                 renderTemplateList();
 
@@ -2241,37 +2586,6 @@ document.addEventListener(
            TEMPLATE VALIDATION
         ================================================= */
 
-        function isFiniteNumber(
-            value
-        ) {
-
-            return (
-                typeof value ===
-                    "number" &&
-
-                Number.isFinite(
-                    value
-                )
-            );
-        }
-
-
-        function isHexColor(
-            value
-        ) {
-
-            return (
-                typeof value ===
-                    "string" &&
-
-                /^#[0-9a-f]{6}$/i
-                    .test(
-                        value
-                    )
-            );
-        }
-
-
         function validateTemplate(
             template
         ) {
@@ -2333,7 +2647,6 @@ document.addEventListener(
             if (
                 template.imageDataUrl !==
                     null &&
-
                 (
                     typeof template.imageDataUrl !==
                         "string" ||
@@ -2404,7 +2717,6 @@ document.addEventListener(
                     0,
                     Number.MAX_SAFE_INTEGER
                 ]
-
             ];
 
 
@@ -2421,7 +2733,6 @@ document.addEventListener(
                     !isFiniteNumber(
                         value
                     ) ||
-
                     value < min ||
                     value > max
                 ) {
@@ -2496,6 +2807,7 @@ document.addEventListener(
                         "error"
                     );
 
+
                     templateName.focus();
 
                     return;
@@ -2558,11 +2870,6 @@ document.addEventListener(
         async function applyTemplate(
             template
         ) {
-
-            /*
-             * 이미지까지 먼저 검증하고 나서
-             * 현재 편집 상태를 변경한다.
-             */
 
             let image =
                 null;
@@ -2659,6 +2966,7 @@ document.addEventListener(
             syncControlsFromState();
 
             scheduleRender();
+
 
             await renderTemplateList();
 
@@ -2830,8 +3138,7 @@ document.addEventListener(
 
 
                 if (
-                    templates.length ===
-                    0
+                    templates.length === 0
                 ) {
 
                     templateList.innerHTML =
@@ -3008,10 +3315,12 @@ document.addEventListener(
 
 
                     setTimeout(
-                        () =>
+                        () => {
+
                             URL.revokeObjectURL(
                                 url
-                            ),
+                            );
+                        },
                         1000
                     );
 
@@ -3068,11 +3377,6 @@ document.addEventListener(
             }
 
 
-            /*
-             * 저장하기 전에
-             * 모든 템플릿을 먼저 검사한다.
-             */
-
             for (
                 const template
                 of payload.templates
@@ -3089,10 +3393,6 @@ document.addEventListener(
                     );
                 }
 
-
-                /*
-                 * 이미지 데이터까지 실제로 읽히는지 확인
-                 */
 
                 if (
                     template.imageDataUrl
@@ -3143,11 +3443,6 @@ document.addEventListener(
                 }
 
 
-                /*
-                 * 기존 목록은 검증 성공 전까지
-                 * 절대 변경하지 않는다.
-                 */
-
                 try {
 
                     const text =
@@ -3177,11 +3472,6 @@ document.addEventListener(
                             payload
                         );
 
-
-                    /*
-                     * 모든 검사가 끝난 뒤에만
-                     * IndexedDB에 저장
-                     */
 
                     await importTemplatesToDb(
                         templates
@@ -3213,16 +3503,33 @@ document.addEventListener(
 
         async function initialize() {
 
+            const restored =
+                restoreDraft();
+
+
             syncControlsFromState();
 
             renderCanvas();
 
+
             await renderTemplateList();
 
 
-            showStatus(
-                "준비되었습니다. PNG 또는 JPEG 이미지를 불러와 편집해 보세요."
-            );
+            if (
+                restored
+            ) {
+
+                showStatus(
+                    "마지막 편집 초안을 복구했습니다.",
+                    "success"
+                );
+
+            } else {
+
+                showStatus(
+                    "준비되었습니다. PNG 또는 JPEG 이미지를 불러와 편집해 보세요."
+                );
+            }
         }
 
 
