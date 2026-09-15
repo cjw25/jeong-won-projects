@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+            name="description"
+            content="대전의 실제 현재 기온을 매일 기록하고, 마지막 정상값을 보존하며 공개 합성 fixture로 장애와 복구를 재현하는 정보판"
+    >
+
+    <title>오늘의 대전 기온판</title>
+
+    <link
+            rel="stylesheet"
+            href="./css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <div>
+
+        <p class="eyebrow">
+            T04 · REAL INFORMATION BOARD
+        </p>
+
+        <h1>
+            오늘의 대전 기온판
+        </h1>
+
+        <p class="subtitle">
+            실제 공개 기온을 기록하고,
+            데이터가 오지 않을 때도 마지막 정상값과 상태를 정직하게 보여줍니다.
+        </p>
+
+    </div>
+
+
+    <div
+            class="header-badges"
+            aria-label="프로젝트 기준"
+    >
+
+        <span>
+            핵심값: 현재 기온
+        </span>
+
+        <span>
+            기준: Asia/Seoul
+        </span>
+
+        <span>
+            비밀키: 없음
+        </span>
+
+    </div>
+
+</header>
+
+
+<main class="page-grid">
+
+
+    <!-- ==================================================
+         실제 데이터
+    =================================================== -->
+
+    <section
+            class="card live-card"
+            aria-labelledby="liveTitle"
+    >
+
+        <div class="card-heading">
+
+            <div>
+
+                <p class="kicker">
+                    LIVE SOURCE
+                </p>
+
+                <h2 id="liveTitle">
+                    실제 공개 원천
+                </h2>
+
+            </div>
+
+
+            <span
+                    id="liveStatusBadge"
+                    class="status-badge neutral"
+            >
+                NO DATA
+            </span>
+
+        </div>
+
+
+        <div class="value-zone">
+
+            <p class="value-label">
+                대전 현재 기온
+            </p>
+
+
+            <div class="main-value">
+
+                <strong id="liveValue">
+                    --
+                </strong>
+
+                <span id="liveUnit">
+                    °C
+                </span>
+
+            </div>
+
+
+            <p
+                    id="liveStaleNote"
+                    class="stale-note"
+                    hidden
+            >
+                마지막 정상값 · STALE
+            </p>
+
+
+            <p
+                    id="liveDelta"
+                    class="delta-text"
+            >
+                어제 대비: 비교할 실제 기록이 아직 없습니다.
+            </p>
+
+        </div>
+
+
+        <dl class="meta-grid">
+
+            <div>
+
+                <dt>
+                    출처
+                </dt>
+
+                <dd>
+
+                    <a
+                            id="sourceLink"
+                            href="https://open-meteo.com/"
+                            target="_blank"
+                            rel="noreferrer"
+                    >
+                        Open-Meteo Forecast API
+                    </a>
+
+                </dd>
+
+            </div>
+
+
+            <div>
+
+                <dt>
+                    출처 시각
+                </dt>
+
+                <dd id="sourceTime">
+                    --
+                </dd>
+
+            </div>
+
+
+            <div>
+
+                <dt>
+                    조회 시각
+                </dt>
+
+                <dd id="fetchedAt">
+                    --
+                </dd>
+
+            </div>
+
+
+            <div>
+
+                <dt>
+                    기준 시간대
+                </dt>
+
+                <dd id="recordTimezone">
+                    Asia/Seoul
+                </dd>
+
+            </div>
+
+        </dl>
+
+
+        <div class="action-row">
+
+            <button
+                    id="fetchLiveButton"
+                    class="primary-button"
+                    type="button"
+            >
+                실제 데이터 조회
+            </button>
+
+
+            <button
+                    id="exportLiveButton"
+                    class="secondary-button"
+                    type="button"
+            >
+                실제 기록 JSON 내보내기
+            </button>
+
+        </div>
+
+
+        <p
+                id="liveMessage"
+                class="message"
+                role="status"
+                aria-live="polite"
+        >
+            아직 실제 조회를 실행하지 않았습니다.
+        </p>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         RAW / STORE / SCREEN
+    =================================================== -->
+
+    <section
+            class="card"
+            aria-labelledby="auditTitle"
+    >
+
+        <div class="card-heading">
+
+            <div>
+
+                <p class="kicker">
+                    RAW → STORE → SCREEN
+                </p>
+
+                <h2 id="auditTitle">
+                    정상값 대조
+                </h2>
+
+            </div>
+
+
+            <span
+                    id="auditMatchBadge"
+                    class="status-badge neutral"
+            >
+                WAIT
+            </span>
+
+        </div>
+
+
+        <div class="triplet-grid">
+
+            <article>
+
+                <span>
+                    원자료
+                </span>
+
+                <strong id="rawValue">
+                    --
+                </strong>
+
+                <small id="rawUnit">
+                    --
+                </small>
+
+            </article>
+
+
+            <article>
+
+                <span>
+                    저장값
+                </span>
+
+                <strong id="storedValue">
+                    --
+                </strong>
+
+                <small id="storedUnit">
+                    --
+                </small>
+
+            </article>
+
+
+            <article>
+
+                <span>
+                    화면값
+                </span>
+
+                <strong id="screenValue">
+                    --
+                </strong>
+
+                <small id="screenUnit">
+                    --
+                </small>
+
+            </article>
+
+        </div>
+
+
+        <details class="raw-details">
+
+            <summary>
+                마지막 실제 원자료 JSON 보기
+            </summary>
+
+            <pre id="rawJson">아직 저장된 실제 원자료가 없습니다.</pre>
+
+        </details>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         실제 일별 기록
+    =================================================== -->
+
+    <section
+            class="card records-card"
+            aria-labelledby="recordsTitle"
+    >
+
+        <div class="card-heading">
+
+            <div>
+
+                <p class="kicker">
+                    ONE ROW PER KST DAY
+                </p>
+
+                <h2 id="recordsTitle">
+                    실제 일별 기록
+                </h2>
+
+            </div>
+
+
+            <span
+                    id="liveRecordCount"
+                    class="count-badge"
+            >
+                0건
+            </span>
+
+        </div>
+
+
+        <div class="table-wrap">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>
+                        KST 날짜
+                    </th>
+
+                    <th>
+                        값
+                    </th>
+
+                    <th>
+                        출처 시각
+                    </th>
+
+                    <th>
+                        조회 시각
+                    </th>
+
+                    <th>
+                        출처
+                    </th>
+
+                </tr>
+
+                </thead>
+
+
+                <tbody id="liveRecordsBody">
+
+                <tr>
+
+                    <td
+                            colspan="5"
+                            class="empty-cell"
+                    >
+                        실제 기록이 아직 없습니다.
+                    </td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <p class="hint">
+            같은
+            <code>signal_id + record_date</code>
+            는 새 행을 만들지 않고 갱신합니다.
+            실제 두 날짜 기록은 합성 fixture로 대신하지 않습니다.
+        </p>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         합성 Replay
+    =================================================== -->
+
+    <section
+            class="card replay-card"
+            aria-labelledby="replayTitle"
+    >
+
+        <div class="card-heading">
+
+            <div>
+
+                <p class="kicker">
+                    SYNTHETIC REPLAY
+                </p>
+
+                <h2 id="replayTitle">
+                    공개 fixture 재생
+                </h2>
+
+            </div>
+
+
+            <div class="replay-statuses">
+
+                <span
+                        id="replayFreshness"
+                        class="status-badge neutral"
+                >
+                    EMPTY
+                </span>
+
+                <span
+                        id="replayErrorCode"
+                        class="code-badge"
+                >
+                    error: --
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="fixture-toolbar">
+
+            <button
+                    id="replayResetButton"
+                    type="button"
+                    class="secondary-button"
+            >
+                합성 상태 RESET
+            </button>
+
+
+            <button
+                    data-fixture="T04-NORMAL-D1-A"
+                    type="button"
+            >
+                D1-A · 100
+            </button>
+
+
+            <button
+                    data-fixture="T04-NORMAL-D1-B"
+                    type="button"
+            >
+                D1-B · 105
+            </button>
+
+
+            <button
+                    data-fixture="T04-NORMAL-D2"
+                    type="button"
+            >
+                D2 · 120
+            </button>
+
+        </div>
+
+
+        <div class="replay-summary">
+
+            <div>
+
+                <span>
+                    마지막 정상값
+                </span>
+
+                <strong id="replayLastGood">
+                    --
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    일별 행
+                </span>
+
+                <strong id="replayRowCount">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    전일 대비
+                </span>
+
+                <strong id="replayDelta">
+                    --
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    마지막 fixture
+                </span>
+
+                <strong id="replayLastFixture">
+                    --
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <h3>
+            실패 5종
+        </h3>
+
+
+        <div class="failure-buttons">
+
+            <button
+                    data-fixture="T04-TIMEOUT"
+                    type="button"
+            >
+                느린 응답 · TIMEOUT
+            </button>
+
+
+            <button
+                    data-fixture="T04-AUTH-401"
+                    type="button"
+            >
+                외부 원천 401
+            </button>
+
+
+            <button
+                    data-fixture="T04-RATE-429"
+                    type="button"
+            >
+                호출 제한 429
+            </button>
+
+
+            <button
+                    data-fixture="T04-OFFLINE"
+                    type="button"
+            >
+                오프라인
+            </button>
+
+
+            <button
+                    data-fixture="T04-SCHEMA-BREAK"
+                    type="button"
+            >
+                응답 형식 변경
+            </button>
+
+        </div>
+
+
+        <div
+                id="replayFailureBox"
+                class="failure-box"
+                hidden
+        >
+
+            <strong id="replayFailureTitle">
+                데이터 조회 실패
+            </strong>
+
+
+            <p id="replayFailureDescription">
+            </p>
+
+
+            <p id="replayFailureAction">
+            </p>
+
+
+            <button
+                    id="replayRetryButton"
+                    class="primary-button"
+                    type="button"
+            >
+                다시 시도 · T04-RECOVER-D2
+            </button>
+
+        </div>
+
+
+        <p
+                id="replayMessage"
+                class="message"
+                role="status"
+                aria-live="polite"
+        >
+            합성 상태는 실제 기록과 완전히 분리됩니다.
+        </p>
+
+
+        <div class="table-wrap compact-table">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>
+                        record_id
+                    </th>
+
+                    <th>
+                        KST 날짜
+                    </th>
+
+                    <th>
+                        값
+                    </th>
+
+                    <th>
+                        first
+                    </th>
+
+                    <th>
+                        last
+                    </th>
+
+                </tr>
+
+                </thead>
+
+
+                <tbody id="replayRecordsBody">
+
+                <tr>
+
+                    <td
+                            colspan="5"
+                            class="empty-cell"
+                    >
+                        합성 일별 행이 없습니다.
+                    </td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         공개 패키지 검사
+    =================================================== -->
+
+    <section
+            class="card package-card"
+            aria-labelledby="packageTitle"
+    >
+
+        <div class="card-heading">
+
+            <div>
+
+                <p class="kicker">
+                    PUBLIC CONTRACT
+                </p>
+
+                <h2 id="packageTitle">
+                    공개 패키지 확인
+                </h2>
+
+            </div>
+
+
+            <span
+                    id="hashBadge"
+                    class="status-badge neutral"
+            >
+                NOT CHECKED
+            </span>
+
+        </div>
+
+
+        <dl class="package-meta">
+
+            <div>
+
+                <dt>
+                    Package ID
+                </dt>
+
+                <dd id="packageId">
+                    aleph-t04-real-information-board-public-contract-v2
+                </dd>
+
+            </div>
+
+
+            <div>
+
+                <dt>
+                    Contract
+                </dt>
+
+                <dd>
+                    2.0.0
+                </dd>
+
+            </div>
+
+
+            <div>
+
+                <dt>
+                    Fixture contract
+                </dt>
+
+                <dd>
+                    1.1.0
+                </dd>
+
+            </div>
+
+
+            <div>
+
+                <dt>
+                    Hash
+                </dt>
+
+                <dd>
+                    SHA-256
+                </dd>
+
+            </div>
+
+        </dl>
+
+
+        <button
+                id="verifyHashesButton"
+                class="secondary-button"
+                type="button"
+        >
+            공개 asset SHA-256 확인
+        </button>
+
+
+        <p
+                id="hashMessage"
+                class="message"
+        >
+            asset-manifest.json 기준으로 배포된 공개 파일을 검사합니다.
+        </p>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         공개 안전
+    =================================================== -->
+
+    <section
+            class="card safety-card"
+            aria-labelledby="safetyTitle"
+    >
+
+        <div class="card-heading">
+
+            <div>
+
+                <p class="kicker">
+                    PUBLIC SAFETY
+                </p>
+
+                <h2 id="safetyTitle">
+                    공개 안전 경계
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <ul class="safety-list">
+
+            <li>
+                실제 원천: 비개인 공개 날씨 데이터
+            </li>
+
+            <li>
+                실패 5종: ALEPH 공개 합성 fixture만 사용
+            </li>
+
+            <li>
+                브라우저 API 키·토큰·비밀번호: 사용하지 않음
+            </li>
+
+            <li>
+                실제 기록과 합성 평가 상태는 별도 저장
+            </li>
+
+            <li>
+                합성 RESET은 실제 일별 기록을 지우지 않음
+            </li>
+
+        </ul>
+
+    </section>
+
+</main>
+
+
+<footer class="site-footer">
+
+    <p>
+        실제 데이터: Open-Meteo Forecast API ·
+        핵심 신호: 대전 2m 현재 기온 ·
+        기준 시간대: Asia/Seoul
+    </p>
+
+</footer>
+
+
+<script src="./js/core.js"></script>
+<script src="./js/live-adapter.js"></script>
+<script src="./js/replay-adapter.js"></script>
+<script src="./js/app.js"></script>
+
+</body>
+</html>
