@@ -1,0 +1,38 @@
+{
+  "schema_version": "t04-public-live-records-v1",
+  "signal_id": "daejeon.temperature_2m",
+  "records": [
+    {
+      "reading": {
+        "signal_id": "daejeon.temperature_2m",
+        "normalized_value": 18.6,
+        "unit": "°C",
+        "source_name": "Open-Meteo Forecast API",
+        "source_url": "https://api.open-meteo.com/v1/forecast?latitude=36.3504&longitude=127.3845&current=temperature_2m&temperature_unit=celsius&timeformat=unixtime&timezone=Asia%2FSeoul",
+        "source_time": "2026-09-15T00:00:00.000Z",
+        "fetched_at": "2026-09-15T00:13:23.761Z",
+        "record_timezone": "Asia/Seoul",
+        "record_date": "2026-09-15"
+      },
+      "raw_snapshot": {
+        "latitude": 36.35,
+        "longitude": 127.375,
+        "generationtime_ms": 0.022172927856445312,
+        "utc_offset_seconds": 32400,
+        "timezone": "Asia/Seoul",
+        "timezone_abbreviation": "GMT+9",
+        "elevation": 59,
+        "current_units": {
+          "time": "unixtime",
+          "interval": "seconds",
+          "temperature_2m": "°C"
+        },
+        "current": {
+          "time": 1789430400,
+          "interval": 900,
+          "temperature_2m": 18.6
+        }
+      }
+    }
+  ]
+}
