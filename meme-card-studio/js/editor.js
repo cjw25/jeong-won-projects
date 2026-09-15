@@ -35,14 +35,6 @@ document.addEventListener(
             "templates";
 
 
-        /*
-         * T05
-         * 현재 편집 초안 자동저장용 키
-         */
-        const DRAFT_STORAGE_KEY =
-            "memeCardStudioDraftV1";
-
-
         /* =================================================
            ELEMENTS
         ================================================= */
@@ -249,8 +241,7 @@ document.addEventListener(
 
         const DEFAULT_STATE = {
 
-            ratio:
-                "1:1",
+            ratio: "1:1",
 
             backgroundColor:
                 "#101827",
@@ -322,16 +313,13 @@ document.addEventListener(
             statusBar.textContent =
                 message;
 
-
             statusBar.classList.remove(
                 "error",
                 "success"
             );
 
 
-            if (
-                type
-            ) {
+            if (type) {
 
                 statusBar.classList.add(
                     type
@@ -348,16 +336,13 @@ document.addEventListener(
             fileMessage.textContent =
                 message;
 
-
             fileMessage.classList.remove(
                 "error",
                 "success"
             );
 
 
-            if (
-                type
-            ) {
+            if (type) {
 
                 fileMessage.classList.add(
                     type
@@ -525,8 +510,7 @@ document.addEventListener(
 
 
                     transaction.oncomplete =
-                        () =>
-                            resolve();
+                        () => resolve();
 
 
                     transaction.onerror =
@@ -570,8 +554,7 @@ document.addEventListener(
 
 
                     transaction.oncomplete =
-                        () =>
-                            resolve();
+                        () => resolve();
 
 
                     transaction.onerror =
@@ -622,8 +605,7 @@ document.addEventListener(
 
 
                     transaction.oncomplete =
-                        () =>
-                            resolve();
+                        () => resolve();
 
 
                     transaction.onerror =
@@ -633,441 +615,6 @@ document.addEventListener(
                             );
                 }
             );
-        }
-
-
-        /* =================================================
-           T05 DRAFT AUTO SAVE
-        ================================================= */
-
-        function buildDraft() {
-
-            return {
-
-                ratio:
-                    state.ratio,
-
-                backgroundColor:
-                    state.backgroundColor,
-
-                imageDataUrl:
-                    state.imageDataUrl,
-
-                imageScale:
-                    state.imageScale,
-
-                imageX:
-                    state.imageX,
-
-                imageY:
-                    state.imageY,
-
-                text:
-                    state.text,
-
-                fontSize:
-                    state.fontSize,
-
-                textWidth:
-                    state.textWidth,
-
-                textX:
-                    state.textX,
-
-                textY:
-                    state.textY,
-
-                textColor:
-                    state.textColor,
-
-                textAlign:
-                    state.textAlign,
-
-                fontWeight:
-                    state.fontWeight
-            };
-        }
-
-
-        function saveDraft() {
-
-            try {
-
-                localStorage.setItem(
-                    DRAFT_STORAGE_KEY,
-                    JSON.stringify(
-                        buildDraft()
-                    )
-                );
-
-            } catch (
-                error
-            ) {
-
-                console.warn(
-                    "초안 자동저장 실패:",
-                    error
-                );
-            }
-        }
-
-
-        function clearDraft() {
-
-            localStorage.removeItem(
-                DRAFT_STORAGE_KEY
-            );
-        }
-
-
-        /* =================================================
-           COMMON VALIDATION
-        ================================================= */
-
-        function isFiniteNumber(
-            value
-        ) {
-
-            return (
-                typeof value ===
-                    "number" &&
-
-                Number.isFinite(
-                    value
-                )
-            );
-        }
-
-
-        function isHexColor(
-            value
-        ) {
-
-            return (
-                typeof value ===
-                    "string" &&
-
-                /^#[0-9a-f]{6}$/i
-                    .test(
-                        value
-                    )
-            );
-        }
-
-
-        /* =================================================
-           DRAFT VALIDATION
-        ================================================= */
-
-        function isValidDraft(
-            draft
-        ) {
-
-            if (
-                !draft ||
-                typeof draft !==
-                    "object" ||
-                Array.isArray(
-                    draft
-                )
-            ) {
-
-                return false;
-            }
-
-
-            if (
-                !RATIOS[
-                    draft.ratio
-                ]
-            ) {
-
-                return false;
-            }
-
-
-            if (
-                !isHexColor(
-                    draft.backgroundColor
-                ) ||
-                !isHexColor(
-                    draft.textColor
-                )
-            ) {
-
-                return false;
-            }
-
-
-            if (
-                draft.imageDataUrl !==
-                    null &&
-
-                (
-                    typeof draft.imageDataUrl !==
-                        "string" ||
-
-                    !draft.imageDataUrl
-                        .startsWith(
-                            "data:image/"
-                        )
-                )
-            ) {
-
-                return false;
-            }
-
-
-            if (
-                !isFiniteNumber(
-                    draft.imageScale
-                ) ||
-                draft.imageScale < 0.5 ||
-                draft.imageScale > 2
-            ) {
-
-                return false;
-            }
-
-
-            if (
-                !isFiniteNumber(
-                    draft.imageX
-                ) ||
-                draft.imageX < -50 ||
-                draft.imageX > 50
-            ) {
-
-                return false;
-            }
-
-
-            if (
-                !isFiniteNumber(
-                    draft.imageY
-                ) ||
-                draft.imageY < -50 ||
-                draft.imageY > 50
-            ) {
-
-                return false;
-            }
-
-
-            if (
-                typeof draft.text !==
-                    "string" ||
-                draft.text.length >
-                    1000
-            ) {
-
-                return false;
-            }
-
-
-            if (
-                !isFiniteNumber(
-                    draft.fontSize
-                ) ||
-                draft.fontSize < 20 ||
-                draft.fontSize > 180
-            ) {
-
-                return false;
-            }
-
-
-            if (
-                !isFiniteNumber(
-                    draft.textWidth
-                ) ||
-                draft.textWidth < 20 ||
-                draft.textWidth > 95
-            ) {
-
-                return false;
-            }
-
-
-            if (
-                !isFiniteNumber(
-                    draft.textX
-                ) ||
-                draft.textX < 0 ||
-                draft.textX > 100
-            ) {
-
-                return false;
-            }
-
-
-            if (
-                !isFiniteNumber(
-                    draft.textY
-                ) ||
-                draft.textY < 0 ||
-                draft.textY > 100
-            ) {
-
-                return false;
-            }
-
-
-            if (
-                ![
-                    "left",
-                    "center",
-                    "right"
-                ].includes(
-                    draft.textAlign
-                )
-            ) {
-
-                return false;
-            }
-
-
-            if (
-                ![
-                    400,
-                    700,
-                    900
-                ].includes(
-                    Number(
-                        draft.fontWeight
-                    )
-                )
-            ) {
-
-                return false;
-            }
-
-
-            return true;
-        }
-
-
-        /* =================================================
-           DRAFT RESTORE
-        ================================================= */
-
-        async function restoreDraft() {
-
-            let raw;
-
-
-            try {
-
-                raw =
-                    localStorage.getItem(
-                        DRAFT_STORAGE_KEY
-                    );
-
-            } catch (
-                error
-            ) {
-
-                return false;
-            }
-
-
-            if (
-                raw ===
-                null
-            ) {
-
-                return false;
-            }
-
-
-            let draft;
-
-
-            try {
-
-                draft =
-                    JSON.parse(
-                        raw
-                    );
-
-            } catch (
-                error
-            ) {
-
-                clearDraft();
-
-                return false;
-            }
-
-
-            if (
-                !isValidDraft(
-                    draft
-                )
-            ) {
-
-                clearDraft();
-
-                return false;
-            }
-
-
-            let restoredImage =
-                null;
-
-
-            if (
-                draft.imageDataUrl
-            ) {
-
-                try {
-
-                    restoredImage =
-                        await loadImageFromUrl(
-                            draft.imageDataUrl
-                        );
-
-                } catch (
-                    error
-                ) {
-
-                    restoredImage =
-                        null;
-                }
-            }
-
-
-            state = {
-
-                ...DEFAULT_STATE,
-
-                ...draft,
-
-
-                /*
-                 * AI A 1차 구현의 남은 문제.
-                 *
-                 * 빈 문자열이면 기본 문구를 사용한다.
-                 * 따라서 T05-T09는 아직 FAIL 가능성이 있다.
-                 *
-                 * AI B가 이어받아 수정할 후보.
-                 */
-                text:
-                    draft.text ||
-                    DEFAULT_STATE.text,
-
-
-                fontWeight:
-                    Number(
-                        draft.fontWeight
-                    ),
-
-                imageElement:
-                    restoredImage
-            };
-
-
-            return true;
         }
 
 
@@ -1087,17 +634,11 @@ document.addEventListener(
 
             return (
                 Date.now()
-                    .toString(
-                        36
-                    ) +
+                    .toString(36) +
                 "-" +
                 Math.random()
-                    .toString(
-                        36
-                    )
-                    .slice(
-                        2
-                    )
+                    .toString(36)
+                    .slice(2)
             );
         }
 
@@ -1126,61 +667,33 @@ document.addEventListener(
 
 
             const isPng =
+                bytes.length >= 8 &&
 
-                bytes.length >=
-                    8 &&
-
-                bytes[0] ===
-                    0x89 &&
-
-                bytes[1] ===
-                    0x50 &&
-
-                bytes[2] ===
-                    0x4e &&
-
-                bytes[3] ===
-                    0x47 &&
-
-                bytes[4] ===
-                    0x0d &&
-
-                bytes[5] ===
-                    0x0a &&
-
-                bytes[6] ===
-                    0x1a &&
-
-                bytes[7] ===
-                    0x0a;
+                bytes[0] === 0x89 &&
+                bytes[1] === 0x50 &&
+                bytes[2] === 0x4e &&
+                bytes[3] === 0x47 &&
+                bytes[4] === 0x0d &&
+                bytes[5] === 0x0a &&
+                bytes[6] === 0x1a &&
+                bytes[7] === 0x0a;
 
 
             const isJpeg =
+                bytes.length >= 3 &&
 
-                bytes.length >=
-                    3 &&
-
-                bytes[0] ===
-                    0xff &&
-
-                bytes[1] ===
-                    0xd8 &&
-
-                bytes[2] ===
-                    0xff;
+                bytes[0] === 0xff &&
+                bytes[1] === 0xd8 &&
+                bytes[2] === 0xff;
 
 
-            if (
-                isPng
-            ) {
+            if (isPng) {
 
                 return "png";
             }
 
 
-            if (
-                isJpeg
-            ) {
+            if (isJpeg) {
 
                 return "jpeg";
             }
@@ -1237,9 +750,7 @@ document.addEventListener(
 
             if (
                 file.size >
-                25 *
-                1024 *
-                1024
+                25 * 1024 * 1024
             ) {
 
                 throw new Error(
@@ -1255,10 +766,8 @@ document.addEventListener(
 
 
             if (
-                detectedType !==
-                    "png" &&
-                detectedType !==
-                    "jpeg"
+                detectedType !== "png" &&
+                detectedType !== "jpeg"
             ) {
 
                 throw new Error(
@@ -1307,7 +816,6 @@ document.addEventListener(
                 const scale =
                     Math.min(
                         1,
-
                         maxDimension /
                         Math.max(
                             originalWidth,
@@ -1325,7 +833,6 @@ document.addEventListener(
                 cleanCanvas.width =
                     Math.max(
                         1,
-
                         Math.round(
                             originalWidth *
                             scale
@@ -1336,7 +843,6 @@ document.addEventListener(
                 cleanCanvas.height =
                     Math.max(
                         1,
-
                         Math.round(
                             originalHeight *
                             scale
@@ -1368,15 +874,20 @@ document.addEventListener(
 
 
                 /*
-                 * Canvas 재인코딩으로
-                 * EXIF/GPS 메타데이터 제거
+                 * Canvas로 다시 인코딩해서
+                 * EXIF / GPS 메타데이터 제거
                  */
+
                 let dataUrl =
                     cleanCanvas.toDataURL(
                         "image/webp",
                         0.9
                     );
 
+
+                /*
+                 * WebP 미지원 브라우저 대비
+                 */
 
                 if (
                     !dataUrl.startsWith(
@@ -1398,12 +909,9 @@ document.addEventListener(
 
 
                 return {
-
                     dataUrl,
-
                     image:
                         cleanImage,
-
                     originalType:
                         detectedType
                 };
@@ -1420,6 +928,11 @@ document.addEventListener(
         async function applyImageFile(
             file
         ) {
+
+            /*
+             * 성공하기 전에는
+             * 현재 state를 건드리지 않는다.
+             */
 
             try {
 
@@ -1452,12 +965,6 @@ document.addEventListener(
                 syncControlsFromState();
 
 
-                /*
-                 * 이미지 변경도 초안 저장
-                 */
-                saveDraft();
-
-
                 scheduleRender();
 
 
@@ -1475,9 +982,11 @@ document.addEventListener(
                     "success"
                 );
 
-            } catch (
-                error
-            ) {
+            } catch (error) {
+
+                /*
+                 * 실패해도 기존 편집 상태 유지
+                 */
 
                 showFileMessage(
                     error.message,
@@ -1506,8 +1015,7 @@ document.addEventListener(
         ) {
 
             if (
-                "Segmenter" in
-                Intl
+                "Segmenter" in Intl
             ) {
 
                 const segmenter =
@@ -1524,7 +1032,6 @@ document.addEventListener(
                     segmenter.segment(
                         text
                     ),
-
                     item =>
                         item.segment
                 );
@@ -1609,13 +1116,10 @@ document.addEventListener(
         ) {
 
             if (
-                paragraph ===
-                ""
+                paragraph === ""
             ) {
 
-                return [
-                    ""
-                ];
+                return [""];
             }
 
 
@@ -1636,6 +1140,10 @@ document.addEventListener(
             words.forEach(
                 word => {
 
+                    /*
+                     * 단어 하나가 영역보다 긴 경우
+                     */
+
                     if (
                         ctx.measureText(
                             word
@@ -1650,7 +1158,6 @@ document.addEventListener(
                             result.push(
                                 line
                             );
-
 
                             line =
                                 "";
@@ -1672,8 +1179,7 @@ document.addEventListener(
 
                                 if (
                                     index ===
-                                    pieces.length -
-                                    1
+                                    pieces.length - 1
                                 ) {
 
                                     line =
@@ -1973,7 +1479,6 @@ document.addEventListener(
                 ctx.textAlign =
                     "left";
 
-
                 anchorX =
                     boxLeft;
 
@@ -1985,7 +1490,6 @@ document.addEventListener(
                 ctx.textAlign =
                     "right";
 
-
                 anchorX =
                     boxLeft +
                     maxTextWidth;
@@ -1994,7 +1498,6 @@ document.addEventListener(
 
                 ctx.textAlign =
                     "center";
-
 
                 anchorX =
                     boxLeft +
@@ -2032,7 +1535,6 @@ document.addEventListener(
                     ctx.fillText(
                         line,
                         anchorX,
-
                         startY +
                         index *
                         lineHeight
@@ -2061,7 +1563,6 @@ document.addEventListener(
 
                     renderPending =
                         false;
-
 
                     renderCanvas();
                 }
@@ -2182,24 +1683,6 @@ document.addEventListener(
 
 
         /* =================================================
-           T05 CHANGE + AUTO SAVE
-        ================================================= */
-
-        function updateStateAndDraft(
-            mutator
-        ) {
-
-            mutator();
-
-
-            saveDraft();
-
-
-            scheduleRender();
-        }
-
-
-        /* =================================================
            FORM EVENTS
         ================================================= */
 
@@ -2207,20 +1690,18 @@ document.addEventListener(
             "input",
             () => {
 
-                updateStateAndDraft(
-                    () => {
-
-                        state.imageScale =
-                            Number(
-                                imageScale.value
-                            ) /
-                            100;
+                state.imageScale =
+                    Number(
+                        imageScale.value
+                    ) /
+                    100;
 
 
-                        imageScaleValue.value =
-                            `${imageScale.value}%`;
-                    }
-                );
+                imageScaleValue.value =
+                    `${imageScale.value}%`;
+
+
+                scheduleRender();
             }
         );
 
@@ -2229,19 +1710,17 @@ document.addEventListener(
             "input",
             () => {
 
-                updateStateAndDraft(
-                    () => {
-
-                        state.imageX =
-                            Number(
-                                imageX.value
-                            );
+                state.imageX =
+                    Number(
+                        imageX.value
+                    );
 
 
-                        imageXValue.value =
-                            imageX.value;
-                    }
-                );
+                imageXValue.value =
+                    imageX.value;
+
+
+                scheduleRender();
             }
         );
 
@@ -2250,19 +1729,17 @@ document.addEventListener(
             "input",
             () => {
 
-                updateStateAndDraft(
-                    () => {
-
-                        state.imageY =
-                            Number(
-                                imageY.value
-                            );
+                state.imageY =
+                    Number(
+                        imageY.value
+                    );
 
 
-                        imageYValue.value =
-                            imageY.value;
-                    }
-                );
+                imageYValue.value =
+                    imageY.value;
+
+
+                scheduleRender();
             }
         );
 
@@ -2271,13 +1748,11 @@ document.addEventListener(
             "input",
             () => {
 
-                updateStateAndDraft(
-                    () => {
+                state.backgroundColor =
+                    backgroundColor.value;
 
-                        state.backgroundColor =
-                            backgroundColor.value;
-                    }
-                );
+
+                scheduleRender();
             }
         );
 
@@ -2286,13 +1761,11 @@ document.addEventListener(
             "input",
             () => {
 
-                updateStateAndDraft(
-                    () => {
+                state.text =
+                    textInput.value;
 
-                        state.text =
-                            textInput.value;
-                    }
-                );
+
+                scheduleRender();
             }
         );
 
@@ -2301,19 +1774,17 @@ document.addEventListener(
             "input",
             () => {
 
-                updateStateAndDraft(
-                    () => {
-
-                        state.fontSize =
-                            Number(
-                                fontSize.value
-                            );
+                state.fontSize =
+                    Number(
+                        fontSize.value
+                    );
 
 
-                        fontSizeValue.value =
-                            `${fontSize.value}px`;
-                    }
-                );
+                fontSizeValue.value =
+                    `${fontSize.value}px`;
+
+
+                scheduleRender();
             }
         );
 
@@ -2322,19 +1793,17 @@ document.addEventListener(
             "input",
             () => {
 
-                updateStateAndDraft(
-                    () => {
-
-                        state.textWidth =
-                            Number(
-                                textWidth.value
-                            );
+                state.textWidth =
+                    Number(
+                        textWidth.value
+                    );
 
 
-                        textWidthValue.value =
-                            `${textWidth.value}%`;
-                    }
-                );
+                textWidthValue.value =
+                    `${textWidth.value}%`;
+
+
+                scheduleRender();
             }
         );
 
@@ -2343,19 +1812,17 @@ document.addEventListener(
             "input",
             () => {
 
-                updateStateAndDraft(
-                    () => {
-
-                        state.textX =
-                            Number(
-                                textX.value
-                            );
+                state.textX =
+                    Number(
+                        textX.value
+                    );
 
 
-                        textXValue.value =
-                            `${textX.value}%`;
-                    }
-                );
+                textXValue.value =
+                    `${textX.value}%`;
+
+
+                scheduleRender();
             }
         );
 
@@ -2364,19 +1831,17 @@ document.addEventListener(
             "input",
             () => {
 
-                updateStateAndDraft(
-                    () => {
-
-                        state.textY =
-                            Number(
-                                textY.value
-                            );
+                state.textY =
+                    Number(
+                        textY.value
+                    );
 
 
-                        textYValue.value =
-                            `${textY.value}%`;
-                    }
-                );
+                textYValue.value =
+                    `${textY.value}%`;
+
+
+                scheduleRender();
             }
         );
 
@@ -2385,13 +1850,11 @@ document.addEventListener(
             "input",
             () => {
 
-                updateStateAndDraft(
-                    () => {
+                state.textColor =
+                    textColor.value;
 
-                        state.textColor =
-                            textColor.value;
-                    }
-                );
+
+                scheduleRender();
             }
         );
 
@@ -2400,13 +1863,11 @@ document.addEventListener(
             "change",
             () => {
 
-                updateStateAndDraft(
-                    () => {
+                state.textAlign =
+                    textAlign.value;
 
-                        state.textAlign =
-                            textAlign.value;
-                    }
-                );
+
+                scheduleRender();
             }
         );
 
@@ -2415,15 +1876,13 @@ document.addEventListener(
             "change",
             () => {
 
-                updateStateAndDraft(
-                    () => {
+                state.fontWeight =
+                    Number(
+                        fontWeight.value
+                    );
 
-                        state.fontWeight =
-                            Number(
-                                fontWeight.value
-                            );
-                    }
-                );
+
+                scheduleRender();
             }
         );
 
@@ -2444,10 +1903,6 @@ document.addEventListener(
 
 
                         syncControlsFromState();
-
-
-                        saveDraft();
-
 
                         scheduleRender();
 
@@ -2502,7 +1957,6 @@ document.addEventListener(
 
                         event.preventDefault();
 
-
                         uploadBox.classList.add(
                             "dragging"
                         );
@@ -2523,7 +1977,6 @@ document.addEventListener(
                     event => {
 
                         event.preventDefault();
-
 
                         uploadBox.classList.remove(
                             "dragging"
@@ -2564,8 +2017,8 @@ document.addEventListener(
             () => {
 
                 /*
-                 * 미리보기와 다운로드가
-                 * 같은 renderCanvas를 사용
+                 * 화면과 다운로드 파일이
+                 * 같은 renderCanvas를 사용한다.
                  */
 
                 renderCanvas();
@@ -2686,23 +2139,6 @@ document.addEventListener(
                     };
 
 
-                /*
-                 * ===========================================
-                 * AI A 1차 중단 지점
-                 * ===========================================
-                 *
-                 * 현재 화면만 초기화한다.
-                 *
-                 * 저장된 자동 초안을 clearDraft()로
-                 * 아직 제거하지 않는다.
-                 *
-                 * 따라서 새로고침하면 예전 초안이
-                 * 다시 나타날 수 있다.
-                 *
-                 * T05-T10 후속 수정 대상.
-                 */
-
-
                 selectedTemplateId =
                     null;
 
@@ -2721,9 +2157,7 @@ document.addEventListener(
 
                 syncControlsFromState();
 
-
                 scheduleRender();
-
 
                 renderTemplateList();
 
@@ -2744,6 +2178,10 @@ document.addEventListener(
             name,
             id
         ) {
+
+            const now =
+                Date.now();
+
 
             return {
 
@@ -2794,7 +2232,7 @@ document.addEventListener(
                     state.fontWeight,
 
                 updatedAt:
-                    Date.now()
+                    now
             };
         }
 
@@ -2802,6 +2240,37 @@ document.addEventListener(
         /* =================================================
            TEMPLATE VALIDATION
         ================================================= */
+
+        function isFiniteNumber(
+            value
+        ) {
+
+            return (
+                typeof value ===
+                    "number" &&
+
+                Number.isFinite(
+                    value
+                )
+            );
+        }
+
+
+        function isHexColor(
+            value
+        ) {
+
+            return (
+                typeof value ===
+                    "string" &&
+
+                /^#[0-9a-f]{6}$/i
+                    .test(
+                        value
+                    )
+            );
+        }
+
 
         function validateTemplate(
             template
@@ -2831,8 +2300,7 @@ document.addEventListener(
                 typeof template.name !==
                     "string" ||
                 !template.name.trim() ||
-                template.name.length >
-                    60
+                template.name.length > 60
             ) {
 
                 return false;
@@ -2953,6 +2421,7 @@ document.addEventListener(
                     !isFiniteNumber(
                         value
                     ) ||
+
                     value < min ||
                     value > max
                 ) {
@@ -3027,9 +2496,7 @@ document.addEventListener(
                         "error"
                     );
 
-
                     templateName.focus();
-
 
                     return;
                 }
@@ -3073,9 +2540,7 @@ document.addEventListener(
                         "success"
                     );
 
-                } catch (
-                    error
-                ) {
+                } catch (error) {
 
                     showStatus(
                         "템플릿 저장 중 오류가 발생했습니다.",
@@ -3094,6 +2559,11 @@ document.addEventListener(
             template
         ) {
 
+            /*
+             * 이미지까지 먼저 검증하고 나서
+             * 현재 편집 상태를 변경한다.
+             */
+
             let image =
                 null;
 
@@ -3109,15 +2579,12 @@ document.addEventListener(
                             template.imageDataUrl
                         );
 
-                } catch (
-                    error
-                ) {
+                } catch (error) {
 
                     showStatus(
                         "템플릿의 이미지 데이터를 읽을 수 없어 기존 작업을 유지합니다.",
                         "error"
                     );
-
 
                     return;
                 }
@@ -3191,15 +2658,7 @@ document.addEventListener(
 
             syncControlsFromState();
 
-
-            /*
-             * 불러온 템플릿도 현재 편집 초안으로 기록
-             */
-            saveDraft();
-
-
             scheduleRender();
-
 
             await renderTemplateList();
 
@@ -3241,7 +2700,6 @@ document.addEventListener(
                         "error"
                     );
 
-
                     return;
                 }
 
@@ -3268,9 +2726,7 @@ document.addEventListener(
                         "success"
                     );
 
-                } catch (
-                    error
-                ) {
+                } catch (error) {
 
                     showStatus(
                         "템플릿 수정 중 오류가 발생했습니다.",
@@ -3342,9 +2798,7 @@ document.addEventListener(
                         "success"
                     );
 
-                } catch (
-                    error
-                ) {
+                } catch (error) {
 
                     showStatus(
                         "템플릿 삭제 중 오류가 발생했습니다.",
@@ -3386,7 +2840,6 @@ document.addEventListener(
                             아직 저장된 템플릿이 없습니다.
                         </p>
                         `;
-
 
                     return;
                 }
@@ -3440,8 +2893,7 @@ document.addEventListener(
                             `${template.ratio} · ${
                                 new Date(
                                     template.updatedAt
-                                )
-                                .toLocaleString()
+                                ).toLocaleString()
                             }`;
 
 
@@ -3468,9 +2920,7 @@ document.addEventListener(
                     }
                 );
 
-            } catch (
-                error
-            ) {
+            } catch (error) {
 
                 showStatus(
                     "저장된 템플릿을 불러오지 못했습니다.",
@@ -3519,7 +2969,6 @@ document.addEventListener(
                                     2
                                 )
                             ],
-
                             {
                                 type:
                                     "application/json"
@@ -3555,18 +3004,14 @@ document.addEventListener(
 
                     link.click();
 
-
                     link.remove();
 
 
                     setTimeout(
-                        () => {
-
+                        () =>
                             URL.revokeObjectURL(
                                 url
-                            );
-                        },
-
+                            ),
                         1000
                     );
 
@@ -3576,9 +3021,7 @@ document.addEventListener(
                         "success"
                     );
 
-                } catch (
-                    error
-                ) {
+                } catch (error) {
 
                     showStatus(
                         "JSON 내보내기에 실패했습니다.",
@@ -3625,6 +3068,11 @@ document.addEventListener(
             }
 
 
+            /*
+             * 저장하기 전에
+             * 모든 템플릿을 먼저 검사한다.
+             */
+
             for (
                 const template
                 of payload.templates
@@ -3642,6 +3090,10 @@ document.addEventListener(
                 }
 
 
+                /*
+                 * 이미지 데이터까지 실제로 읽히는지 확인
+                 */
+
                 if (
                     template.imageDataUrl
                 ) {
@@ -3652,9 +3104,7 @@ document.addEventListener(
                             template.imageDataUrl
                         );
 
-                    } catch (
-                        error
-                    ) {
+                    } catch (error) {
 
                         throw new Error(
                             "읽을 수 없는 이미지가 포함된 템플릿이 있습니다."
@@ -3693,6 +3143,11 @@ document.addEventListener(
                 }
 
 
+                /*
+                 * 기존 목록은 검증 성공 전까지
+                 * 절대 변경하지 않는다.
+                 */
+
                 try {
 
                     const text =
@@ -3709,9 +3164,7 @@ document.addEventListener(
                                 text
                             );
 
-                    } catch (
-                        error
-                    ) {
+                    } catch (error) {
 
                         throw new Error(
                             "JSON 문법이 손상되어 가져오기를 취소했습니다."
@@ -3724,6 +3177,11 @@ document.addEventListener(
                             payload
                         );
 
+
+                    /*
+                     * 모든 검사가 끝난 뒤에만
+                     * IndexedDB에 저장
+                     */
 
                     await importTemplatesToDb(
                         templates
@@ -3738,9 +3196,7 @@ document.addEventListener(
                         "success"
                     );
 
-                } catch (
-                    error
-                ) {
+                } catch (error) {
 
                     showStatus(
                         `${error.message} 기존 템플릿은 유지됩니다.`,
@@ -3757,37 +3213,16 @@ document.addEventListener(
 
         async function initialize() {
 
-            /*
-             * 앱 시작 시 자동저장된 초안을 먼저 확인
-             */
-            const restored =
-                await restoreDraft();
-
-
             syncControlsFromState();
 
-
             renderCanvas();
-
 
             await renderTemplateList();
 
 
-            if (
-                restored
-            ) {
-
-                showStatus(
-                    "이전 편집 초안을 복원했습니다.",
-                    "success"
-                );
-
-            } else {
-
-                showStatus(
-                    "준비되었습니다. PNG 또는 JPEG 이미지를 불러와 편집해 보세요."
-                );
-            }
+            showStatus(
+                "준비되었습니다. PNG 또는 JPEG 이미지를 불러와 편집해 보세요."
+            );
         }
 
 
