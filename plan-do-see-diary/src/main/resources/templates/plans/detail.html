@@ -1,108 +1,257 @@
 <!DOCTYPE html>
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-  <title>계획 상세</title>
+  <title>Plan - 계획 상세</title>
 
   <link rel="stylesheet"
         th:href="@{/css/style.css}">
 </head>
+
 <body>
 
-<h1>계획 상세</h1>
+<header class="page-header">
 
-<section>
-  <h2 th:text="${plan.title}">계획 제목</h2>
+  <div>
+    <span class="page-kicker">PLAN</span>
 
-  <p>
-    기간:
-    <span th:text="${plan.startDate}"></span>
-    ~
-    <span th:text="${plan.endDate}"></span>
-  </p>
+    <h1>계획 상세</h1>
 
-  <p>
-    우선순위:
-    <span th:text="${plan.priority.label}"></span>
-  </p>
-
-  <p>
-    성공 기준:
-    <span th:text="${plan.successCriteria}"></span>
-  </p>
-
-  <p>
-    예상 시간:
-    <span th:text="${plan.estimatedMinutes}"></span>분
-  </p>
-
-  <p th:if="${plan.carriedNote != null and !plan.carriedNote.isBlank()}">
-    이전 돌아보기에서 넘겨받은 내용:
-    <span th:text="${plan.carriedNote}"></span>
-  </p>
-
-  <a th:href="@{/plans/{id}/edit(id=${plan.id})}">
-    계획 수정
-  </a>
-</section>
-
-<hr>
-
-<section>
-  <h2>계획 수정 이력</h2>
-
-  <p>
-    계획을 수정해도 이전 내용은 아래 이력에 남습니다.
-  </p>
-
-  <div th:if="${#lists.isEmpty(revisions)}">
-    아직 저장된 이력이 없습니다.
+    <p class="page-description">
+      목표와 기간, 성공 기준을 확인하고 수정 이력을 관리합니다.
+    </p>
   </div>
 
-  <article th:each="revision : ${revisions}">
-    <hr>
+  <a class="header-link"
+     href="/">
+    홈으로
+  </a>
 
-    <h3>
-      Revision
-      <span th:text="${revision.revisionNo}"></span>
-    </h3>
+</header>
 
-    <p>
-      제목:
-      <span th:text="${revision.title}"></span>
-    </p>
 
-    <p>
-      기간:
-      <span th:text="${revision.startDate}"></span>
-      ~
-      <span th:text="${revision.endDate}"></span>
-    </p>
+<section class="plan-detail-card">
 
-    <p>
-      우선순위:
-      <span th:text="${revision.priority.label}"></span>
-    </p>
+  <div class="plan-detail-header">
 
-    <p>
-      성공 기준:
-      <span th:text="${revision.successCriteria}"></span>
-    </p>
+    <div>
+            <span class="summary-label">
+                현재 계획
+            </span>
 
-    <p>
-      예상 시간:
-      <span th:text="${revision.estimatedMinutes}"></span>분
-    </p>
+      <h2 th:text="${plan.title}">
+        계획 제목
+      </h2>
+    </div>
 
-    <p>
-      기록 시각:
-      <span th:text="${revision.recordedAt}"></span>
-    </p>
-  </article>
+    <span class="plan-priority"
+          th:text="${plan.priority.label}">
+            높음
+        </span>
+
+  </div>
+
+
+  <div class="plan-detail-grid">
+
+    <div class="plan-detail-item">
+
+      <span>기간</span>
+
+      <strong>
+        <span th:text="${plan.startDate}"></span>
+        ~
+        <span th:text="${plan.endDate}"></span>
+      </strong>
+
+    </div>
+
+
+    <div class="plan-detail-item">
+
+      <span>예상 시간</span>
+
+      <strong>
+        <span th:text="${plan.estimatedMinutes}"></span>분
+      </strong>
+
+    </div>
+
+
+    <div class="plan-detail-item plan-detail-wide">
+
+      <span>성공 기준</span>
+
+      <strong th:text="${plan.successCriteria}">
+        성공 기준
+      </strong>
+
+    </div>
+
+
+    <div class="plan-detail-item plan-detail-wide"
+         th:if="${plan.carriedNote != null and !plan.carriedNote.isBlank()}">
+
+      <span>이전 돌아보기에서 넘겨받은 내용</span>
+
+      <strong th:text="${plan.carriedNote}">
+        넘겨받은 내용
+      </strong>
+
+    </div>
+
+  </div>
+
+
+  <div class="plan-detail-actions">
+
+    <a class="primary-button"
+       th:href="@{/plans/{id}/edit(id=${plan.id})}">
+      계획 수정
+    </a>
+
+    <a class="secondary-button"
+       th:href="@{/plans/{id}/todos(id=${plan.id})}">
+      Do - 할 일
+    </a>
+
+    <a class="secondary-button"
+       th:href="@{/plans/{id}/see(id=${plan.id})}">
+      See - 돌아보기
+    </a>
+
+  </div>
+
 </section>
+
+
+<section class="revision-section">
+
+  <div class="section-heading">
+
+    <div>
+            <span class="section-kicker">
+                HISTORY
+            </span>
+
+      <h2>계획 수정 이력</h2>
+    </div>
+
+    <p>
+      계획을 수정해도 이전 내용은 그대로 보존됩니다.
+    </p>
+
+  </div>
+
+
+  <div class="empty-card"
+       th:if="${#lists.isEmpty(revisions)}">
+
+    아직 저장된 이력이 없습니다.
+
+  </div>
+
+
+  <div class="revision-grid">
+
+    <article class="revision-card"
+             th:each="revision : ${revisions}">
+
+      <div class="revision-header">
+
+        <div>
+                    <span class="revision-label">
+                        REVISION
+                    </span>
+
+          <strong th:text="${revision.revisionNo}">
+            1
+          </strong>
+        </div>
+
+        <span class="revision-date"
+              th:text="${revision.recordedAt}">
+                </span>
+
+      </div>
+
+
+      <h3 th:text="${revision.title}">
+        계획 제목
+      </h3>
+
+
+      <div class="revision-meta">
+
+        <div>
+          <span>기간</span>
+
+          <strong>
+            <span th:text="${revision.startDate}"></span>
+            ~
+            <span th:text="${revision.endDate}"></span>
+          </strong>
+        </div>
+
+
+        <div>
+          <span>우선순위</span>
+
+          <strong th:text="${revision.priority.label}">
+            높음
+          </strong>
+        </div>
+
+
+        <div>
+          <span>예상 시간</span>
+
+          <strong>
+            <span th:text="${revision.estimatedMinutes}"></span>분
+          </strong>
+        </div>
+
+
+        <div class="revision-wide">
+          <span>성공 기준</span>
+
+          <strong th:text="${revision.successCriteria}">
+            성공 기준
+          </strong>
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<nav class="page-actions">
+
+  <a class="secondary-button"
+     href="/">
+    홈
+  </a>
+
+  <a class="secondary-button"
+     th:href="@{/plans/{id}/todos(id=${plan.id})}">
+    Do
+  </a>
+
+  <a class="primary-button"
+     th:href="@{/plans/{id}/see(id=${plan.id})}">
+    See
+  </a>
+
+</nav>
 
 </body>
 </html>
