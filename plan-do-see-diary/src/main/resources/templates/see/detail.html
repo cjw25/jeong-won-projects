@@ -1,146 +1,322 @@
 <!DOCTYPE html>
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
   <title>See - 돌아보기</title>
 
   <link rel="stylesheet"
         th:href="@{/css/style.css}">
 </head>
+
 <body>
 
-<h1>See - 돌아보기</h1>
+<header class="page-header">
+  <div>
+    <span class="page-kicker">SEE</span>
 
-<h2 th:text="${plan.title}">
-  계획 제목
-</h2>
+    <h1>돌아보기</h1>
 
-<hr>
+    <p class="page-description">
+      계획과 실제 실행 결과를 한눈에 비교합니다.
+    </p>
+  </div>
 
-<h3>기간 집계</h3>
-
-<p>
-  전체 할 일 수:
-
-  <a th:href="@{/plans/{planId}/see/items
-       (planId=${plan.id}, type='all')}">
-    <strong th:text="${summary.taskCount}">0</strong>개
+  <a class="header-link"
+     th:href="@{/plans/{planId}/todos(planId=${plan.id})}">
+    Do 화면으로
   </a>
-</p>
+</header>
 
-<p>
-  완료:
 
-  <a th:href="@{/plans/{planId}/see/items
-       (planId=${plan.id}, type='completed')}">
-    <strong th:text="${summary.completedCount}">0</strong>개
-  </a>
-</p>
+<section class="plan-summary-bar">
 
-<p>
-  기한 초과:
+  <div>
+    <span class="summary-label">현재 계획</span>
 
-  <a th:href="@{/plans/{planId}/see/items
-       (planId=${plan.id}, type='overdue')}">
-    <strong th:text="${summary.overdueCount}">0</strong>개
-  </a>
-</p>
+    <strong th:text="${plan.title}">
+      계획 제목
+    </strong>
+  </div>
 
-<p>
-  막힌 할 일:
+</section>
 
-  <a th:href="@{/plans/{planId}/see/items
-       (planId=${plan.id}, type='blocked')}">
-    <strong th:text="${summary.blockedCount}">0</strong>개
-  </a>
-</p>
 
-<hr>
+<section class="dashboard-section">
 
-<h3>시간 비교</h3>
+  <div class="section-heading">
+    <div>
+      <span class="section-kicker">TASK STATUS</span>
+      <h2>기간 집계</h2>
+    </div>
 
-<p>
-  예상 시간:
+    <p>
+      숫자를 누르면 해당 집계의 원본 기록을 확인할 수 있습니다.
+    </p>
+  </div>
 
-  <a th:href="@{/plans/{planId}/see/items
-       (planId=${plan.id}, type='expected')}">
-    <strong th:text="${summary.expectedMinutes}">0</strong>분
-  </a>
-</p>
 
-<p>
-  실제 시간:
+  <div class="metric-grid">
 
-  <a th:href="@{/plans/{planId}/see/items
-       (planId=${plan.id}, type='actual')}">
-    <strong th:text="${summary.actualMinutes}">0</strong>분
-  </a>
-</p>
+    <a class="metric-card"
+       th:href="@{/plans/{planId}/see/items
+              (planId=${plan.id}, type='all')}">
 
-<p>
-  차이:
+            <span class="metric-label">
+                전체 할 일
+            </span>
 
-  <a th:href="@{/plans/{planId}/see/items
-       (planId=${plan.id}, type='difference')}">
-    <strong th:text="${summary.differenceMinutes}">0</strong>분
-  </a>
-</p>
+      <div class="metric-value">
+        <strong th:text="${summary.taskCount}">
+          0
+        </strong>
+        <span>개</span>
+      </div>
 
-<p>
-  차이 계산 기준:
-  실제 시간 - 예상 시간
-</p>
+      <span class="metric-guide">
+                전체 기록 보기 →
+            </span>
 
-<hr>
+    </a>
 
-<h3>집계 기준</h3>
 
-<p>
-  전체 할 일 수 = 삭제되지 않은 할 일 수
-</p>
+    <a class="metric-card metric-success"
+       th:href="@{/plans/{planId}/see/items
+              (planId=${plan.id}, type='completed')}">
 
-<p>
-  완료 = 삭제되지 않은 할 일 중 현재 완료된 할 일
-</p>
+            <span class="metric-label">
+                완료
+            </span>
 
-<p>
-  기한 초과 = 미완료 상태이면서 서울 기준 오늘보다 마감일이 지난 할 일
-</p>
+      <div class="metric-value">
+        <strong th:text="${summary.completedCount}">
+          0
+        </strong>
+        <span>개</span>
+      </div>
 
-<p>
-  막힌 할 일 = 막힌 이유가 기록된 서로 다른 할 일 수
-</p>
+      <span class="metric-guide">
+                완료 기록 보기 →
+            </span>
 
-<p>
-  예상 시간 = 삭제되지 않은 할 일의 예상 시간 합계
-</p>
+    </a>
 
-<p>
-  실제 시간 = 실행 기록의 실제 시간 합계
-</p>
 
-<hr>
+    <a class="metric-card metric-danger"
+       th:href="@{/plans/{planId}/see/items
+              (planId=${plan.id}, type='overdue')}">
 
-<p>
-  <a th:href="@{/plans/{planId}/todos(planId=${plan.id})}">
+            <span class="metric-label">
+                기한 초과
+            </span>
+
+      <div class="metric-value">
+        <strong th:text="${summary.overdueCount}">
+          0
+        </strong>
+        <span>개</span>
+      </div>
+
+      <span class="metric-guide">
+                기한 초과 기록 →
+            </span>
+
+    </a>
+
+
+    <a class="metric-card metric-warning"
+       th:href="@{/plans/{planId}/see/items
+              (planId=${plan.id}, type='blocked')}">
+
+            <span class="metric-label">
+                막힌 할 일
+            </span>
+
+      <div class="metric-value">
+        <strong th:text="${summary.blockedCount}">
+          0
+        </strong>
+        <span>개</span>
+      </div>
+
+      <span class="metric-guide">
+                막힘 기록 보기 →
+            </span>
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<section class="dashboard-section">
+
+  <div class="section-heading">
+
+    <div>
+      <span class="section-kicker">TIME</span>
+      <h2>시간 비교</h2>
+    </div>
+
+    <p>
+      차이 = 실제 시간 - 예상 시간
+    </p>
+
+  </div>
+
+
+  <div class="metric-grid metric-grid-three">
+
+    <a class="metric-card"
+       th:href="@{/plans/{planId}/see/items
+              (planId=${plan.id}, type='expected')}">
+
+            <span class="metric-label">
+                예상 시간
+            </span>
+
+      <div class="metric-value">
+        <strong th:text="${summary.expectedMinutes}">
+          0
+        </strong>
+        <span>분</span>
+      </div>
+
+      <span class="metric-guide">
+                예상시간 원본 →
+            </span>
+
+    </a>
+
+
+    <a class="metric-card metric-success"
+       th:href="@{/plans/{planId}/see/items
+              (planId=${plan.id}, type='actual')}">
+
+            <span class="metric-label">
+                실제 시간
+            </span>
+
+      <div class="metric-value">
+        <strong th:text="${summary.actualMinutes}">
+          0
+        </strong>
+        <span>분</span>
+      </div>
+
+      <span class="metric-guide">
+                실행기록 확인 →
+            </span>
+
+    </a>
+
+
+    <a class="metric-card metric-difference"
+       th:href="@{/plans/{planId}/see/items
+              (planId=${plan.id}, type='difference')}">
+
+            <span class="metric-label">
+                시간 차이
+            </span>
+
+      <div class="metric-value">
+        <strong th:text="${summary.differenceMinutes}">
+          0
+        </strong>
+        <span>분</span>
+      </div>
+
+      <span class="metric-guide">
+                차이 원본 확인 →
+            </span>
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<section class="info-panel">
+
+  <div class="section-heading compact">
+
+    <div>
+      <span class="section-kicker">RULES</span>
+      <h2>집계 기준</h2>
+    </div>
+
+  </div>
+
+
+  <div class="rule-list">
+
+    <div class="rule-item">
+      <strong>전체 할 일</strong>
+      <span>삭제되지 않은 할 일 수</span>
+    </div>
+
+    <div class="rule-item">
+      <strong>완료</strong>
+      <span>삭제되지 않은 할 일 중 현재 완료된 할 일</span>
+    </div>
+
+    <div class="rule-item">
+      <strong>기한 초과</strong>
+      <span>
+                미완료 상태이며 서울 기준 오늘보다 마감일이 지난 할 일
+            </span>
+    </div>
+
+    <div class="rule-item">
+      <strong>막힌 할 일</strong>
+      <span>
+                막힌 이유가 기록된 서로 다른 할 일 수
+            </span>
+    </div>
+
+    <div class="rule-item">
+      <strong>예상 시간</strong>
+      <span>
+                삭제되지 않은 할 일의 예상 시간 합계
+            </span>
+    </div>
+
+    <div class="rule-item">
+      <strong>실제 시간</strong>
+      <span>
+                실행 기록의 실제 시간 합계
+            </span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<nav class="page-actions">
+
+  <a class="secondary-button"
+     th:href="@{/plans/{planId}/todos(planId=${plan.id})}">
     할 일 목록
   </a>
-</p>
 
-<p>
-  <a th:href="@{/plans/{planId}(planId=${plan.id})}">
+  <a class="secondary-button"
+     th:href="@{/plans/{planId}(planId=${plan.id})}">
     계획 상세
   </a>
-</p>
 
-<p>
-  <a th:href="@{/plans/{planId}/review(planId=${plan.id})}">
+  <a class="primary-button"
+     th:href="@{/plans/{planId}/review(planId=${plan.id})}">
     돌아보기 작성
   </a>
-</p>
+
+</nav>
 
 </body>
 </html>
