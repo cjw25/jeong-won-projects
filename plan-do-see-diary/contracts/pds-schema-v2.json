@@ -1,0 +1,393 @@
+{
+  "contractVersion": "2.0",
+  "application": "Plan Do See Diary",
+  "timezone": "Asia/Seoul",
+  "timeUnit": "minutes",
+
+  "tables": {
+    "plans": {
+      "description": "현재 계획",
+      "primaryKey": "id",
+      "fields": {
+        "id": {
+          "type": "BIGINT",
+          "nullable": false,
+          "autoIncrement": true
+        },
+        "title": {
+          "type": "VARCHAR(200)",
+          "nullable": false
+        },
+        "start_date": {
+          "type": "DATE",
+          "nullable": false
+        },
+        "end_date": {
+          "type": "DATE",
+          "nullable": false
+        },
+        "priority": {
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW"
+          ]
+        },
+        "success_criteria": {
+          "type": "VARCHAR(1000)",
+          "nullable": false
+        },
+        "estimated_minutes": {
+          "type": "INTEGER",
+          "nullable": false,
+          "unit": "minutes"
+        },
+        "carried_note": {
+          "type": "VARCHAR(1000)",
+          "nullable": true
+        },
+        "created_at": {
+          "type": "DATETIME",
+          "nullable": false
+        },
+        "updated_at": {
+          "type": "DATETIME",
+          "nullable": false
+        }
+      }
+    },
+
+    "plan_revisions": {
+      "description": "계획 수정 이력 스냅샷",
+      "primaryKey": "id",
+      "unique": [
+        [
+          "plan_id",
+          "revision_no"
+        ]
+      ],
+      "fields": {
+        "id": {
+          "type": "BIGINT",
+          "nullable": false,
+          "autoIncrement": true
+        },
+        "plan_id": {
+          "type": "BIGINT",
+          "nullable": false,
+          "foreignKey": "plans.id"
+        },
+        "revision_no": {
+          "type": "INTEGER",
+          "nullable": false
+        },
+        "title": {
+          "type": "VARCHAR(200)",
+          "nullable": false
+        },
+        "start_date": {
+          "type": "DATE",
+          "nullable": false
+        },
+        "end_date": {
+          "type": "DATE",
+          "nullable": false
+        },
+        "priority": {
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW"
+          ]
+        },
+        "success_criteria": {
+          "type": "VARCHAR(1000)",
+          "nullable": false
+        },
+        "estimated_minutes": {
+          "type": "INTEGER",
+          "nullable": false,
+          "unit": "minutes"
+        },
+        "carried_note": {
+          "type": "VARCHAR(1000)",
+          "nullable": true
+        },
+        "recorded_at": {
+          "type": "DATETIME",
+          "nullable": false
+        }
+      }
+    },
+
+    "todos": {
+      "description": "계획에 속한 할 일",
+      "primaryKey": "id",
+      "softDeleteField": "deleted",
+      "fields": {
+        "id": {
+          "type": "BIGINT",
+          "nullable": false,
+          "autoIncrement": true
+        },
+        "plan_id": {
+          "type": "BIGINT",
+          "nullable": false,
+          "foreignKey": "plans.id"
+        },
+        "content": {
+          "type": "VARCHAR(500)",
+          "nullable": false
+        },
+        "due_date": {
+          "type": "DATE",
+          "nullable": false
+        },
+        "priority": {
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW"
+          ]
+        },
+        "tag": {
+          "type": "VARCHAR(100)",
+          "nullable": true
+        },
+        "estimated_minutes": {
+          "type": "INTEGER",
+          "nullable": false,
+          "unit": "minutes"
+        },
+        "completed": {
+          "type": "BOOLEAN",
+          "nullable": false,
+          "default": false
+        },
+        "deleted": {
+          "type": "BOOLEAN",
+          "nullable": false,
+          "default": false
+        },
+        "created_at": {
+          "type": "DATETIME",
+          "nullable": false
+        },
+        "updated_at": {
+          "type": "DATETIME",
+          "nullable": false
+        }
+      }
+    },
+
+    "execution_records": {
+      "description": "할 일과 분리해 저장되는 실제 실행 기록",
+      "primaryKey": "id",
+      "fields": {
+        "id": {
+          "type": "BIGINT",
+          "nullable": false,
+          "autoIncrement": true
+        },
+        "todo_id": {
+          "type": "BIGINT",
+          "nullable": false,
+          "foreignKey": "todos.id"
+        },
+        "started_at": {
+          "type": "DATETIME",
+          "nullable": false
+        },
+        "ended_at": {
+          "type": "DATETIME",
+          "nullable": false
+        },
+        "actual_minutes": {
+          "type": "INTEGER",
+          "nullable": false,
+          "unit": "minutes"
+        },
+        "blocked_reason": {
+          "type": "VARCHAR(1000)",
+          "nullable": true
+        },
+        "created_at": {
+          "type": "DATETIME",
+          "nullable": false
+        }
+      }
+    },
+
+    "completion_events": {
+      "description": "완료 요청의 중복 처리를 방지하기 위한 기록",
+      "primaryKey": "id",
+      "unique": [
+        [
+          "request_key"
+        ]
+      ],
+      "fields": {
+        "id": {
+          "type": "BIGINT",
+          "nullable": false,
+          "autoIncrement": true
+        },
+        "todo_id": {
+          "type": "BIGINT",
+          "nullable": false,
+          "foreignKey": "todos.id"
+        },
+        "request_key": {
+          "type": "VARCHAR(100)",
+          "nullable": false,
+          "unique": true
+        },
+        "completed_at": {
+          "type": "DATETIME",
+          "nullable": false
+        },
+        "created_at": {
+          "type": "DATETIME",
+          "nullable": false
+        }
+      }
+    },
+
+    "reviews": {
+      "description": "계획별 See 돌아보기",
+      "primaryKey": "id",
+      "unique": [
+        [
+          "plan_id"
+        ]
+      ],
+      "fields": {
+        "id": {
+          "type": "BIGINT",
+          "nullable": false,
+          "autoIncrement": true
+        },
+        "plan_id": {
+          "type": "BIGINT",
+          "nullable": false,
+          "foreignKey": "plans.id",
+          "unique": true
+        },
+        "good_point": {
+          "type": "VARCHAR(1000)",
+          "nullable": true
+        },
+        "gap_point": {
+          "type": "VARCHAR(1000)",
+          "nullable": true
+        },
+        "next_improvement": {
+          "type": "VARCHAR(1000)",
+          "nullable": true
+        },
+        "created_at": {
+          "type": "DATETIME",
+          "nullable": false
+        },
+        "updated_at": {
+          "type": "DATETIME",
+          "nullable": false
+        }
+      }
+    }
+  },
+
+  "relations": [
+    {
+      "from": "plans.id",
+      "to": "plan_revisions.plan_id",
+      "cardinality": "1:N"
+    },
+    {
+      "from": "plans.id",
+      "to": "todos.plan_id",
+      "cardinality": "1:N"
+    },
+    {
+      "from": "todos.id",
+      "to": "execution_records.todo_id",
+      "cardinality": "1:N"
+    },
+    {
+      "from": "todos.id",
+      "to": "completion_events.todo_id",
+      "cardinality": "1:N"
+    },
+    {
+      "from": "plans.id",
+      "to": "reviews.plan_id",
+      "cardinality": "1:1"
+    }
+  ],
+
+  "dateRules": {
+    "dateFormat": "yyyy-MM-dd",
+    "dateTimeFormat": "ISO-8601 local datetime",
+    "timezone": "Asia/Seoul",
+    "overdueRule": "deleted=false AND completed=false AND due_date < today(Asia/Seoul)",
+    "executionDurationRule": "actual_minutes = ended_at - started_at",
+    "executionEndRule": "ended_at must not be earlier than started_at"
+  },
+
+  "todoSortRule": [
+    "completed=false first",
+    "priority HIGH then MEDIUM then LOW",
+    "due_date ascending",
+    "id ascending"
+  ],
+
+  "aggregationRules": {
+    "taskCount": "COUNT todos WHERE deleted=false",
+    "completedCount": "COUNT todos WHERE deleted=false AND completed=true",
+    "overdueCount": "COUNT todos WHERE deleted=false AND completed=false AND due_date < today(Asia/Seoul)",
+    "blockedCount": "COUNT DISTINCT todo_id having at least one execution record with non-empty blocked_reason",
+    "expectedMinutes": "SUM estimated_minutes of todos WHERE deleted=false",
+    "actualMinutes": "SUM actual_minutes of execution records belonging to non-deleted todos",
+    "differenceMinutes": "actualMinutes - expectedMinutes",
+    "emptyAggregationValue": 0
+  },
+
+  "revisionRules": {
+    "planIdDoesNotChange": true,
+    "existingRevisionIsNotOverwritten": true,
+    "revisionNumberIncreases": true
+  },
+
+  "completionRules": {
+    "idempotencyKey": "completion_events.request_key",
+    "databaseUniqueConstraint": true,
+    "duplicateRequestCreatesExtraCompletionEvent": false,
+    "duplicateRequestIncreasesSeeCompletedCount": false
+  },
+
+  "securityRules": {
+    "htmlOutput": "User supplied text must be escaped and rendered as text",
+    "scriptTextMustNotExecute": true,
+    "databaseCredentials": "DB_URL, DB_USERNAME and DB_PASSWORD must be supplied using environment variables",
+    "publicAccessNotice": "지금은 로그인이 없어 링크를 아는 사람은 누구나 볼 수 있습니다. 남이 봐도 괜찮은 내용만 넣으세요"
+  },
+
+  "export": {
+    "endpoint": "/export",
+    "filename": "plan-do-see-export.json",
+    "includes": [
+      "plans",
+      "planRevisions",
+      "todos",
+      "executionRecords",
+      "completionEvents",
+      "reviews"
+    ]
+  }
+}
