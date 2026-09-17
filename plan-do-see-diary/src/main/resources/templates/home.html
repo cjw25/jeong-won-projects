@@ -4,7 +4,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
   <title>Plan Do See Diary</title>
 
@@ -14,79 +15,190 @@
 
 <body>
 
-<h1>Plan Do See Diary</h1>
+<header class="home-hero">
 
-<div>
+  <div>
+    <span class="page-kicker">PLAN · DO · SEE</span>
+
+    <h1>Plan Do See Diary</h1>
+
+    <p class="home-description">
+      계획하고, 실행하고, 돌아보며 다음 행동으로 이어가는 기록입니다.
+    </p>
+  </div>
+
+  <a class="primary-button"
+     href="/plans/new">
+    + 새 계획 만들기
+  </a>
+
+</header>
+
+
+<div class="public-notice">
   <strong>
     지금은 로그인이 없어 링크를 아는 사람은 누구나 볼 수 있습니다. 남이 봐도 괜찮은 내용만 넣으세요
   </strong>
 </div>
 
-<hr>
 
-<h2>내 계획</h2>
+<section class="flow-section">
 
-<div th:if="${#lists.isEmpty(plans)}">
-  아직 계획이 없습니다.
-</div>
+  <div class="flow-card">
+    <span class="flow-number">01</span>
+    <strong>Plan</strong>
+    <p>기간과 목표, 성공 기준을 정합니다.</p>
+  </div>
 
-<article th:each="plan : ${plans}">
-  <hr>
+  <div class="flow-arrow">
+    →
+  </div>
 
-  <h3 th:text="${plan.title}">
-    계획 제목
-  </h3>
+  <div class="flow-card">
+    <span class="flow-number">02</span>
+    <strong>Do</strong>
+    <p>할 일과 실제 실행 기록을 남깁니다.</p>
+  </div>
 
-  <p>
-    기간:
-    <span th:text="${plan.startDate}"></span>
-    ~
-    <span th:text="${plan.endDate}"></span>
-  </p>
+  <div class="flow-arrow">
+    →
+  </div>
 
-  <p>
-    우선순위:
-    <span th:text="${plan.priority.label}"></span>
-  </p>
+  <div class="flow-card">
+    <span class="flow-number">03</span>
+    <strong>See</strong>
+    <p>계획과 실제 결과를 비교합니다.</p>
+  </div>
 
-  <p>
-    <a th:href="@{/plans/{id}(id=${plan.id})}">
-      Plan 보기
+</section>
+
+
+<section class="home-plan-section">
+
+  <div class="section-heading">
+
+    <div>
+      <span class="section-kicker">MY PLAN</span>
+      <h2>내 계획</h2>
+    </div>
+
+    <a class="secondary-button"
+       href="/export">
+      전체 데이터 내보내기
     </a>
-  </p>
 
-  <p>
-    <a th:href="@{/plans/{id}/todos(id=${plan.id})}">
-      Do - 할 일
-    </a>
-  </p>
+  </div>
 
-  <p>
-    <a th:href="@{/plans/{id}/see(id=${plan.id})}">
-      See - 돌아보기
-    </a>
-  </p>
 
-  <p>
-    <a th:href="@{/plans/{id}/review(id=${plan.id})}">
-      돌아보기 작성
-    </a>
-  </p>
-</article>
+  <div class="empty-card"
+       th:if="${#lists.isEmpty(plans)}">
 
-<hr>
+    아직 계획이 없습니다.
 
-<p>
-  <a href="/plans/new">
-    + 새 계획 만들기
-  </a>
-</p>
+  </div>
 
-<p>
+
+  <div class="home-plan-grid">
+
+    <article class="home-plan-card"
+             th:each="plan : ${plans}">
+
+      <div class="home-plan-header">
+
+        <div>
+                    <span class="summary-label">
+                        ACTIVE PLAN
+                    </span>
+
+          <h3 th:text="${plan.title}">
+            계획 제목
+          </h3>
+        </div>
+
+        <span class="plan-priority"
+              th:text="${plan.priority.label}">
+                    높음
+                </span>
+
+      </div>
+
+
+      <div class="home-plan-info">
+
+        <div>
+          <span>기간</span>
+
+          <strong>
+            <span th:text="${plan.startDate}"></span>
+            ~
+            <span th:text="${plan.endDate}"></span>
+          </strong>
+        </div>
+
+      </div>
+
+
+      <div class="home-flow-actions">
+
+        <a class="home-flow-button plan-button"
+           th:href="@{/plans/{id}(id=${plan.id})}">
+
+          <span>PLAN</span>
+          <strong>계획 보기</strong>
+
+        </a>
+
+
+        <a class="home-flow-button do-button"
+           th:href="@{/plans/{id}/todos(id=${plan.id})}">
+
+          <span>DO</span>
+          <strong>할 일 관리</strong>
+
+        </a>
+
+
+        <a class="home-flow-button see-button"
+           th:href="@{/plans/{id}/see(id=${plan.id})}">
+
+          <span>SEE</span>
+          <strong>돌아보기</strong>
+
+        </a>
+
+      </div>
+
+
+      <div class="home-secondary-actions">
+
+        <a th:href="@{/plans/{id}/review(id=${plan.id})}">
+          돌아보기 작성
+        </a>
+
+        <a th:href="@{/plans/{id}/edit(id=${plan.id})}">
+          계획 수정
+        </a>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<footer class="home-footer">
+
+    <span>
+        Plan Do See Diary
+    </span>
+
   <a href="/export">
-    전체 데이터 내보내기
+    JSON 데이터 내보내기
   </a>
-</p>
+
+</footer>
 
 </body>
 </html>
