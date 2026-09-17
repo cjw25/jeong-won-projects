@@ -1,0 +1,404 @@
+:root {
+    --bg: #f4f7fb;
+    --surface: #ffffff;
+    --surface-soft: #f8fafc;
+    --text: #172033;
+    --muted: #657087;
+    --line: #e3e9f1;
+
+    --primary: #4568dc;
+    --primary-dark: #3451b2;
+    --primary-soft: #edf1ff;
+
+    --success: #16865c;
+    --success-soft: #e9f8f1;
+
+    --danger: #d34545;
+    --danger-dark: #b72f2f;
+    --danger-soft: #fff0f0;
+
+    --warning: #9a6914;
+    --warning-soft: #fff7df;
+
+    --radius: 16px;
+    --shadow: 0 10px 30px rgba(35, 52, 85, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--bg);
+}
+
+body {
+    width: min(1100px, calc(100% - 32px));
+    min-height: 100vh;
+
+    margin: 0 auto;
+    padding: 42px 0 72px;
+
+    font-family:
+            Pretendard,
+            "Noto Sans KR",
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+
+    color: var(--text);
+    line-height: 1.65;
+}
+
+h1 {
+    margin: 0 0 12px;
+
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    letter-spacing: -1.4px;
+}
+
+h2 {
+    margin: 28px 0 16px;
+
+    font-size: 24px;
+    font-weight: 750;
+    letter-spacing: -0.6px;
+}
+
+h3 {
+    margin: 20px 0 12px;
+
+    font-size: 18px;
+    font-weight: 750;
+}
+
+p {
+    margin: 10px 0;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--line);
+
+    margin: 28px 0;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 650;
+}
+
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* -------------------------
+   공개 안내문
+------------------------- */
+
+.public-notice {
+    margin: 22px 0 30px;
+    padding: 16px 18px;
+
+    border: 1px solid #d9e1ff;
+    border-radius: 14px;
+
+    background: var(--primary-soft);
+    color: #304687;
+}
+
+.public-notice strong {
+    display: block;
+}
+
+/* -------------------------
+   카드
+------------------------- */
+
+article {
+    margin: 18px 0;
+    padding: 24px;
+
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+article > hr:first-child {
+    display: none;
+}
+
+article h3 {
+    margin-top: 0;
+    font-size: 21px;
+}
+
+article p {
+    color: var(--muted);
+}
+
+article strong,
+article span {
+    color: var(--text);
+}
+
+/* article 안의 링크 버튼 느낌 */
+article p > a {
+    display: inline-block;
+
+    padding: 7px 11px;
+
+    border-radius: 9px;
+
+    background: var(--primary-soft);
+
+    font-size: 14px;
+}
+
+article p > a:hover {
+    text-decoration: none;
+    background: #dfe6ff;
+}
+
+/* -------------------------
+   일반 액션 링크
+------------------------- */
+
+body > p > a {
+    display: inline-block;
+
+    padding: 9px 13px;
+
+    border: 1px solid #dce3ef;
+    border-radius: 10px;
+
+    background: var(--surface);
+}
+
+body > p > a:hover {
+    background: var(--primary-soft);
+    text-decoration: none;
+}
+
+/* -------------------------
+   폼
+------------------------- */
+
+body > form {
+    max-width: 760px;
+
+    margin: 18px 0 28px;
+    padding: 24px;
+
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+form > div {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 14px;
+    font-weight: 700;
+    color: #3c465a;
+}
+
+input:not([type="hidden"]),
+select,
+textarea {
+    width: 100%;
+
+    padding: 11px 12px;
+
+    border: 1px solid #ccd5e2;
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: var(--text);
+
+    font: inherit;
+
+    outline: none;
+
+    transition:
+            border-color 0.15s ease,
+            box-shadow 0.15s ease;
+}
+
+input:not([type="hidden"]):focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+            0 0 0 3px rgba(69, 104, 220, 0.12);
+}
+
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+/* -------------------------
+   버튼
+------------------------- */
+
+button {
+    border: 0;
+    border-radius: 9px;
+
+    padding: 9px 14px;
+
+    background: var(--primary);
+    color: #ffffff;
+
+    font: inherit;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+            transform 0.12s ease,
+            background 0.12s ease;
+}
+
+button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+/* Todo 카드 안에서는 여러 form을 가로로 */
+article form {
+    display: inline-block;
+
+    margin: 5px 8px 5px 0;
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+    box-shadow: none;
+}
+
+/* 삭제 버튼 */
+article form[action$="/delete"] button {
+    background: var(--danger-soft);
+    color: var(--danger);
+}
+
+article form[action$="/delete"] button:hover {
+    background: var(--danger);
+    color: #ffffff;
+}
+
+/* 완료 버튼 */
+article form[action$="/complete"] button {
+    background: var(--success);
+}
+
+article form[action$="/complete"] button:hover {
+    background: #116b49;
+}
+
+/* 되돌리기 */
+article form[action$="/reopen"] button {
+    background: var(--warning-soft);
+    color: var(--warning);
+}
+
+/* -------------------------
+   검색 / 필터
+------------------------- */
+
+body > form[method="get"] {
+    display: flex;
+    gap: 10px;
+
+    padding: 16px;
+}
+
+body > form[method="get"] input {
+    flex: 1;
+}
+
+body > form[method="get"] button {
+    width: auto;
+    white-space: nowrap;
+}
+
+/* -------------------------
+   See 페이지 숫자 링크
+------------------------- */
+
+body > p > a strong {
+    font-size: 18px;
+}
+
+/* -------------------------
+   빈 상태
+------------------------- */
+
+body > div {
+    color: var(--muted);
+}
+
+/* -------------------------
+   모바일
+------------------------- */
+
+@media (max-width: 700px) {
+
+    body {
+        width: min(100% - 24px, 1100px);
+        padding-top: 24px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+
+    article {
+        padding: 18px;
+        border-radius: 13px;
+    }
+
+    body > form {
+        padding: 18px;
+    }
+
+    body > form[method="get"] {
+        display: block;
+    }
+
+    body > form[method="get"] button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    article form {
+        display: block;
+        margin-right: 0;
+    }
+
+    article form button {
+        width: 100%;
+    }
+}
