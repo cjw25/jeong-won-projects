@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>계획 수정</title>
+</head>
+<body>
+
+<h1>계획 수정</h1>
+
+<p>
+  현재 계획 ID:
+  <strong th:text="${plan.id}"></strong>
+</p>
+
+<p>
+  계획을 수정해도 기존 내용은 수정 이력에 남습니다.
+</p>
+
+<form th:action="@{/plans/{id}(id=${plan.id})}"
+      th:object="${planForm}"
+      method="post">
+
+  <div>
+    <label>계획 제목</label>
+    <input type="text" th:field="*{title}">
+  </div>
+
+  <div>
+    <label>시작일</label>
+    <input type="date" th:field="*{startDate}">
+  </div>
+
+  <div>
+    <label>종료일</label>
+    <input type="date" th:field="*{endDate}">
+  </div>
+
+  <div>
+    <label>우선순위</label>
+
+    <select th:field="*{priority}">
+      <option th:each="priority : ${priorities}"
+              th:value="${priority}"
+              th:text="${priority.label}">
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <label>성공 기준</label>
+    <textarea th:field="*{successCriteria}"></textarea>
+  </div>
+
+  <div>
+    <label>예상 시간(분)</label>
+    <input type="number"
+           th:field="*{estimatedMinutes}"
+           min="1">
+  </div>
+
+  <div>
+    <label>이전 돌아보기에서 넘겨받은 내용</label>
+    <textarea th:field="*{carriedNote}"></textarea>
+  </div>
+
+  <button type="submit">수정 저장</button>
+</form>
+
+</body>
+</html>

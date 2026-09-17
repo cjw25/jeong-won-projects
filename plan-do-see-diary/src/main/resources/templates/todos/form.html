@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>할 일 추가</title>
+</head>
+<body>
+
+<h1>할 일 추가</h1>
+
+<p>
+  계획:
+  <strong th:text="${plan.title}"></strong>
+</p>
+
+<form th:action="@{/plans/{planId}/todos(planId=${plan.id})}"
+      th:object="${todoForm}"
+      method="post">
+
+  <div>
+    <label>할 일</label>
+    <input type="text" th:field="*{content}">
+  </div>
+
+  <div>
+    <label>마감일</label>
+    <input type="date" th:field="*{dueDate}">
+  </div>
+
+  <div>
+    <label>우선순위</label>
+    <select th:field="*{priority}">
+      <option value="">선택</option>
+
+      <option th:each="priority : ${priorities}"
+              th:value="${priority}"
+              th:text="${priority.label}">
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <label>태그</label>
+    <input type="text" th:field="*{tag}">
+  </div>
+
+  <div>
+    <label>예상 시간(분)</label>
+    <input type="number"
+           th:field="*{estimatedMinutes}"
+           min="1">
+  </div>
+
+  <button type="submit">할 일 저장</button>
+
+</form>
+
+<p>
+  <a th:href="@{/plans/{id}/todos(id=${plan.id})}">
+    목록으로
+  </a>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>실행 기록</title>
+</head>
+<body>
+
+<h1>실행 기록</h1>
+
+<p>
+  계획:
+  <strong th:text="${plan.title}"></strong>
+</p>
+
+<p>
+  연결된 할 일:
+  <strong th:text="${todo.content}"></strong>
+</p>
+
+<p>
+  할 일 예상 시간:
+  <strong th:text="${todo.estimatedMinutes}"></strong>분
+</p>
+
+<p>
+  <a th:href="@{/plans/{planId}/todos/{todoId}/executions/new
+       (planId=${plan.id}, todoId=${todo.id})}">
+    + 실행 기록 추가
+  </a>
+</p>
+
+<hr>
+
+<div th:if="${#lists.isEmpty(records)}">
+  아직 실행 기록이 없습니다.
+</div>
+
+<article th:each="record : ${records}">
+  <hr>
+
+  <p>
+    시작:
+    <span th:text="${record.startedAt}"></span>
+  </p>
+
+  <p>
+    종료:
+    <span th:text="${record.endedAt}"></span>
+  </p>
+
+  <p>
+    실제 걸린 시간:
+    <strong th:text="${record.actualMinutes}"></strong>분
+  </p>
+
+  <p>
+    막혔던 이유:
+    <span th:text="${record.blockedReason == null || record.blockedReason.isBlank()
+                        ? '없음'
+                        : record.blockedReason}">
+        </span>
+  </p>
+</article>
+
+<p>
+  <a th:href="@{/plans/{planId}/todos(planId=${plan.id})}">
+    할 일 목록으로
+  </a>
+</p>
+
+</body>
+</html>

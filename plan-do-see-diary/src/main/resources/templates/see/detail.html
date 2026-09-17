@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>See - 돌아보기</title>
+</head>
+<body>
+
+<h1>See - 돌아보기</h1>
+
+<h2 th:text="${plan.title}">
+  계획 제목
+</h2>
+
+<hr>
+
+<h3>기간 집계</h3>
+
+<p>
+  전체 할 일 수:
+
+  <a th:href="@{/plans/{planId}/see/items
+       (planId=${plan.id}, type='all')}">
+    <strong th:text="${summary.taskCount}">0</strong>개
+  </a>
+</p>
+
+<p>
+  완료:
+
+  <a th:href="@{/plans/{planId}/see/items
+       (planId=${plan.id}, type='completed')}">
+    <strong th:text="${summary.completedCount}">0</strong>개
+  </a>
+</p>
+
+<p>
+  기한 초과:
+
+  <a th:href="@{/plans/{planId}/see/items
+       (planId=${plan.id}, type='overdue')}">
+    <strong th:text="${summary.overdueCount}">0</strong>개
+  </a>
+</p>
+
+<p>
+  막힌 할 일:
+
+  <a th:href="@{/plans/{planId}/see/items
+       (planId=${plan.id}, type='blocked')}">
+    <strong th:text="${summary.blockedCount}">0</strong>개
+  </a>
+</p>
+
+<hr>
+
+<h3>시간 비교</h3>
+
+<p>
+  예상 시간:
+
+  <a th:href="@{/plans/{planId}/see/items
+       (planId=${plan.id}, type='expected')}">
+    <strong th:text="${summary.expectedMinutes}">0</strong>분
+  </a>
+</p>
+
+<p>
+  실제 시간:
+
+  <a th:href="@{/plans/{planId}/see/items
+       (planId=${plan.id}, type='actual')}">
+    <strong th:text="${summary.actualMinutes}">0</strong>분
+  </a>
+</p>
+
+<p>
+  차이:
+
+  <a th:href="@{/plans/{planId}/see/items
+       (planId=${plan.id}, type='difference')}">
+    <strong th:text="${summary.differenceMinutes}">0</strong>분
+  </a>
+</p>
+
+<p>
+  차이 계산 기준:
+  실제 시간 - 예상 시간
+</p>
+
+<hr>
+
+<h3>집계 기준</h3>
+
+<p>
+  전체 할 일 수 = 삭제되지 않은 할 일 수
+</p>
+
+<p>
+  완료 = 삭제되지 않은 할 일 중 현재 완료된 할 일
+</p>
+
+<p>
+  기한 초과 = 미완료 상태이면서 서울 기준 오늘보다 마감일이 지난 할 일
+</p>
+
+<p>
+  막힌 할 일 = 막힌 이유가 기록된 서로 다른 할 일 수
+</p>
+
+<p>
+  예상 시간 = 삭제되지 않은 할 일의 예상 시간 합계
+</p>
+
+<p>
+  실제 시간 = 실행 기록의 실제 시간 합계
+</p>
+
+<hr>
+
+<p>
+  <a th:href="@{/plans/{planId}/todos(planId=${plan.id})}">
+    할 일 목록
+  </a>
+</p>
+
+<p>
+  <a th:href="@{/plans/{planId}(planId=${plan.id})}">
+    계획 상세
+  </a>
+</p>
+
+<p>
+  <a th:href="@{/plans/{planId}/review(planId=${plan.id})}">
+    돌아보기 작성
+  </a>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Plan Do See Diary</title>
+</head>
+
+<body>
+
+<h1>Plan Do See Diary</h1>
+
+<div>
+  <strong>
+    지금은 로그인이 없어 링크를 아는 사람은 누구나 볼 수 있습니다. 남이 봐도 괜찮은 내용만 넣으세요
+  </strong>
+</div>
+
+<hr>
+
+<h2>내 계획</h2>
+
+<div th:if="${#lists.isEmpty(plans)}">
+  아직 계획이 없습니다.
+</div>
+
+<article th:each="plan : ${plans}">
+  <hr>
+
+  <h3 th:text="${plan.title}">
+    계획 제목
+  </h3>
+
+  <p>
+    기간:
+    <span th:text="${plan.startDate}"></span>
+    ~
+    <span th:text="${plan.endDate}"></span>
+  </p>
+
+  <p>
+    우선순위:
+    <span th:text="${plan.priority.label}"></span>
+  </p>
+
+  <p>
+    <a th:href="@{/plans/{id}(id=${plan.id})}">
+      Plan 보기
+    </a>
+  </p>
+
+  <p>
+    <a th:href="@{/plans/{id}/todos(id=${plan.id})}">
+      Do - 할 일
+    </a>
+  </p>
+
+  <p>
+    <a th:href="@{/plans/{id}/see(id=${plan.id})}">
+      See - 돌아보기
+    </a>
+  </p>
+
+  <p>
+    <a th:href="@{/plans/{id}/review(id=${plan.id})}">
+      돌아보기 작성
+    </a>
+  </p>
+</article>
+
+<hr>
+
+<p>
+  <a href="/plans/new">
+    + 새 계획 만들기
+  </a>
+</p>
+
+<p>
+  <a href="/export">
+    전체 데이터 내보내기
+  </a>
+</p>
+
+</body>
+</html>

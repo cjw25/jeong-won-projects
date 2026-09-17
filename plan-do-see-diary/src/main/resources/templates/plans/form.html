@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>새 계획 만들기</title>
+</head>
+<body>
+
+<h1>새 계획 만들기</h1>
+
+<form th:action="@{/plans}"
+      th:object="${planForm}"
+      method="post">
+
+    <div>
+        <label>계획 제목</label>
+        <input type="text" th:field="*{title}">
+    </div>
+
+    <div>
+        <label>시작일</label>
+        <input type="date" th:field="*{startDate}">
+    </div>
+
+    <div>
+        <label>종료일</label>
+        <input type="date" th:field="*{endDate}">
+    </div>
+
+    <div>
+        <label>우선순위</label>
+        <select th:field="*{priority}">
+            <option value="">선택</option>
+            <option th:each="priority : ${priorities}"
+                    th:value="${priority}"
+                    th:text="${priority.label}">
+            </option>
+        </select>
+    </div>
+
+    <div>
+        <label>성공 기준</label>
+        <textarea th:field="*{successCriteria}"></textarea>
+    </div>
+
+    <div>
+        <label>예상 시간(분)</label>
+        <input type="number" th:field="*{estimatedMinutes}" min="1">
+    </div>
+
+    <div>
+        <label>이전 돌아보기에서 넘겨받은 내용</label>
+        <textarea th:field="*{carriedNote}"></textarea>
+    </div>
+
+    <button type="submit">계획 저장</button>
+</form>
+
+</body>
+</html>

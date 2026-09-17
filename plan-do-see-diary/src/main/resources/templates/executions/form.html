@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>실행 기록 추가</title>
+</head>
+<body>
+
+<h1>실제로 한 일 기록</h1>
+
+<p>
+  계획:
+  <strong th:text="${plan.title}"></strong>
+</p>
+
+<p>
+  할 일:
+  <strong th:text="${todo.content}"></strong>
+</p>
+
+<p>
+  원래 예상 시간:
+  <strong th:text="${todo.estimatedMinutes}"></strong>분
+</p>
+
+<p th:if="${recordError != null}"
+   th:text="${recordError}">
+</p>
+
+<form th:action="@{/plans/{planId}/todos/{todoId}/executions
+      (planId=${plan.id}, todoId=${todo.id})}"
+      th:object="${executionRecordForm}"
+      method="post">
+
+  <div>
+    <label>시작 시각</label>
+    <input type="datetime-local"
+           th:field="*{startedAt}">
+  </div>
+
+  <div>
+    <label>끝난 시각</label>
+    <input type="datetime-local"
+           th:field="*{endedAt}">
+  </div>
+
+  <div>
+    <label>막혔던 이유</label>
+    <textarea th:field="*{blockedReason}"></textarea>
+  </div>
+
+  <p>
+    실제 걸린 시간은 시작 시각과 끝난 시각을 기준으로
+    서버에서 자동 계산합니다.
+  </p>
+
+  <button type="submit">실행 기록 저장</button>
+</form>
+
+<p>
+  <a th:href="@{/plans/{planId}/todos/{todoId}/executions
+       (planId=${plan.id}, todoId=${todo.id})}">
+    실행 기록 목록
+  </a>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>돌아보기</title>
+</head>
+
+<body>
+
+<h1>See - 돌아보기 작성</h1>
+
+<h2 th:text="${plan.title}">
+  계획 제목
+</h2>
+
+<form th:action="@{/plans/{planId}/review(planId=${plan.id})}"
+      th:object="${reviewForm}"
+      method="post">
+
+  <div>
+    <label>잘한 점</label>
+    <br>
+    <textarea th:field="*{goodPoint}"
+              rows="4"
+              cols="60"></textarea>
+  </div>
+
+  <br>
+
+  <div>
+    <label>아쉬웠던 점</label>
+    <br>
+    <textarea th:field="*{gapPoint}"
+              rows="4"
+              cols="60"></textarea>
+  </div>
+
+  <br>
+
+  <div>
+    <label>다음 계획에서 개선할 한 줄</label>
+    <br>
+    <textarea th:field="*{nextImprovement}"
+              rows="3"
+              cols="60"
+              required></textarea>
+  </div>
+
+  <br>
+
+  <button type="submit">
+    돌아보기 저장
+  </button>
+
+</form>
+
+<hr>
+
+<div th:if="${review != null}">
+
+  <h3>저장된 돌아보기</h3>
+
+  <p>
+    잘한 점:
+    <span th:text="${review.goodPoint}"></span>
+  </p>
+
+  <p>
+    아쉬웠던 점:
+    <span th:text="${review.gapPoint}"></span>
+  </p>
+
+  <p>
+    다음 개선점:
+    <strong th:text="${review.nextImprovement}"></strong>
+  </p>
+
+  <p>
+    <a th:href="@{/plans/{planId}/review/next(planId=${plan.id})}">
+      다음 계획으로 보내기
+    </a>
+  </p>
+
+</div>
+
+<hr>
+
+<p>
+  <a th:href="@{/plans/{planId}/see(planId=${plan.id})}">
+    See 화면으로
+  </a>
+</p>
+
+</body>
+</html>

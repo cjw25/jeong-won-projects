@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>할 일 수정</title>
+</head>
+<body>
+
+<h1>할 일 수정</h1>
+
+<form th:action="@{/plans/{planId}/todos/{todoId}
+                (planId=${plan.id}, todoId=${todo.id})}"
+      th:object="${todoForm}"
+      method="post">
+
+  <div>
+    <label>할 일</label>
+    <input type="text" th:field="*{content}">
+  </div>
+
+  <div>
+    <label>마감일</label>
+    <input type="date" th:field="*{dueDate}">
+  </div>
+
+  <div>
+    <label>우선순위</label>
+    <select th:field="*{priority}">
+      <option th:each="priority : ${priorities}"
+              th:value="${priority}"
+              th:text="${priority.label}">
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <label>태그</label>
+    <input type="text" th:field="*{tag}">
+  </div>
+
+  <div>
+    <label>예상 시간(분)</label>
+    <input type="number"
+           th:field="*{estimatedMinutes}"
+           min="1">
+  </div>
+
+  <button type="submit">수정 저장</button>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>See 원본 기록</title>
+</head>
+
+<body>
+
+<h1 th:text="${title}">
+  집계 원본 기록
+</h1>
+
+<p>
+  계획:
+  <strong th:text="${plan.title}">
+    계획
+  </strong>
+</p>
+
+<hr>
+
+<div th:if="${!#lists.isEmpty(todos)}">
+
+  <h2>할 일 기록</h2>
+
+  <article th:each="todo : ${todos}">
+
+    <hr>
+
+    <p>
+      Todo ID:
+      <strong th:text="${todo.id}"></strong>
+    </p>
+
+    <p>
+      내용:
+      <span th:text="${todo.content}"></span>
+    </p>
+
+    <p>
+      상태:
+      <span th:text="${todo.completed ? '완료' : '진행 중'}"></span>
+    </p>
+
+    <p>
+      마감일:
+      <span th:text="${todo.dueDate}"></span>
+    </p>
+
+    <p>
+      우선순위:
+      <span th:text="${todo.priority.label}"></span>
+    </p>
+
+    <p>
+      태그:
+      <span th:text="${todo.tag}"></span>
+    </p>
+
+    <p>
+      예상 시간:
+      <strong th:text="${todo.estimatedMinutes}"></strong>분
+    </p>
+
+  </article>
+
+</div>
+
+
+<div th:if="${!#lists.isEmpty(records)}">
+
+  <hr>
+
+  <h2>실행 기록</h2>
+
+  <article th:each="record : ${records}">
+
+    <hr>
+
+    <p>
+      실행 기록 ID:
+      <strong th:text="${record.id}"></strong>
+    </p>
+
+    <p>
+      연결된 Todo ID:
+      <strong th:text="${record.todo.id}"></strong>
+    </p>
+
+    <p>
+      연결된 할 일:
+      <span th:text="${record.todo.content}"></span>
+    </p>
+
+    <p>
+      시작 시각:
+      <span th:text="${record.startedAt}"></span>
+    </p>
+
+    <p>
+      종료 시각:
+      <span th:text="${record.endedAt}"></span>
+    </p>
+
+    <p>
+      실제 시간:
+      <strong th:text="${record.actualMinutes}"></strong>분
+    </p>
+
+    <p>
+      막힌 이유:
+      <span th:text="${record.blockedReason == null
+                            || record.blockedReason.isBlank()
+                            ? '없음'
+                            : record.blockedReason}">
+            </span>
+    </p>
+
+  </article>
+
+</div>
+
+
+<div th:if="${#lists.isEmpty(todos)
+             && #lists.isEmpty(records)}">
+
+  <p>
+    이 집계에 해당하는 원본 기록이 없습니다.
+  </p>
+
+</div>
+
+<hr>
+
+<p>
+  <a th:href="@{/plans/{planId}/see(planId=${plan.id})}">
+    See로 돌아가기
+  </a>
+</p>
+
+</body>
+</html>

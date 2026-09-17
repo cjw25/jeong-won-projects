@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>계획 상세</title>
+</head>
+<body>
+
+<h1>계획 상세</h1>
+
+<section>
+  <h2 th:text="${plan.title}">계획 제목</h2>
+
+  <p>
+    기간:
+    <span th:text="${plan.startDate}"></span>
+    ~
+    <span th:text="${plan.endDate}"></span>
+  </p>
+
+  <p>
+    우선순위:
+    <span th:text="${plan.priority.label}"></span>
+  </p>
+
+  <p>
+    성공 기준:
+    <span th:text="${plan.successCriteria}"></span>
+  </p>
+
+  <p>
+    예상 시간:
+    <span th:text="${plan.estimatedMinutes}"></span>분
+  </p>
+
+  <p th:if="${plan.carriedNote != null and !plan.carriedNote.isBlank()}">
+    이전 돌아보기에서 넘겨받은 내용:
+    <span th:text="${plan.carriedNote}"></span>
+  </p>
+
+  <a th:href="@{/plans/{id}/edit(id=${plan.id})}">
+    계획 수정
+  </a>
+</section>
+
+<hr>
+
+<section>
+  <h2>계획 수정 이력</h2>
+
+  <p>
+    계획을 수정해도 이전 내용은 아래 이력에 남습니다.
+  </p>
+
+  <div th:if="${#lists.isEmpty(revisions)}">
+    아직 저장된 이력이 없습니다.
+  </div>
+
+  <article th:each="revision : ${revisions}">
+    <hr>
+
+    <h3>
+      Revision
+      <span th:text="${revision.revisionNo}"></span>
+    </h3>
+
+    <p>
+      제목:
+      <span th:text="${revision.title}"></span>
+    </p>
+
+    <p>
+      기간:
+      <span th:text="${revision.startDate}"></span>
+      ~
+      <span th:text="${revision.endDate}"></span>
+    </p>
+
+    <p>
+      우선순위:
+      <span th:text="${revision.priority.label}"></span>
+    </p>
+
+    <p>
+      성공 기준:
+      <span th:text="${revision.successCriteria}"></span>
+    </p>
+
+    <p>
+      예상 시간:
+      <span th:text="${revision.estimatedMinutes}"></span>분
+    </p>
+
+    <p>
+      기록 시각:
+      <span th:text="${revision.recordedAt}"></span>
+    </p>
+  </article>
+</section>
+
+</body>
+</html>
