@@ -1,178 +1,302 @@
 <!DOCTYPE html>
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-  <title>할 일 목록</title>
+  <title>Do - 할 일</title>
 
   <link rel="stylesheet"
         th:href="@{/css/style.css}">
 </head>
+
 <body>
 
-<h1>할 일 목록</h1>
+<header class="page-header">
+  <div>
+    <span class="page-kicker">DO</span>
+    <h1>할 일</h1>
 
-<h2 th:text="${plan.title}"></h2>
+    <p class="page-description">
+      계획을 실제 행동 단위로 관리합니다.
+    </p>
+  </div>
 
-<p>
-  정렬 기준:
-  미완료 먼저 →
-  우선순위 높은 순 →
-  마감일 빠른 순 →
-  ID 작은 순
-</p>
-
-<p>
-  <a th:href="@{/plans/{planId}/todos/new(planId=${plan.id})}">
-    + 새 할 일
+  <a class="header-link"
+     th:href="@{/plans/{planId}/see(planId=${plan.id})}">
+    See 화면으로
   </a>
-</p>
+</header>
 
-<hr>
 
-<h3>검색</h3>
+<section class="plan-summary-bar">
+  <div>
+    <span class="summary-label">현재 계획</span>
 
-<form method="get"
-      th:action="@{/plans/{planId}/todos(planId=${plan.id})}">
+    <strong th:text="${plan.title}">
+      계획 제목
+    </strong>
+  </div>
+</section>
 
-  <input type="text"
-         name="keyword"
-         th:value="${keyword}"
-         placeholder="할 일 검색">
 
-  <button type="submit">검색</button>
-</form>
+<section class="todo-toolbar">
 
-<hr>
+  <div class="toolbar-heading">
+    <div>
+      <span class="section-kicker">SEARCH & FILTER</span>
+      <h2>할 일 찾기</h2>
+    </div>
 
-<h3>상태 필터</h3>
-
-<p>
-  <a th:href="@{/plans/{planId}/todos(planId=${plan.id})}">
-    전체
-  </a>
-
-  |
-
-  <a th:href="@{/plans/{planId}/todos
-        (planId=${plan.id}, status='progress')}">
-    진행 중
-  </a>
-
-  |
-
-  <a th:href="@{/plans/{planId}/todos
-        (planId=${plan.id}, status='completed')}">
-    완료
-  </a>
-</p>
-
-<h3>우선순위 필터</h3>
-
-<p>
-  <a th:each="priority : ${priorities}"
-     th:href="@{/plans/{planId}/todos
-       (planId=${plan.id}, priority=${priority})}"
-     th:text="${priority.label}"
-     style="margin-right:10px;">
-  </a>
-</p>
-
-<hr>
-
-<div th:if="${#lists.isEmpty(todos)}">
-  조건에 맞는 할 일이 없습니다.
-</div>
-
-<article th:each="todo : ${todos}">
-
-  <hr>
-
-  <h3 th:text="${todo.content}">
-    할 일
-  </h3>
-
-  <p>
-    ID:
-    <span th:text="${todo.id}"></span>
-  </p>
-
-  <p>
-    상태:
-    <strong th:text="${todo.completed ? '완료' : '진행 중'}"></strong>
-  </p>
-
-  <p>
-    마감일:
-    <span th:text="${todo.dueDate}"></span>
-  </p>
-
-  <p>
-    우선순위:
-    <span th:text="${todo.priority.label}"></span>
-  </p>
-
-  <p>
-    태그:
-    <span th:text="${todo.tag}"></span>
-  </p>
-
-  <p>
-    예상 시간:
-    <span th:text="${todo.estimatedMinutes}"></span>분
-  </p>
-
-  <p>
-    <a th:href="@{/plans/{planId}/todos/{todoId}/edit
-           (planId=${plan.id}, todoId=${todo.id})}">
-      수정
+    <a class="primary-button"
+       th:href="@{/plans/{planId}/todos/new(planId=${plan.id})}">
+      + 새 할 일
     </a>
-  </p>
+  </div>
 
-  <p>
-    <a th:href="@{/plans/{planId}/see(planId=${plan.id})}">
-      See - 돌아보기
-    </a>
-  </p>
 
-  <form th:if="${!todo.completed}"
-        th:action="@{/plans/{planId}/todos/{todoId}/complete
-      (planId=${plan.id}, todoId=${todo.id})}"
-        method="post">
+  <form class="todo-search"
+        method="get"
+        th:action="@{/plans/{planId}/todos(planId=${plan.id})}">
 
-    <input type="hidden"
-           name="requestKey"
-           th:value="${completionKeys[todo.id]}">
+    <input type="text"
+           name="keyword"
+           th:value="${keyword}"
+           placeholder="할 일 또는 태그 검색">
 
-    <button type="submit">완료</button>
+    <button type="submit">
+      검색
+    </button>
   </form>
 
-  <form th:if="${todo.completed}"
-        th:action="@{/plans/{planId}/todos/{todoId}/reopen
-          (planId=${plan.id}, todoId=${todo.id})}"
-        method="post">
 
-    <button type="submit">진행 중으로 되돌리기</button>
-  </form>
+  <div class="filter-block">
 
-  <form th:action="@{/plans/{planId}/todos/{todoId}/delete
-          (planId=${plan.id}, todoId=${todo.id})}"
-        method="post">
+        <span class="filter-label">
+            상태
+        </span>
 
-    <button type="submit">삭제</button>
-  </form>
+    <div class="filter-chips">
 
-  <p>
-    <a th:href="@{/plans/{planId}/todos/{todoId}/executions
-       (planId=${plan.id}, todoId=${todo.id})}">
-      실행 기록 보기
-    </a>
-  </p>
+      <a class="filter-chip"
+         th:href="@{/plans/{planId}/todos(planId=${plan.id})}">
+        전체
+      </a>
 
-</article>
+      <a class="filter-chip"
+         th:href="@{/plans/{planId}/todos
+                    (planId=${plan.id}, status='progress')}">
+        진행 중
+      </a>
+
+      <a class="filter-chip"
+         th:href="@{/plans/{planId}/todos
+                    (planId=${plan.id}, status='completed')}">
+        완료
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="filter-block">
+
+        <span class="filter-label">
+            우선순위
+        </span>
+
+    <div class="filter-chips">
+
+      <a class="filter-chip"
+         th:each="priority : ${priorities}"
+         th:href="@{/plans/{planId}/todos
+                    (planId=${plan.id}, priority=${priority})}"
+         th:text="${priority.label}">
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="sort-guide">
+    정렬 기준:
+    미완료 먼저 →
+    우선순위 높은 순 →
+    마감일 빠른 순 →
+    ID 작은 순
+  </div>
+
+</section>
+
+
+<section class="todo-section">
+
+  <div class="section-heading">
+    <div>
+      <span class="section-kicker">TASKS</span>
+      <h2>할 일 목록</h2>
+    </div>
+  </div>
+
+
+  <div class="empty-card"
+       th:if="${#lists.isEmpty(todos)}">
+
+    조건에 맞는 할 일이 없습니다.
+
+  </div>
+
+
+  <div class="todo-grid">
+
+    <article class="todo-card"
+             th:each="todo : ${todos}"
+             th:classappend="${todo.completed} ? ' todo-completed' : ''">
+
+      <div class="todo-card-header">
+
+        <div>
+
+                    <span class="todo-state"
+                          th:classappend="${todo.completed}
+                              ? ' state-completed'
+                              : ' state-progress'"
+                          th:text="${todo.completed
+                              ? '완료'
+                              : '진행 중'}">
+                    </span>
+
+          <h3 th:text="${todo.content}">
+            할 일
+          </h3>
+
+        </div>
+
+        <span class="priority-badge"
+              th:text="${todo.priority.label}">
+                    높음
+                </span>
+
+      </div>
+
+
+      <div class="todo-meta-grid">
+
+        <div class="todo-meta">
+          <span>ID</span>
+          <strong th:text="${todo.id}"></strong>
+        </div>
+
+        <div class="todo-meta">
+          <span>마감일</span>
+          <strong th:text="${todo.dueDate}"></strong>
+        </div>
+
+        <div class="todo-meta">
+          <span>태그</span>
+          <strong th:text="${todo.tag}"></strong>
+        </div>
+
+        <div class="todo-meta">
+          <span>예상 시간</span>
+
+          <strong>
+            <span th:text="${todo.estimatedMinutes}"></span>분
+          </strong>
+        </div>
+
+      </div>
+
+
+      <div class="todo-link-row">
+
+        <a class="small-link"
+           th:href="@{/plans/{planId}/todos/{todoId}/edit
+                      (planId=${plan.id}, todoId=${todo.id})}">
+          수정
+        </a>
+
+        <a class="small-link"
+           th:href="@{/plans/{planId}/todos/{todoId}/executions
+                      (planId=${plan.id}, todoId=${todo.id})}">
+          실행 기록
+        </a>
+
+        <a class="small-link"
+           th:href="@{/plans/{planId}/see(planId=${plan.id})}">
+          See
+        </a>
+
+      </div>
+
+
+      <div class="todo-actions">
+
+        <form th:if="${!todo.completed}"
+              th:action="@{/plans/{planId}/todos/{todoId}/complete
+                         (planId=${plan.id}, todoId=${todo.id})}"
+              method="post">
+
+          <input type="hidden"
+                 name="requestKey"
+                 th:value="${completionKeys[todo.id]}">
+
+          <button type="submit">
+            완료
+          </button>
+
+        </form>
+
+
+        <form th:if="${todo.completed}"
+              th:action="@{/plans/{planId}/todos/{todoId}/reopen
+                         (planId=${plan.id}, todoId=${todo.id})}"
+              method="post">
+
+          <button type="submit">
+            진행 중으로 되돌리기
+          </button>
+
+        </form>
+
+
+        <form th:action="@{/plans/{planId}/todos/{todoId}/delete
+                     (planId=${plan.id}, todoId=${todo.id})}"
+              method="post">
+
+          <button type="submit">
+            삭제
+          </button>
+
+        </form>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<nav class="page-actions">
+
+  <a class="secondary-button"
+     th:href="@{/plans/{planId}(planId=${plan.id})}">
+    계획 상세
+  </a>
+
+  <a class="primary-button"
+     th:href="@{/plans/{planId}/see(planId=${plan.id})}">
+    See - 돌아보기
+  </a>
+
+</nav>
 
 </body>
-
 </html>
