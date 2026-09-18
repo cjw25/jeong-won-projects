@@ -25,7 +25,16 @@ public interface CompletionEventRepository
             @Param("requestKey") String requestKey
     );
 
-    List<CompletionEvent> findByTodoIdOrderByCompletedAtDesc(Long todoId);
+    List<CompletionEvent> findByTodoIdOrderByCompletedAtDesc(
+            Long todoId
+    );
 
-    long countByTodoId(Long todoId);
+    long countByTodoId(
+            Long todoId
+    );
+
+    List<CompletionEvent>
+    findByTodoPlanOwnerUsernameOrderByCompletedAtAsc(
+            String username
+    );
 }

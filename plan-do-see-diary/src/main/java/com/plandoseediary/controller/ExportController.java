@@ -16,6 +16,7 @@ public class ExportController {
 
     private final ExportService exportService;
 
+
     @GetMapping(
             value = "/export",
             produces = MediaType.APPLICATION_JSON_VALUE
@@ -25,12 +26,20 @@ public class ExportController {
         Map<String, Object> data =
                 exportService.exportAll();
 
-        return ResponseEntity.ok()
+        return ResponseEntity
+                .ok()
+
                 .header(
                         HttpHeaders.CONTENT_DISPOSITION,
-                        "attachment; filename=\"plan-do-see-export.json\""
+                        "attachment; filename=\"plan-do-see-user-export.json\""
                 )
-                .contentType(MediaType.APPLICATION_JSON)
-                .body(data);
+
+                .contentType(
+                        MediaType.APPLICATION_JSON
+                )
+
+                .body(
+                        data
+                );
     }
 }

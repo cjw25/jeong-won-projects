@@ -5,9 +5,19 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface PlanRevisionRepository extends JpaRepository<PlanRevision, Long> {
+public interface PlanRevisionRepository
+        extends JpaRepository<PlanRevision, Long> {
 
-    List<PlanRevision> findByPlanIdOrderByRevisionNoAsc(Long planId);
+    List<PlanRevision> findByPlanIdOrderByRevisionNoAsc(
+            Long planId
+    );
 
-    long countByPlanId(Long planId);
+    long countByPlanId(
+            Long planId
+    );
+
+    List<PlanRevision>
+    findByPlanOwnerUsernameOrderByPlanIdAscRevisionNoAsc(
+            String username
+    );
 }

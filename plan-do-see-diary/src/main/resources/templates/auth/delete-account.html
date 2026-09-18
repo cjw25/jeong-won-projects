@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        계정 삭제 - Plan Do See Diary
+    </title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+
+<body>
+
+<header class="page-header">
+
+    <div>
+
+        <span class="page-kicker">
+            ACCOUNT
+        </span>
+
+        <h1>
+            계정 삭제
+        </h1>
+
+        <p class="page-description">
+            계정을 삭제하면 계정에 속한 모든 자료도 함께 삭제됩니다.
+        </p>
+
+    </div>
+
+
+    <a class="header-link"
+       th:href="@{/}">
+        홈으로
+    </a>
+
+</header>
+
+
+<section class="plan-detail-card">
+
+    <div class="public-notice">
+
+        <strong>
+            계정을 삭제하면 계획, 계획 수정 이력, 할 일,
+            실행 기록, 완료 기록, 돌아보기와 5일 실제 사용 기록이
+            함께 삭제되며 복구할 수 없습니다.
+        </strong>
+
+    </div>
+
+
+    <form th:action="@{/account/delete}"
+          th:object="${deleteAccountForm}"
+          method="post">
+
+
+        <div>
+
+            <label for="password">
+                현재 비밀번호
+            </label>
+
+            <input id="password"
+                   type="password"
+                   name="password"
+                   autocomplete="current-password"
+                   required>
+
+            <p th:if="${#fields.hasErrors('password')}"
+               th:errors="*{password}">
+            </p>
+
+        </div>
+
+
+        <p th:if="${deleteAccountError}"
+           th:text="${deleteAccountError}">
+        </p>
+
+
+        <button type="submit">
+            계정과 내 자료 삭제
+        </button>
+
+    </form>
+
+</section>
+
+</body>
+
+</html>

@@ -4,11 +4,12 @@ import com.plandoseediary.domain.Plan;
 import com.plandoseediary.domain.Priority;
 import com.plandoseediary.domain.Todo;
 import com.plandoseediary.repository.CompletionEventRepository;
-import com.plandoseediary.repository.PlanRepository;
 import com.plandoseediary.repository.TodoRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
 import java.util.Comparator;
@@ -20,8 +21,9 @@ import java.util.List;
 public class TodoService {
 
     private final TodoRepository todoRepository;
-    private final PlanRepository planRepository;
     private final CompletionEventRepository completionEventRepository;
+    private final PlanService planService;
+    private final CurrentUserService currentUserService;
 
     private final Comparator<Todo> todoComparator =
             Comparator
@@ -33,13 +35,17 @@ public class TodoService {
                     .thenComparing(Todo::getDueDate)
                     .thenComparing(Todo::getId);
 
+
     private int priorityOrder(Priority priority) {
+
         return switch (priority) {
+
             case HIGH -> 0;
             case MEDIUM -> 1;
             case LOW -> 2;
         };
     }
+
 
     public Todo createTodo(
             Long planId,
@@ -49,14 +55,16 @@ public class TodoService {
             String tag,
             Integer estimatedMinutes
     ) {
-        Plan plan = planRepository.findById(planId)
-                .orElseThrow(() ->
-                        new IllegalArgumentException(
-                                "계획을 찾을 수 없습니다. id=" + planId
-                        )
-                );
 
-        Todo todo = new Todo();
+        /*
+         * 현재 로그인 사용자의 계획인지 먼저 확인.
+         * 남의 계획이면 404.
+         */
+        Plan plan =
+                planService.findById(planId);
+
+        Todo todo =
+                new Todo();
 
         todo.setPlan(plan);
         todo.setContent(content);
@@ -70,26 +78,56 @@ public class TodoService {
         return todoRepository.save(todo);
     }
 
+
     @Transactional(readOnly = true)
-    public Todo findById(Long todoId) {
-        return todoRepository.findById(todoId)
+    public Todo findById(
+            Long planId,
+            Long todoId
+    ) {
+
+        String username =
+                currentUserService
+                        .getCurrentUsername();
+
+        return todoRepository
+                .findByIdAndPlanIdAndPlanOwnerUsername(
+                        todoId,
+                        planId,
+                        username
+                )
                 .orElseThrow(() ->
-                        new IllegalArgumentException(
-                                "할 일을 찾을 수 없습니다. id=" + todoId
+                        new ResponseStatusException(
+                                HttpStatus.NOT_FOUND,
+                                "할 일을 찾을 수 없습니다."
                         )
                 );
     }
 
+
     @Transactional(readOnly = true)
-    public List<Todo> findAllByPlan(Long planId) {
+    public List<Todo> findAllByPlan(
+            Long planId
+    ) {
+
+        planService.findById(planId);
+
+        String username =
+                currentUserService
+                        .getCurrentUsername();
+
         return todoRepository
-                .findByPlanIdAndDeletedFalse(planId)
+                .findByPlanIdAndPlanOwnerUsernameAndDeletedFalse(
+                        planId,
+                        username
+                )
                 .stream()
                 .sorted(todoComparator)
                 .toList();
     }
 
+
     public Todo updateTodo(
+            Long planId,
             Long todoId,
             String content,
             LocalDate dueDate,
@@ -97,11 +135,17 @@ public class TodoService {
             String tag,
             Integer estimatedMinutes
     ) {
-        Todo todo = findById(todoId);
+
+        Todo todo =
+                findById(
+                        planId,
+                        todoId
+                );
 
         if (todo.isDeleted()) {
-            throw new IllegalStateException(
-                    "삭제된 할 일은 수정할 수 없습니다."
+
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND
             );
         }
 
@@ -109,47 +153,66 @@ public class TodoService {
         todo.setDueDate(dueDate);
         todo.setPriority(priority);
         todo.setTag(tag);
-        todo.setEstimatedMinutes(estimatedMinutes);
+        todo.setEstimatedMinutes(
+                estimatedMinutes
+        );
 
         return todoRepository.save(todo);
     }
 
+
     public Todo completeTodo(
+            Long planId,
             Long todoId,
             String requestKey
     ) {
-        Todo todo = findById(todoId);
+
+        Todo todo =
+                findById(
+                        planId,
+                        todoId
+                );
 
         if (todo.isDeleted()) {
-            throw new IllegalStateException(
-                    "삭제된 할 일은 완료 처리할 수 없습니다."
+
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND
             );
         }
 
         int inserted =
-                completionEventRepository.insertIfAbsent(
-                        todoId,
-                        requestKey
-                );
+                completionEventRepository
+                        .insertIfAbsent(
+                                todoId,
+                                requestKey
+                        );
 
-        /*
-         * 같은 requestKey가 이미 존재하면 inserted == 0.
-         * 즉 연속 요청이 다시 들어와도 완료 기록은 추가되지 않는다.
-         */
         if (inserted == 1) {
+
             todo.setCompleted(true);
+
             todoRepository.save(todo);
         }
 
         return todo;
     }
 
-    public Todo reopenTodo(Long todoId) {
-        Todo todo = findById(todoId);
+
+    public Todo reopenTodo(
+            Long planId,
+            Long todoId
+    ) {
+
+        Todo todo =
+                findById(
+                        planId,
+                        todoId
+                );
 
         if (todo.isDeleted()) {
-            throw new IllegalStateException(
-                    "삭제된 할 일은 되돌릴 수 없습니다."
+
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND
             );
         }
 
@@ -158,27 +221,59 @@ public class TodoService {
         return todoRepository.save(todo);
     }
 
-    public void deleteTodo(Long todoId) {
-        Todo todo = findById(todoId);
+
+    public void deleteTodo(
+            Long planId,
+            Long todoId
+    ) {
+
+        Todo todo =
+                findById(
+                        planId,
+                        todoId
+                );
 
         todo.setDeleted(true);
 
         todoRepository.save(todo);
     }
 
+
     @Transactional(readOnly = true)
-    public long countCompletionEvents(Long todoId) {
-        return completionEventRepository.countByTodoId(todoId);
+    public long countCompletionEvents(
+            Long planId,
+            Long todoId
+    ) {
+
+        Todo todo =
+                findById(
+                        planId,
+                        todoId
+                );
+
+        return completionEventRepository
+                .countByTodoId(
+                        todo.getId()
+                );
     }
+
 
     @Transactional(readOnly = true)
     public List<Todo> search(
             Long planId,
             String keyword
     ) {
+
+        planService.findById(planId);
+
+        String username =
+                currentUserService
+                        .getCurrentUsername();
+
         return todoRepository
-                .findByPlanIdAndDeletedFalseAndContentContainingIgnoreCase(
+                .findByPlanIdAndPlanOwnerUsernameAndDeletedFalseAndContentContainingIgnoreCase(
                         planId,
+                        username,
                         keyword
                 )
                 .stream()
@@ -186,14 +281,23 @@ public class TodoService {
                 .toList();
     }
 
+
     @Transactional(readOnly = true)
     public List<Todo> filterByCompleted(
             Long planId,
             boolean completed
     ) {
+
+        planService.findById(planId);
+
+        String username =
+                currentUserService
+                        .getCurrentUsername();
+
         return todoRepository
-                .findByPlanIdAndDeletedFalseAndCompleted(
+                .findByPlanIdAndPlanOwnerUsernameAndDeletedFalseAndCompleted(
                         planId,
+                        username,
                         completed
                 )
                 .stream()
@@ -201,14 +305,23 @@ public class TodoService {
                 .toList();
     }
 
+
     @Transactional(readOnly = true)
     public List<Todo> filterByPriority(
             Long planId,
             Priority priority
     ) {
+
+        planService.findById(planId);
+
+        String username =
+                currentUserService
+                        .getCurrentUsername();
+
         return todoRepository
-                .findByPlanIdAndDeletedFalseAndPriority(
+                .findByPlanIdAndPlanOwnerUsernameAndDeletedFalseAndPriority(
                         planId,
+                        username,
                         priority
                 )
                 .stream()
@@ -216,14 +329,23 @@ public class TodoService {
                 .toList();
     }
 
+
     @Transactional(readOnly = true)
     public List<Todo> filterByTag(
             Long planId,
             String tag
     ) {
+
+        planService.findById(planId);
+
+        String username =
+                currentUserService
+                        .getCurrentUsername();
+
         return todoRepository
-                .findByPlanIdAndDeletedFalseAndTagContainingIgnoreCase(
+                .findByPlanIdAndPlanOwnerUsernameAndDeletedFalseAndTagContainingIgnoreCase(
                         planId,
+                        username,
                         tag
                 )
                 .stream()

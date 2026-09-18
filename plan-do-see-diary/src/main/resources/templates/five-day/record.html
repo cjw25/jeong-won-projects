@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>
+    오늘 기록 - Plan Do See Diary
+  </title>
+
+  <link rel="stylesheet"
+        th:href="@{/css/style.css}">
+
+</head>
+
+
+<body>
+
+<header class="page-header">
+
+  <div>
+
+        <span class="page-kicker">
+            DAILY RECORD
+        </span>
+
+    <h1>
+      DAY
+      <span th:text="${dayNumber}">
+                1
+            </span>
+    </h1>
+
+    <p class="page-description">
+      오늘 실제 사용 결과만 기록합니다.
+    </p>
+
+  </div>
+
+
+  <a class="header-link"
+     th:href="@{/five-day}">
+
+    5일 기록으로
+
+  </a>
+
+</header>
+
+
+<section class="plan-detail-card">
+
+  <div class="plan-detail-grid">
+
+    <div class="plan-detail-item">
+
+            <span>
+                실제 날짜
+            </span>
+
+      <strong th:text="${today}">
+      </strong>
+
+    </div>
+
+
+    <div class="plan-detail-item">
+
+            <span>
+                지표
+            </span>
+
+      <strong th:text="${experiment.metricName}">
+      </strong>
+
+    </div>
+
+
+    <div class="plan-detail-item plan-detail-wide">
+
+            <span>
+                현재 적용 규칙
+            </span>
+
+      <strong th:text="${
+                experiment.ruleChanged
+                ? experiment.changedPlanRule
+                : experiment.originalPlanRule
+            }">
+      </strong>
+
+    </div>
+
+  </div>
+
+
+  <form th:action="@{/five-day/records}"
+        th:object="${fiveDayRecordForm}"
+        method="post">
+
+    <div>
+
+      <label for="metricValue">
+        실제 집중 시간
+        (<span th:text="${experiment.unit}">분</span>)
+      </label>
+
+      <input id="metricValue"
+             type="number"
+             min="0"
+             th:field="*{metricValue}"
+             required>
+
+      <p th:if="${#fields.hasErrors('metricValue')}"
+         th:errors="*{metricValue}">
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <label for="note">
+        오늘 기록
+      </label>
+
+      <textarea id="note"
+                th:field="*{note}"
+                placeholder="오늘 실제로 어떻게 진행했는지 간단히 적습니다.">
+            </textarea>
+
+    </div>
+
+
+    <p th:if="${recordError}"
+       th:text="${recordError}">
+    </p>
+
+
+    <button type="submit">
+      오늘 기록 저장
+    </button>
+
+  </form>
+
+</section>
+
+</body>
+
+</html>

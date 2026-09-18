@@ -10,7 +10,9 @@ import java.util.List;
 public interface ExecutionRecordRepository
         extends JpaRepository<ExecutionRecord, Long> {
 
-    List<ExecutionRecord> findByTodoIdOrderByStartedAtDesc(Long todoId);
+    List<ExecutionRecord> findByTodoIdOrderByStartedAtDesc(
+            Long todoId
+    );
 
     @Query("""
             SELECT e
@@ -22,5 +24,10 @@ public interface ExecutionRecordRepository
             """)
     List<ExecutionRecord> findActiveRecordsByPlanId(
             @Param("planId") Long planId
+    );
+
+    List<ExecutionRecord>
+    findByTodoPlanOwnerUsernameOrderByStartedAtAsc(
+            String username
     );
 }

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        5일 기록 - Plan Do See Diary
+    </title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+
+<body>
+
+<header class="page-header">
+
+    <div>
+
+        <span class="page-kicker">
+            5 DAY EXPERIMENT
+        </span>
+
+        <h1>
+            5일 실제 사용 기록
+        </h1>
+
+        <p class="page-description">
+            서로 다른 실제 날짜 5일을 같은 지표와 계산 규칙으로 기록합니다.
+        </p>
+
+    </div>
+
+
+    <a class="header-link"
+       th:href="@{/}">
+
+        홈으로
+
+    </a>
+
+</header>
+
+
+<p th:if="${savedMessage}"
+   th:text="${savedMessage}">
+</p>
+
+<p th:if="${ruleChangedMessage}"
+   th:text="${ruleChangedMessage}">
+</p>
+
+
+<section class="plan-detail-card">
+
+    <div class="plan-detail-header">
+
+        <div>
+
+            <span class="summary-label">
+                진행 상태
+            </span>
+
+            <h2>
+                <span th:text="${recordCount}">
+                    0
+                </span>
+                / 5일
+            </h2>
+
+        </div>
+
+
+        <div>
+
+            <a class="primary-button"
+               th:if="${canRecordToday and recordCount < 5}"
+               th:href="@{/five-day/records/new}">
+                오늘 기록하기
+            </a>
+
+
+            <a class="primary-button"
+               th:if="${mustChangeRule}"
+               th:href="@{/five-day/rule-change}">
+                3일차 전 계획 규칙 변경
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <p th:if="${hasTodayRecord}">
+        오늘 날짜 기록은 이미 완료했습니다.
+        다음 기록은 다른 실제 날짜에 작성합니다.
+    </p>
+
+
+    <p th:if="${recordCount == 5}">
+        실제 5일 기록이 모두 완료되었습니다.
+    </p>
+
+
+    <div class="plan-detail-grid">
+
+        <div class="plan-detail-item plan-detail-wide">
+
+            <span>
+                질문
+            </span>
+
+            <strong th:text="${experiment.question}">
+            </strong>
+
+        </div>
+
+
+        <div class="plan-detail-item">
+
+            <span>
+                관찰 지표
+            </span>
+
+            <strong th:text="${experiment.metricName}">
+            </strong>
+
+        </div>
+
+
+        <div class="plan-detail-item">
+
+            <span>
+                단위
+            </span>
+
+            <strong th:text="${experiment.unit}">
+            </strong>
+
+        </div>
+
+
+        <div class="plan-detail-item plan-detail-wide">
+
+            <span>
+                계산 규칙
+            </span>
+
+            <strong th:text="${experiment.calculationRule}">
+            </strong>
+
+        </div>
+
+
+        <div class="plan-detail-item plan-detail-wide">
+
+            <span>
+                최초 계획 규칙
+            </span>
+
+            <strong th:text="${experiment.originalPlanRule}">
+            </strong>
+
+        </div>
+
+
+        <div class="plan-detail-item plan-detail-wide"
+             th:if="${experiment.ruleChanged}">
+
+            <span>
+                변경 후 계획 규칙
+            </span>
+
+            <strong th:text="${experiment.changedPlanRule}">
+            </strong>
+
+        </div>
+
+
+        <div class="plan-detail-item"
+             th:if="${experiment.ruleChanged}">
+
+            <span>
+                규칙 변경 시각
+            </span>
+
+            <strong th:text="${experiment.ruleChangedAt}">
+            </strong>
+
+        </div>
+
+
+        <div class="plan-detail-item plan-detail-wide"
+             th:if="${experiment.ruleChanged}">
+
+            <span>
+                변경 이유
+            </span>
+
+            <strong th:text="${experiment.ruleChangeReason}">
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="dashboard-section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-kicker">
+                SUMMARY
+            </span>
+
+            <h2>
+                합계 · 평균
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="metric-grid">
+
+        <div class="metric-card">
+
+            <span>
+                전체 합계
+            </span>
+
+            <strong>
+                <span th:text="${stats.totalMinutes}">
+                    0
+                </span>
+                분
+            </strong>
+
+        </div>
+
+
+        <div class="metric-card">
+
+            <span>
+                전체 평균
+            </span>
+
+            <strong>
+                <span th:text="${stats.averageMinutes}">
+                    0
+                </span>
+                분
+            </strong>
+
+        </div>
+
+
+        <div class="metric-card">
+
+            <span>
+                기록 일수
+            </span>
+
+            <strong>
+                <span th:text="${recordCount}">
+                    0
+                </span>
+                일
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="dashboard-section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-kicker">
+                BEFORE / AFTER
+            </span>
+
+            <h2>
+                규칙 변경 전후 비교
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <p>
+        비교 지표:
+        <strong th:text="${experiment.metricName}">
+        </strong>
+        /
+        단위:
+        <strong th:text="${experiment.unit}">
+        </strong>
+    </p>
+
+
+    <p>
+        두 구간 모두 같은 계산 규칙을 사용합니다:
+        <strong th:text="${experiment.calculationRule}">
+        </strong>
+    </p>
+
+
+    <div class="metric-grid">
+
+        <div class="metric-card">
+
+            <span>
+                변경 전 기록
+            </span>
+
+            <strong>
+                <span th:text="${stats.beforeCount}">
+                    0
+                </span>
+                일
+            </strong>
+
+        </div>
+
+
+        <div class="metric-card">
+
+            <span>
+                변경 전 합계
+            </span>
+
+            <strong>
+                <span th:text="${stats.beforeTotalMinutes}">
+                    0
+                </span>
+                분
+            </strong>
+
+        </div>
+
+
+        <div class="metric-card">
+
+            <span>
+                변경 전 평균
+            </span>
+
+            <strong>
+                <span th:text="${stats.beforeAverageMinutes}">
+                    0
+                </span>
+                분
+            </strong>
+
+        </div>
+
+
+        <div class="metric-card">
+
+            <span>
+                변경 후 기록
+            </span>
+
+            <strong>
+                <span th:text="${stats.afterCount}">
+                    0
+                </span>
+                일
+            </strong>
+
+        </div>
+
+
+        <div class="metric-card">
+
+            <span>
+                변경 후 합계
+            </span>
+
+            <strong>
+                <span th:text="${stats.afterTotalMinutes}">
+                    0
+                </span>
+                분
+            </strong>
+
+        </div>
+
+
+        <div class="metric-card">
+
+            <span>
+                변경 후 평균
+            </span>
+
+            <strong>
+                <span th:text="${stats.afterAverageMinutes}">
+                    0
+                </span>
+                분
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="revision-section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-kicker">
+                RECORDS
+            </span>
+
+            <h2>
+                실제 기록
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="empty-card"
+         th:if="${#lists.isEmpty(records)}">
+        아직 실제 날짜 기록이 없습니다.
+    </div>
+
+
+    <div class="revision-grid">
+
+        <article class="revision-card"
+                 th:each="record, stat : ${records}">
+
+            <div class="revision-header">
+
+                <div>
+
+                    <span class="revision-label">
+                        DAY
+                    </span>
+
+                    <strong th:text="${stat.index + 1}">
+                        1
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <h3 th:text="${record.recordDate}">
+            </h3>
+
+
+            <div class="revision-meta">
+
+                <div>
+
+                    <span>
+                        값
+                    </span>
+
+                    <strong>
+                        <span th:text="${record.metricValue}">
+                        </span>
+
+                        <span th:text="${experiment.unit}">
+                        </span>
+                    </strong>
+
+                </div>
+
+
+                <div class="revision-wide">
+
+                    <span>
+                        적용 규칙
+                    </span>
+
+                    <strong th:text="${record.appliedPlanRule}">
+                    </strong>
+
+                </div>
+
+
+                <div class="revision-wide">
+
+                    <span>
+                        기록
+                    </span>
+
+                    <strong th:text="${record.note}">
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<section class="info-panel">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-kicker">
+                CALCULATION RULE
+            </span>
+
+            <h2>
+                값 처리 기준
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="rule-list">
+
+        <div class="rule-item">
+
+            <strong>
+                빠진 값
+            </strong>
+
+            <span th:text="${experiment.missingValueRule}">
+            </span>
+
+        </div>
+
+
+        <div class="rule-item">
+
+            <strong>
+                중복 값
+            </strong>
+
+            <span th:text="${experiment.duplicateValueRule}">
+            </span>
+
+        </div>
+
+
+        <div class="rule-item">
+
+            <strong>
+                이상치
+            </strong>
+
+            <span th:text="${experiment.outlierRule}">
+            </span>
+
+        </div>
+
+
+        <div class="rule-item">
+
+            <strong>
+                반올림
+            </strong>
+
+            <span th:text="${experiment.roundingRule}">
+            </span>
+
+        </div>
+
+
+        <div class="rule-item">
+
+            <strong>
+                주 시작
+            </strong>
+
+            <span th:text="${experiment.weekStart}">
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</body>
+
+</html>
