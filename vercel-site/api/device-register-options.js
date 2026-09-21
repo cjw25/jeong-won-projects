@@ -7,11 +7,11 @@ import {
 import {
     getDb,
     getPasskeys
-} from "./lib/db.js";
+} from "../lib/db.js";
 
 import {
     consumeDeviceInvite
-} from "./lib/device-invite.js";
+} from "../lib/device-invite.js";
 
 
 function getWebAuthnConfig(

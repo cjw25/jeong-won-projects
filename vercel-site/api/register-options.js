@@ -8,11 +8,11 @@ import {
     getDb,
     getOrCreateUser,
     getPasskeys
-} from "./lib/db.js";
+} from "../lib/db.js";
 
 import {
     getSession
-} from "./lib/session.js";
+} from "../lib/session.js";
 
 
 /*

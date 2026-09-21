@@ -1,6 +1,6 @@
 import {
     destroySession
-} from "./lib/session.js";
+} from "../lib/session.js";
 
 
 export default async function handler(

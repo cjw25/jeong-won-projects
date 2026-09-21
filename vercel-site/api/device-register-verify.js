@@ -4,11 +4,11 @@ import {
 
 import {
     getDb
-} from "./lib/db.js";
+} from "../lib/db.js";
 
 import {
     createSession
-} from "./lib/session.js";
+} from "../lib/session.js";
 
 
 function getWebAuthnConfig(

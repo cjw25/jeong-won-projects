@@ -8,7 +8,7 @@ import {
     getDb,
     findUser,
     getPasskeys
-} from "./lib/db.js";
+} from "../lib/db.js";
 
 
 /*

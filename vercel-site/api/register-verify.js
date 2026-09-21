@@ -6,12 +6,12 @@ import {
     getDb,
     findUser,
     getPasskeys
-} from "./lib/db.js";
+} from "../lib/db.js";
 
 import {
     getSession,
     createSession
-} from "./lib/session.js";
+} from "../lib/session.js";
 
 
 function getWebAuthnConfig(req) {

@@ -1,10 +1,10 @@
 import {
     requireSession
-} from "./lib/session.js";
+} from "../lib/session.js";
 
 import {
     createDeviceInvite
-} from "./lib/device-invite.js";
+} from "../lib/device-invite.js";
 
 
 export default async function handler(

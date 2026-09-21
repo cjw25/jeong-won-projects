@@ -1,11 +1,11 @@
 import {
     getDb,
     initDb
-} from "./lib/db.js";
+} from "../lib/db.js";
 
 import {
     requireSession
-} from "./lib/session.js";
+} from "../lib/session.js";
 
 
 export default async function handler(
