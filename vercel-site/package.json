@@ -1,5 +1,5 @@
 {
-  "name": "cjw-story-passkey",
+  "name": "cjw-passkey-portfolio",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -7,7 +7,7 @@
     "node": ">=22"
   },
   "dependencies": {
-    "@neondatabase/serverless": "1.1.0",
-    "@simplewebauthn/server": "14.0.2"
+    "@simplewebauthn/server": "14.0.2",
+    "pg": "8.23.0"
   }
 }
