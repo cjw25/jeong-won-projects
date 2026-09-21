@@ -1,0 +1,13 @@
+{
+  "name": "cjw-passkey-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@simplewebauthn/server": "14.0.2",
+    "pg": "8.23.0"
+  }
+}
