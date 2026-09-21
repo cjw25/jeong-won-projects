@@ -1,10 +1,481 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+            name="description"
+            content="패스키 인증으로 보호되는 비공개 공간"
+    >
+
+    <title>PRIVATE SPACE | CJW's STORY</title>
+
+    <link
+            rel="stylesheet"
+            href="/css/private.css"
+    >
+
+    <!--
+        SimpleWebAuthn Browser
+
+        브라우저에서:
+        startRegistration()
+        startAuthentication()
+        browserSupportsWebAuthn()
+
+        을 사용할 수 있게 한다.
+    -->
+    <script
+            src="https://unpkg.com/@simplewebauthn/browser@14.0.0/dist/bundle/index.umd.min.js"
+    ></script>
+
 </head>
-<body>
+
+
+<body class="private-body">
+
+<main class="private-shell">
+
+
+    <!-- =============================
+         상단
+    ============================== -->
+    <header class="private-header">
+
+        <a
+                href="/"
+                class="back-link"
+        >
+            ← 공개 소개로 돌아가기
+        </a>
+
+
+        <p class="private-kicker">
+            PASSKEY ONLY
+        </p>
+
+
+        <h1 class="private-title">
+            🔒 PRIVATE SPACE
+        </h1>
+
+
+        <p class="private-description">
+            이 공간은 비밀번호를 사용하지 않습니다.
+            등록된 패스키의 서명을 서버가 공개키로 검증한 경우에만
+            비공개 자료를 불러옵니다.
+        </p>
+
+    </header>
+
+
+
+    <!-- =============================
+         브라우저 지원 여부
+    ============================== -->
+    <section class="panel">
+
+        <h2>
+            패스키 상태
+        </h2>
+
+
+        <p
+                id="browserStatus"
+                class="browser-status"
+        >
+            브라우저 지원 여부 확인 중...
+        </p>
+
+
+        <p
+                id="sessionStatus"
+                class="session-status"
+        >
+            로그인 상태 확인 중...
+        </p>
+
+    </section>
+
+
+
+    <!-- =============================
+         인증 영역
+    ============================== -->
+    <section class="panel">
+
+        <h2>
+            패스키 인증
+        </h2>
+
+
+        <div class="form-grid">
+
+
+            <!-- 계정 -->
+            <div class="field">
+
+                <label for="username">
+                    테스트 계정
+                </label>
+
+
+                <select id="username">
+
+                    <option value="owner-a">
+                        계정 A (owner-a)
+                    </option>
+
+                    <option value="owner-b">
+                        계정 B (owner-b)
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- 패스키 이름 -->
+            <div class="field">
+
+                <label for="passkeyName">
+                    패스키 이름
+                </label>
+
+
+                <input
+                        id="passkeyName"
+                        type="text"
+                        maxlength="100"
+                        value="내 PC 패스키"
+                        autocomplete="off"
+                >
+
+            </div>
+
+        </div>
+
+
+
+        <div class="button-group">
+
+
+            <button
+                    id="registerButton"
+                    type="button"
+                    class="button primary"
+            >
+                패스키 등록
+            </button>
+
+
+            <button
+                    id="loginButton"
+                    type="button"
+                    class="button primary"
+            >
+                패스키로 로그인
+            </button>
+
+
+            <button
+                    id="addPasskeyButton"
+                    type="button"
+                    class="button secondary"
+                    hidden
+            >
+                두 번째 패스키 등록
+            </button>
+
+
+            <button
+                    id="logoutButton"
+                    type="button"
+                    class="button danger"
+                    hidden
+            >
+                로그아웃
+            </button>
+
+        </div>
+
+
+        <p
+                id="message"
+                class="message"
+                aria-live="polite"
+        ></p>
+
+    </section>
+
+
+
+    <!-- =============================
+         등록된 패스키
+    ============================== -->
+    <section
+            id="passkeySection"
+            class="panel"
+            hidden
+    >
+
+        <div class="section-title-row">
+
+            <div>
+
+                <p class="section-kicker">
+                    CREDENTIALS
+                </p>
+
+                <h2>
+                    등록된 패스키
+                </h2>
+
+            </div>
+
+
+            <button
+                    id="refreshPasskeysButton"
+                    type="button"
+                    class="button small secondary"
+            >
+                새로고침
+            </button>
+
+        </div>
+
+
+        <p class="help-text">
+            서버에는 Credential ID와 공개키만 저장합니다.
+            개인키는 서버에 저장하지 않습니다.
+        </p>
+
+
+        <div
+                id="passkeyList"
+                class="passkey-list"
+        ></div>
+
+    </section>
+
+
+
+    <!-- =============================
+         비공개 자료
+    ============================== -->
+    <section
+            class="panel private-data-panel"
+    >
+
+        <div class="section-title-row">
+
+            <div>
+
+                <p class="section-kicker">
+                    PRIVATE DATA
+                </p>
+
+                <h2>
+                    나만 보는 자리
+                </h2>
+
+            </div>
+
+
+            <button
+                    id="refreshPrivateButton"
+                    type="button"
+                    class="button small secondary"
+                    hidden
+            >
+                다시 불러오기
+            </button>
+
+        </div>
+
+
+        <!--
+            주의
+
+            실제 비공개 내용을
+            HTML 안에 적지 않는다.
+
+            로그인 성공 후
+            /api/private-items에서만 받는다.
+        -->
+        <div
+                id="privateItems"
+                class="private-items"
+        >
+
+            <div class="locked-box">
+
+                <strong>
+                    🔒 잠겨 있습니다.
+                </strong>
+
+                <p>
+                    패스키 인증 후 서버에서 비공개 자료를 불러옵니다.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <p class="fake-data-note">
+            ※ 이 페이지에서 사용하는 비공개 자료는 모두 과제용으로
+            만들어 넣은 데이터이며 실제 개인정보가 아닙니다.
+        </p>
+
+    </section>
+
+
+
+    <!-- =============================
+         과제 검증 도구
+    ============================== -->
+    <section
+            id="testSection"
+            class="panel"
+            hidden
+    >
+
+        <p class="section-kicker">
+            SECURITY TEST
+        </p>
+
+        <h2>
+            인증 검증 테스트
+        </h2>
+
+
+        <p class="help-text">
+            과제 증거 캡처용 기능입니다.
+            개발자 도구 Network 탭을 함께 열어 확인할 수 있습니다.
+        </p>
+
+
+        <div class="test-grid">
+
+
+            <!-- 다른 사용자 접근 -->
+            <div class="test-card">
+
+                <h3>
+                    다른 계정 접근
+                </h3>
+
+                <p>
+                    현재 로그인한 사용자가 다른 계정의
+                    비공개 자료를 요청합니다.
+                </p>
+
+                <button
+                        id="otherUserTestButton"
+                        type="button"
+                        class="button secondary"
+                >
+                    다른 계정 접근 테스트
+                </button>
+
+            </div>
+
+
+
+            <!-- userId 조작 -->
+            <div class="test-card">
+
+                <h3>
+                    URL userId 조작
+                </h3>
+
+                <p>
+                    userId를 임의로 바꿔도 서버 세션 사용자의
+                    자료만 반환되는지 확인합니다.
+                </p>
+
+                <button
+                        id="userIdTestButton"
+                        type="button"
+                        class="button secondary"
+                >
+                    userId 조작 테스트
+                </button>
+
+            </div>
+
+
+
+            <!-- challenge replay -->
+            <div class="test-card">
+
+                <h3>
+                    Challenge 재사용
+                </h3>
+
+                <p>
+                    방금 성공한 로그인 요청을 그대로 다시 전송합니다.
+                </p>
+
+                <button
+                        id="replayButton"
+                        type="button"
+                        class="button secondary"
+                        disabled
+                >
+                    Challenge 재사용 테스트
+                </button>
+
+            </div>
+
+
+
+            <!-- 잘못된 서명 -->
+            <div class="test-card">
+
+                <h3>
+                    잘못된 서명
+                </h3>
+
+                <p>
+                    정상 인증 응답의 서명을 의도적으로 변경하여
+                    서버가 거부하는지 확인합니다.
+                </p>
+
+                <button
+                        id="badSignatureButton"
+                        type="button"
+                        class="button secondary"
+                >
+                    잘못된 서명 테스트
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <pre
+                id="testResult"
+                class="test-result"
+        >아직 테스트하지 않았습니다.</pre>
+
+    </section>
+
+
+</main>
+
+
+<script src="/js/private.js"></script>
 
 </body>
+
 </html>

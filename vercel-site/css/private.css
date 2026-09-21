@@ -1,0 +1,903 @@
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    min-height: 100%;
+}
+
+
+body.private-body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    color: #f5f7ff;
+
+    background:
+        radial-gradient(
+            circle at 90% 0%,
+            rgba(84, 98, 255, 0.24),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 0% 100%,
+            rgba(134, 81, 199, 0.18),
+            transparent 40%
+        ),
+        #090b12;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+}
+
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+
+.private-shell {
+
+    width:
+        min(
+            960px,
+            calc(100% - 32px)
+        );
+
+    margin:
+        0 auto;
+
+    padding:
+        50px 0
+        80px;
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.private-header {
+
+    padding-bottom:
+        10px;
+
+}
+
+
+.back-link {
+
+    display:
+        inline-block;
+
+    margin-bottom:
+        28px;
+
+    color:
+        #bdc5ef;
+
+    text-decoration:
+        none;
+
+    font-weight:
+        700;
+
+}
+
+
+.back-link:hover {
+
+    color:
+        #ffffff;
+
+}
+
+
+.private-kicker,
+.section-kicker {
+
+    margin:
+        0;
+
+    color:
+        #99a7ff;
+
+    font-size:
+        0.76rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.2em;
+
+}
+
+
+.private-title {
+
+    margin:
+        9px 0
+        12px;
+
+    font-size:
+        clamp(
+            2.4rem,
+            7vw,
+            4.6rem
+        );
+
+    line-height:
+        1.05;
+
+}
+
+
+.private-description {
+
+    max-width:
+        760px;
+
+    margin:
+        0;
+
+    color:
+        #c3c9d9;
+
+    line-height:
+        1.8;
+
+}
+
+
+/* =========================
+   PANEL
+========================= */
+
+.panel {
+
+    margin-top:
+        24px;
+
+    padding:
+        24px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.13
+        );
+
+    border-radius:
+        20px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.055
+        );
+
+    backdrop-filter:
+        blur(14px);
+
+}
+
+
+.panel h2 {
+
+    margin:
+        5px 0
+        14px;
+
+}
+
+
+.browser-status,
+.session-status {
+
+    margin:
+        8px 0;
+
+    line-height:
+        1.6;
+
+}
+
+
+.section-title-row {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap:
+        16px;
+
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.form-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        14px;
+
+}
+
+
+.field {
+
+    display:
+        grid;
+
+    gap:
+        7px;
+
+}
+
+
+.field label {
+
+    color:
+        #bec5d6;
+
+    font-size:
+        0.85rem;
+
+    font-weight:
+        700;
+
+}
+
+
+.field select,
+.field input {
+
+    width:
+        100%;
+
+    padding:
+        12px
+        14px;
+
+    color:
+        #ffffff;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.18
+        );
+
+    border-radius:
+        10px;
+
+    outline:
+        none;
+
+    background:
+        #111521;
+
+}
+
+
+.field select:focus,
+.field input:focus {
+
+    border-color:
+        #8390ff;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            131,
+            144,
+            255,
+            0.15
+        );
+
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.button-group {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        10px;
+
+    margin-top:
+        18px;
+
+}
+
+
+.button,
+.passkey-delete {
+
+    border:
+        0;
+
+    border-radius:
+        999px;
+
+    padding:
+        11px
+        17px;
+
+    cursor:
+        pointer;
+
+    font-weight:
+        800;
+
+    transition:
+        transform 0.15s,
+        opacity 0.15s;
+
+}
+
+
+.button:hover:not(:disabled),
+.passkey-delete:hover {
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+.button:disabled {
+
+    cursor:
+        not-allowed;
+
+    opacity:
+        0.45;
+
+}
+
+
+.button.primary {
+
+    color:
+        #11131b;
+
+    background:
+        #ffffff;
+
+}
+
+
+.button.secondary {
+
+    color:
+        #ffffff;
+
+    background:
+        #30374d;
+
+}
+
+
+.button.danger,
+.passkey-delete {
+
+    color:
+        #ffdce5;
+
+    background:
+        #542a37;
+
+}
+
+
+.button.small {
+
+    padding:
+        9px 14px;
+
+    font-size:
+        0.85rem;
+
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+
+    min-height:
+        1.6em;
+
+    margin:
+        17px 0
+        0;
+
+    color:
+        #bac2d3;
+
+    line-height:
+        1.6;
+
+}
+
+
+.message[data-type="success"] {
+
+    color:
+        #99edb7;
+
+}
+
+
+.message[data-type="error"] {
+
+    color:
+        #ffb5c4;
+
+}
+
+
+/* =========================
+   PASSKEY LIST
+========================= */
+
+.help-text {
+
+    color:
+        #aab2c4;
+
+    line-height:
+        1.65;
+
+}
+
+
+.passkey-list {
+
+    display:
+        grid;
+
+    gap:
+        8px;
+
+    margin-top:
+        16px;
+
+}
+
+
+.passkey-row {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        18px;
+
+    padding:
+        14px 0;
+
+    border-top:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.1
+        );
+
+}
+
+
+.passkey-row strong {
+
+    display:
+        block;
+
+}
+
+
+.passkey-row small {
+
+    display:
+        block;
+
+    margin-top:
+        5px;
+
+    color:
+        #929caf;
+
+    line-height:
+        1.5;
+
+    word-break:
+        break-all;
+
+}
+
+
+/* =========================
+   PRIVATE DATA
+========================= */
+
+.private-items {
+
+    display:
+        grid;
+
+    gap:
+        12px;
+
+    margin-top:
+        16px;
+
+}
+
+
+.private-item {
+
+    padding:
+        17px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.09
+        );
+
+    border-radius:
+        14px;
+
+    background:
+        #111521;
+
+}
+
+
+.private-item h3 {
+
+    margin:
+        0 0
+        8px;
+
+}
+
+
+.private-item p {
+
+    margin:
+        0;
+
+    color:
+        #c4cad8;
+
+    line-height:
+        1.65;
+
+}
+
+
+.locked-box {
+
+    padding:
+        20px;
+
+    border:
+        1px dashed
+        rgba(
+            255,
+            255,
+            255,
+            0.2
+        );
+
+    border-radius:
+        14px;
+
+    color:
+        #aeb6c7;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.16
+        );
+
+}
+
+
+.locked-box strong {
+
+    color:
+        #ffffff;
+
+}
+
+
+.locked-box p {
+
+    margin:
+        8px 0
+        0;
+
+    line-height:
+        1.6;
+
+}
+
+
+.fake-data-note {
+
+    margin:
+        18px 0
+        0;
+
+    color:
+        #919bad;
+
+    font-size:
+        0.83rem;
+
+    line-height:
+        1.6;
+
+}
+
+
+/* =========================
+   TEST
+========================= */
+
+.test-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        12px;
+
+    margin-top:
+        18px;
+
+}
+
+
+.test-card {
+
+    padding:
+        17px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.09
+        );
+
+    border-radius:
+        14px;
+
+    background:
+        #111521;
+
+}
+
+
+.test-card h3 {
+
+    margin:
+        0 0
+        8px;
+
+}
+
+
+.test-card p {
+
+    min-height:
+        3.3em;
+
+    margin:
+        0 0
+        14px;
+
+    color:
+        #aeb6c7;
+
+    line-height:
+        1.6;
+
+}
+
+
+.test-result {
+
+    overflow-x:
+        auto;
+
+    margin:
+        18px 0
+        0;
+
+    padding:
+        16px;
+
+    border-radius:
+        12px;
+
+    color:
+        #dfe5f8;
+
+    background:
+        #05070c;
+
+    line-height:
+        1.5;
+
+    white-space:
+        pre-wrap;
+
+    word-break:
+        break-word;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (
+    max-width: 700px
+) {
+
+    .private-shell {
+
+        width:
+            min(
+                94%,
+                960px
+            );
+
+        padding-top:
+            30px;
+
+    }
+
+
+    .panel {
+
+        padding:
+            18px;
+
+    }
+
+
+    .form-grid,
+    .test-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .section-title-row {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .passkey-row {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .passkey-delete {
+
+        width:
+            100%;
+
+    }
+
+
+    .button-group {
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .button-group .button {
+
+        width:
+            100%;
+
+    }
+
+}
