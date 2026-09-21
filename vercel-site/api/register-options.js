@@ -292,33 +292,21 @@ export default async function handler(
                 userDisplayName:
                     user.display_name,
 
-                /*
-                 * 과제에서는
-                 * Attestation 인증서 정보가
-                 * 필요하지 않음.
-                 */
                 attestationType:
                     "none",
 
-                /*
-                 * 이미 등록한 Credential을
-                 * 다시 등록하지 못하도록 함.
-                 */
                 excludeCredentials:
                     existingPasskeys.map(
                         passkey => ({
 
                             id:
-                                passkey
-                                    .credential_id,
+                                passkey.credential_id,
 
                             transports:
                                 Array.isArray(
-                                    passkey
-                                        .transports
+                                    passkey.transports
                                 )
-                                    ? passkey
-                                        .transports
+                                    ? passkey.transports
                                     : []
 
                         })
@@ -335,11 +323,18 @@ export default async function handler(
                 },
 
                 /*
-                 * ES256, RS256
+                 * 첫 번째 키:
+                 * 현재 장치 사용
                  *
-                 * Ed25519 관련 호환성 문제를
-                 * 피하기 위해 -8 제외.
+                 * 두 번째 이상:
+                 * iPhone / Android 같은
+                 * 원격 장치를 우선 표시
                  */
+                preferredAuthenticatorType:
+                    existingPasskeys.length === 0
+                        ? "localDevice"
+                        : "remoteDevice",
+
                 supportedAlgorithmIDs:
                     [
                         -7,
