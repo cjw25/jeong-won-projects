@@ -326,24 +326,9 @@ export default async function handler(
 
                 authenticatorSelection: {
 
-                    /*
-                     * USB 보안키가 아니라
-                     * 현재 PC/휴대폰에 내장된 인증기 사용
-                     *
-                     * Windows에서는 Windows Hello
-                     */
-                    authenticatorAttachment:
-                        "platform",
-
-                    /*
-                     * 패스키로 저장
-                     */
                     residentKey:
                         "required",
 
-                    /*
-                     * PIN / 지문 / 얼굴 인증 요구
-                     */
                     userVerification:
                         "required"
 
