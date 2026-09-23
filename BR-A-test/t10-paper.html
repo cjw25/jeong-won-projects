@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>T10 · SBOM 공급망 보안 연구 | 최정원</title>
+
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        html {
+          scroll-behavior: smooth;
+        }
+
+        body {
+          margin: 0;
+          background: #f7f8fa;
+          color: #101828;
+          font-family:
+            Pretendard,
+            "Noto Sans KR",
+            "Malgun Gothic",
+            system-ui,
+            sans-serif;
+          line-height: 1.75;
+        }
+
+        a {
+          color: inherit;
+        }
+
+        .wrap {
+          width: min(920px, calc(100% - 40px));
+          margin: 0 auto;
+        }
+
+        header {
+          background: #fff;
+          border-bottom: 1px solid #e4e7ec;
+        }
+
+        .topbar {
+          min-height: 68px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .brand {
+          font-weight: 900;
+          text-decoration: none;
+        }
+
+        .back {
+          color: #0f766e;
+          font-weight: 700;
+          text-decoration: none;
+        }
+
+        main {
+          padding: 70px 0 100px;
+        }
+
+        .eyebrow {
+          color: #0f766e;
+          font-size: 13px;
+          font-weight: 900;
+          letter-spacing: .12em;
+        }
+
+        h1 {
+          margin: 12px 0 18px;
+          font-size: clamp(34px, 5vw, 56px);
+          line-height: 1.18;
+          letter-spacing: -.04em;
+        }
+
+        .meta {
+          color: #667085;
+          margin-bottom: 48px;
+        }
+
+        section {
+          margin: 25px 0;
+          padding: 32px;
+          background: #fff;
+          border: 1px solid #e4e7ec;
+          border-radius: 18px;
+        }
+
+        h2 {
+          margin-top: 0;
+          font-size: 25px;
+          letter-spacing: -.02em;
+        }
+
+        p {
+          margin: 0 0 15px;
+        }
+
+        ul {
+          padding-left: 22px;
+        }
+
+        .result-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 14px;
+          margin-top: 24px;
+        }
+
+        .result {
+          padding: 20px;
+          background: #ecfdf5;
+          border-radius: 14px;
+        }
+
+        .result span {
+          color: #667085;
+          font-size: 13px;
+        }
+
+        .result strong {
+          display: block;
+          color: #0f766e;
+          font-size: 30px;
+          line-height: 1.2;
+          margin-top: 4px;
+        }
+
+        code {
+          padding: 2px 6px;
+          border-radius: 5px;
+          background: #f2f4f7;
+        }
+
+        pre {
+          overflow-x: auto;
+          padding: 20px;
+          border-radius: 12px;
+          background: #101828;
+          color: #f9fafb;
+          line-height: 1.6;
+        }
+
+        .notice {
+          border-left: 4px solid #0f766e;
+          padding-left: 20px;
+          color: #475467;
+        }
+
+        .footer-link {
+          display: inline-block;
+          margin-top: 30px;
+          padding: 12px 18px;
+          background: #0f766e;
+          color: #fff;
+          border-radius: 9px;
+          text-decoration: none;
+          font-weight: 800;
+        }
+
+        @media (max-width: 700px) {
+          .result-grid {
+            grid-template-columns: 1fr;
+          }
+
+          section {
+            padding: 23px;
+          }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="wrap topbar">
+        <a class="brand" href="./index.html">
+            최정원
+        </a>
+
+        <a class="back" href="./index.html#works">
+            ← 포트폴리오로 돌아가기
+        </a>
+    </div>
+</header>
+
+<main class="wrap">
+
+    <p class="eyebrow">
+        T10 · SECURITY RESEARCH
+    </p>
+
+    <h1>
+        SBOM을 통한 전이 의존성 가시성 확대가
+        취약 구성요소 식별 범위에 미치는 영향
+    </h1>
+
+    <p class="meta">
+        작성자 · 최정원<br>
+        실험일 · 2026-09-22
+    </p>
+
+
+    <section>
+        <h2>연구 가설</h2>
+
+        <p>
+            동일한 소프트웨어 프로젝트에서 직접 의존성만 확인하는 방식보다
+            SBOM을 이용해 전이 의존성까지 확인하는 방식이
+            식별 가능한 취약 구성요소의 수를 증가시킬 것이다.
+        </p>
+    </section>
+
+
+    <section>
+        <h2>실험 방법</h2>
+
+        <p>
+            Java/Gradle 기반 의존성 구성 10개를 대상으로 실험하였다.
+        </p>
+
+        <p>
+            첫 번째 조건에서는 직접 의존성만 분석하고,
+            두 번째 조건에서는 CycloneDX SBOM에 포함된
+            직접·전이 의존성 전체를 분석했다.
+        </p>
+
+        <p>
+            취약 구성요소 확인에는 OSV 취약점 데이터베이스를 사용했다.
+        </p>
+    </section>
+
+
+    <section>
+        <h2>실험 결과</h2>
+
+        <ul>
+            <li>직접 의존성 수 합계: 21개</li>
+            <li>SBOM 구성요소 수 합계: 72개</li>
+            <li>직접 분석 취약 구성요소 식별: 17건</li>
+            <li>SBOM 분석 취약 구성요소 식별: 38건</li>
+            <li>추가 식별: 21건</li>
+            <li>추가 발견이 있었던 프로젝트: 7/10</li>
+        </ul>
+
+        <div class="result-grid">
+
+            <article class="result">
+                <span>직접 분석</span>
+                <strong>17건</strong>
+            </article>
+
+            <article class="result">
+                <span>SBOM 분석</span>
+                <strong>38건</strong>
+            </article>
+
+            <article class="result">
+                <span>추가 식별</span>
+                <strong>21건</strong>
+            </article>
+
+        </div>
+    </section>
+
+
+    <section>
+        <h2>결론</h2>
+
+        <p>
+            본 실험 범위에서는 SBOM을 통해 전이 의존성까지 분석했을 때
+            직접 의존성만 분석한 경우보다 더 많은 취약 구성요소가
+            식별되었다.
+        </p>
+
+        <p class="notice">
+            단, 이 결과는 SBOM 자체가 취약점을 제거하거나
+            소프트웨어 전체의 보안성을 보장한다는 의미는 아니다.
+        </p>
+    </section>
+
+
+    <section>
+        <h2>재현 자료</h2>
+
+        <p>
+            실험 패키지는 원본 데이터, SBOM, OSV 결과,
+            분석 결과 및 재현 스크립트로 구성했다.
+        </p>
+
+        <pre>paper/
+  T10_최정원_논문.md
+
+raw/
+  measurements.csv
+  run_metadata.json
+  sbom/
+  osv/
+
+analysis/
+  results_summary.csv
+  results_summary.md
+
+scripts/
+  create_projects.py
+  collect_osv.py
+  analyze_results.py
+  verify_package.py
+
+fixtures_manifest.csv
+01_experiment_design.md
+design_changes.md
+run_all.ps1
+README.md</pre>
+    </section>
+
+
+    <section>
+        <h2>실행 환경</h2>
+
+        <ul>
+            <li>Eclipse Temurin OpenJDK 17.0.20.1</li>
+            <li>Python 3.14.7</li>
+            <li>Gradle 8.14.3</li>
+            <li>CycloneDX Gradle Plugin 3.4.1</li>
+        </ul>
+
+        <p>PowerShell에서 전체 재현:</p>
+
+        <pre>Set-ExecutionPolicy -Scope Process Bypass
+.\run_all.ps1</pre>
+    </section>
+
+
+    <a
+            class="footer-link"
+            href="./index.html#works"
+    >
+        ← 대표작으로 돌아가기
+    </a>
+
+</main>
+
+</body>
+</html>
