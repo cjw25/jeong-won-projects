@@ -1,0 +1,11 @@
+﻿project_id,direct_dependency_count,sbom_component_count,direct_vulnerable_component_count,sbom_vulnerable_component_count,additional_vulnerable_components,direct_vulnerability_id_count,sbom_vulnerability_id_count
+P01_web,2,12,2,7,5,24,42
+P02_logging,2,5,2,4,2,4,11
+P03_http,2,9,0,2,2,0,3
+P04_database,2,3,2,2,0,5,5
+P05_dataformat,2,2,1,1,0,7,7
+P06_security,2,11,2,9,7,10,32
+P07_network,2,7,2,4,2,25,30
+P08_messaging,2,6,2,4,2,12,19
+P09_template,2,7,1,1,0,3,3
+P10_utils,3,10,3,4,1,5,6

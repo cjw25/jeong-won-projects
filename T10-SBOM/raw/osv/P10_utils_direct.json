@@ -1,0 +1,95 @@
+{
+  "project_id": "P10_utils",
+  "condition": "direct",
+  "queried_at_utc": "2026-09-22T01:07:06.045001+00:00",
+  "source": "https://api.osv.dev/v1/querybatch",
+  "packages": [
+    {
+      "group": "com.google.guava",
+      "artifact": "guava",
+      "version": "31.0.1-jre"
+    },
+    {
+      "group": "org.apache.commons",
+      "artifact": "commons-compress",
+      "version": "1.21"
+    },
+    {
+      "group": "org.apache.commons",
+      "artifact": "commons-text",
+      "version": "1.9"
+    }
+  ],
+  "api_response": {
+    "results": [
+      {
+        "vulns": [
+          {
+            "id": "GHSA-5mg8-w23w-74h3",
+            "modified": "2026-09-10T03:49:26.651391Z"
+          },
+          {
+            "id": "GHSA-7g45-4rm6-3mm3",
+            "modified": "2026-09-10T03:49:53.859811Z"
+          }
+        ]
+      },
+      {
+        "vulns": [
+          {
+            "id": "GHSA-4265-ccf5-phj5",
+            "modified": "2026-09-10T03:50:05.280645Z"
+          },
+          {
+            "id": "GHSA-4g9r-vxhx-9pgx",
+            "modified": "2026-09-10T03:50:05.286961Z"
+          }
+        ]
+      },
+      {
+        "vulns": [
+          {
+            "id": "GHSA-599f-7c49-w659",
+            "modified": "2024-02-16T08:09:06.872889Z"
+          }
+        ]
+      }
+    ]
+  },
+  "analysis": {
+    "vulnerable_components": [
+      "com.google.guava:guava:31.0.1-jre",
+      "org.apache.commons:commons-compress:1.21",
+      "org.apache.commons:commons-text:1.9"
+    ],
+    "vulnerability_ids": [
+      "GHSA-4265-ccf5-phj5",
+      "GHSA-4g9r-vxhx-9pgx",
+      "GHSA-599f-7c49-w659",
+      "GHSA-5mg8-w23w-74h3",
+      "GHSA-7g45-4rm6-3mm3"
+    ],
+    "component_results": [
+      {
+        "component": "com.google.guava:guava:31.0.1-jre",
+        "vulnerability_ids": [
+          "GHSA-5mg8-w23w-74h3",
+          "GHSA-7g45-4rm6-3mm3"
+        ]
+      },
+      {
+        "component": "org.apache.commons:commons-compress:1.21",
+        "vulnerability_ids": [
+          "GHSA-4265-ccf5-phj5",
+          "GHSA-4g9r-vxhx-9pgx"
+        ]
+      },
+      {
+        "component": "org.apache.commons:commons-text:1.9",
+        "vulnerability_ids": [
+          "GHSA-599f-7c49-w659"
+        ]
+      }
+    ]
+  }
+}

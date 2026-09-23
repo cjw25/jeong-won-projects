@@ -1,0 +1,655 @@
+{
+  "bomFormat" : "CycloneDX",
+  "specVersion" : "1.6",
+  "serialNumber" : "urn:uuid:d40cbb00-1b6e-437a-b487-5c68f7e41c45",
+  "version" : 1,
+  "metadata" : {
+    "timestamp" : "2026-09-22T01:05:31Z",
+    "tools" : {
+      "components" : [
+        {
+          "type" : "application",
+          "author" : "CycloneDX",
+          "name" : "cyclonedx-gradle-plugin",
+          "version" : "3.4.1"
+        }
+      ]
+    },
+    "component" : {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/unspecified/P03_http@unspecified?project_path=%3A",
+      "group" : "",
+      "name" : "P03_http",
+      "version" : "unspecified",
+      "purl" : "pkg:maven/unspecified/P03_http@unspecified?project_path=%3A",
+      "modified" : false
+    }
+  },
+  "components" : [
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/com.squareup.okhttp3/okhttp@4.9.3?type=jar",
+      "group" : "com.squareup.okhttp3",
+      "name" : "okhttp",
+      "version" : "4.9.3",
+      "description" : "Square’s meticulous HTTP client for Java and Kotlin.",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "3b3373ecaff75d5804764ad301807d10"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "b0b14b3d12980912723fb8b66afb48dcda742fcb"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "93ecd6cba19d87dccfe566ec848d91aae799e3cf16c00709358ea69bd9227219"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "0e9cab40f6a06e1fddbce6450c82f3d360e49e140c584ad926d06d1bbcd5ee2974114191e81559b39f2a38b8dbfd664d1088e2e58ff1cbbc67d2cd8b10494ea3"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "161529d586b86758ae60695c1262ea8140a7773f5ab91b1f22cff3bfc591c4d1"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "cc54445a6103cbc0af9ec5cf81d176449485ca371e984ead4950c04556033ff76cb0007971098db43410ad1bb82787f8b238a8ad365579378967a6832eb26121"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "e08deb9bd8ff6f1a5ed3c10096fcb61e5d7cfe274258b3e8702ae5db6216f8fdbe84f93eff02eae914885f7b3e797e75"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "ddd5d47c8847647be5cf34fabc6629a5b4aff20f88d90dafc12aeb767a4589c9e70412a7841973fa0947cfbbf3456ad4"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/com.squareup.okhttp3/okhttp@4.9.3?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/square/okhttp"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/com.squareup.okio/okio@2.8.0?type=jar",
+      "group" : "com.squareup.okio",
+      "name" : "okio",
+      "version" : "2.8.0",
+      "description" : "A modern I/O API for Java",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "48756cee44c4f8403ebd07a8152ea5ba"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "49b64e09d81c0cc84b267edd0c2fd7df5a64c78c"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "4496b06e73982fcdd8a5393f46e5df2ce2fa4465df5895454cac68a32f09bbc8"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "41f347b5e111011f399f7467225e0c8ab94e94f4354537ad1a4d23c6a686ee88eecf4425f59e59a9cdf55aebfb8a26636557d0038a5bb8ceea064a6cf29fe1bf"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "37ac7b6c11b3feab883bd71cfd7911f5b8a0bcb1ba9db72132965a74540cec90"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "abb491e9941cf51af5b4bc459020dfb772676a55160c2b80b8ea14a7b85661656b720f7deed01c67e61799beea6c0d9c7bdd9b79c335a220afa99495d9d9b7df"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "f2ee6a0048c84f1065fa2da5d05b1ec57f74d94421988f284fc1e4a6fe89d8071eb4ff6640a32fc1d6695cd44ec37a20"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "7dda18131b5befe2e1be78a646cbab69bd333fed33477463b3ac14558f4b3ad1f39c150c3ce129ab593a8a77eb5d39cc"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/com.squareup.okio/okio@2.8.0?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/square/okio/"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/commons-codec/commons-codec@1.11?type=jar",
+      "group" : "commons-codec",
+      "name" : "commons-codec",
+      "version" : "1.11",
+      "description" : "The Apache Commons Codec package contains simple encoder and decoders for various formats such as Base64 and Hexadecimal. In addition to these widely used encoders and decoders, the codec package also maintains a collection of phonetic encoding utilities.",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "567159b1ae257a43e1391a8f59d24cfe"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "3acb4705652e16236558f0f4f2192cc33c3bd189"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "e599d5318e97aa48f42136a2927e6dfa4e8881dff0e6c8e3109ddbbff51d7b7d"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "d9586162b257386b5871e7e9ae255a38014a9efaeef5148de5e40a3b0200364dad8516bddd554352aa2e5337bec2cc11df88c76c4fdde96a40f3421aa60650d7"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "90ec34f9701a8b212c65e6167c505ea6417289f910deedcac8517075b8349728"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "101bc04efae2bd16d7923e61bca922c4a006b0e4b34909e0f8865196cb4df4f4f6269737c17880b4dfd0309cb487b806e88d09c6e1a7dc70237563b3f4312f7f"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "9ae3d8fd4c38f3af52c76c5f98039109901cb0f70700e6d9999b27cc4b30b188e2688aa4adcf6b846376bc3ca125907a"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "bd272e22540371e7d834cd897bce9be657293ba9c5584e0d47a4073711dacb524cc59e294e942ffc01613d17ac7d6ac1"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/commons-codec/commons-codec@1.11?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "issue-tracker",
+          "url" : "http://issues.apache.org/jira/browse/CODEC"
+        },
+        {
+          "type" : "vcs",
+          "url" : "http://svn.apache.org/viewvc/commons/proper/codec/trunk"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/commons-logging/commons-logging@1.2?type=jar",
+      "group" : "commons-logging",
+      "name" : "commons-logging",
+      "version" : "1.2",
+      "description" : "Apache Commons Logging is a thin adapter allowing configurable bridging to other, well known logging systems.",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "040b4b4d8eac886f6b4a2a3bd2f31b00"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "4bfc12adfe4842bf07b657f0369c4cb522955686"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "daddea1ea0be0f56978ab3006b8ac92834afeefbd9b7e4e6316fca57df0fa636"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "ed00dbfabd9ae00efa26dd400983601d076fe36408b7d6520084b447e5d1fa527ce65bd6afdcb58506c3a808323d28e88f26cb99c6f5db9ff64f6525ecdfa557"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "9aab62deccf156ee6e324c925dfc30ecb53e8465802863a551901a461424e807"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "3fd76857f6d20c03799537cc961c1c4ddf1c375c6c192fb982363e3b9397ba138b77f24ef38b4202f44e37586789c0320e4de18fdadd2772304fd14a9b26d552"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "ac20720d7156131478205f1b454395abf84cfc8da2f163301af32f63bd3c4764bd26cb54ed53800f33193ae591f3ce9c"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "628eb4407e95dca84da1a06b08a6d9b832a49de8472b1b217e8607f08efeeed18b996232d64dd07f03e78e0e3bb4b078"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/commons-logging/commons-logging@1.2?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "issue-tracker",
+          "url" : "http://issues.apache.org/jira/browse/LOGGING"
+        },
+        {
+          "type" : "vcs",
+          "url" : "http://svn.apache.org/repos/asf/commons/proper/logging/trunk"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.apache.httpcomponents/httpclient@4.5.13?type=jar",
+      "group" : "org.apache.httpcomponents",
+      "name" : "httpclient",
+      "version" : "4.5.13",
+      "description" : "Apache HttpComponents Client",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "40d6b9075fbd28fa10292a45a0db9457"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "e5f6cae5ca7ecaac1ec2827a9e2d65ae2869cada"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "6fe9026a566c6a5001608cf3fc32196641f6c1e5e1986d1037ccdbd5f31ef743"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "3567739186e551f84cad3e4b6b270c5b8b19aba297675a96bcdff3663ff7d20d188611d21f675fe5ff1bfd7d8ca31362070910d7b92ab1b699872a120aa6f089"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "710b1d8d7dae0b8e4270756694ca9c83d64965f42d3b4170c609b14d47c2762c"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "276fa6a6599dc89382d658115695cf4da6b0d39b34e9c349c17a5dbd64122eaee553bb9ed75c0378ec4a83be157c8aa39370662de3c9b8fd55ebc1dd608383e6"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "093ac3e2dde58e34aa70309c7305eb3c9b5be2509a9293f1672494da55479a86bd112e83326746dc7a32855472952b99"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "cd6882e7868624164e460f2f3ea01466f863c0dcb902b031c656b57356f563be83b29530df41d88d634ed3d01fc9964d"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.apache.httpcomponents/httpclient@4.5.13?type=jar",
+      "modified" : false,
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.apache.httpcomponents/httpcore@4.4.13?type=jar",
+      "group" : "org.apache.httpcomponents",
+      "name" : "httpcore",
+      "version" : "4.4.13",
+      "description" : "Apache HttpComponents Core (blocking I/O)",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "e07a248f61c52776a2366c075dcd4963"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "853b96d3afbb7bf8cc303fe27ee96836a10c1834"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "e06e89d40943245fcfa39ec537cdbfce3762aecde8f9c597780d2b00c2b43424"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "23430cde8b9bed33c91474ba49f1143284135df1b25fdcbc37bc3bb7e9549e77b3918eb40250093db652ae200367e87316129b23b4f6987e94939d60f467498d"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "721a9fc1bb353ddf3e438bed4306a3fa5b55ffafb474be5dc8715bd23d7a5afa"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "c78f9d464e4b840e28266658512b1cab0ece1470bef2764deb2dc20ba69b73d526d92a19494ccb87b4408f9235c4294417f2e10ba709469f4bd62d017b9e3cbe"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "b776d57492478c162d428bdd3139be0fa6c3cf4503355c3a04710ca7bc3ee74d66627f49eb42814fd8f8364dbd17aa91"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "f6f9e70b76717b705d040f0b33857f0dde89736f2e6d55ea56585235eb1b6d0ce4d5aa18c82050391ac968dcb5ec29e2"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.apache.httpcomponents/httpcore@4.4.13?type=jar",
+      "modified" : false,
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib-common@1.4.10?type=jar",
+      "group" : "org.jetbrains.kotlin",
+      "name" : "kotlin-stdlib-common",
+      "version" : "1.4.10",
+      "description" : "Kotlin Common Standard Library",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "3063be8b21930539e87a1b70819c46fe"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "6229be3465805c99db1142ad75e6c6ddeac0b04c"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "4681f2d436a68c7523595d84ed5758e1382f9da0f67c91e6a848690d711274fe"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "d4eadef51c1cb8ead3d6d60a028f732e7c2fbe62d556dd532fc04a86718d6b88ced50409a902b331cc8a8ec8df71318df19166aaeb58ca39cf073891117a40e7"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "a1201dd53f65ad0cb34c3a48c8bae87d58f2163d8ab41ecea6edf356ef338036"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "5d628c868187066521e9cb90521193acb4f66084fb2ff956f341ff7b90d604d94bb77eed487ac9152efcf5d7cc493b517fff698e53eb9c554164879e20a4cbb2"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "8a02bc7c047ad94fb3f9f8fa95234784e233985d3473f4e1d1fac8e5bb1d4456a46a372f49ff0ea337d0bb587f6a0d87"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "7e637d7ac09f3b2cc89a563ef49d932c60860fafee58b7765a6833b4a5dc3a25170d7acb65be36eb477277c8a692a14a"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib-common@1.4.10?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/JetBrains/kotlin"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@1.4.10?type=jar",
+      "group" : "org.jetbrains.kotlin",
+      "name" : "kotlin-stdlib",
+      "version" : "1.4.10",
+      "description" : "Kotlin Standard Library for JVM",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "2598f9c67ccfec4cbf6cdc699cac5841"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "ea29e063d2bbe695be13e9d044dcfb0c7add398e"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "01ecb09782c042b931c1839acf21a188340b295d05400afd6e3415d4475b8daa"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "6e1d5138bd557a0c25397d7ebf68cd1dc9e4b367a21655a334c2ea13f8a404b4da8c980888a0a139b3e1289be4e99299e21c33cfc3cc1bb5fade231918f651a1"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "7808d3606f4b2a809a88809408204985293ca0f80e62f7da5cb852b5930abad0"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "bb9b94dbfa5369d8d3698eb10ce7e30973d07c333b72ec5329441604d64e44e5e6a3515fa5eecf32a21f6c19c13e876827abd1b426f5443c6f96c8a611bfbef6"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "a80be3ddc24a7d838d4824fd979daee4946668d2900adc20e9dfb926fdb57676eb4a520fcb553bc40abb1dc1172c5026"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "1d0a39670193a4ceb81800d0680a8e2565ddc46a9746fa389fd1b8d82dbee380b0948c337b8879fa469b422ebe088d22"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@1.4.10?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/JetBrains/kotlin"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.jetbrains/annotations@13.0?type=jar",
+      "group" : "org.jetbrains",
+      "name" : "annotations",
+      "version" : "13.0",
+      "description" : "A set of annotations used for code inspection support and code documentation.",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "f4fb462172517b46b6cd90003508515a"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "919f0dfe192fb4e063e7dacadee7f8bb9a2672a9"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "ace2a10dc8e2d5fd34925ecac03e4988b2c0f851650c94b8cef49ba1bd111478"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "5622d0ffe410e7272e2bb9fae1006caedeb86d0c62d2d9f3929a3b3cdcdef1963218fcf0cede82e95ef9f4da3ed4a173fa055ee6e4038886376181e0423e02ff"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "b4a80ea81c4bc7e364e07981465f547e8ed83031806eaf3b97dfb38f894f5b6f"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "15b23bce818b4399b334dd632eb85de5a1b70c47fb9260561e70b1f726211c83bddbc957f3b4c32a1d8c687f9bc6c38d0a638c731cb5daf5b619aa725d6050c2"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "6bcde3a6e471d416522e6288474bc4f9115e2e8abf8ce5d300829bee4aa98dff73be7d8c6f0607f3d6d423c7f5abbf90"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "f4d5a5d5a76b24c4751c8c52f2879b097d2430c3571c59b4630e8c871c9bdb08e24e803a14c24fc8d3378417f29b7244"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.jetbrains/annotations@13.0?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "distribution",
+          "url" : "http://oss.sonatype.org/service/local/staging/deploy/maven2/"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/JetBrains/intellij-community"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    }
+  ],
+  "dependencies" : [
+    {
+      "ref" : "pkg:maven/com.squareup.okhttp3/okhttp@4.9.3?type=jar",
+      "dependsOn" : [
+        "pkg:maven/com.squareup.okio/okio@2.8.0?type=jar",
+        "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@1.4.10?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/com.squareup.okio/okio@2.8.0?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib-common@1.4.10?type=jar",
+        "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@1.4.10?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/commons-codec/commons-codec@1.11?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/commons-logging/commons-logging@1.2?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/org.apache.httpcomponents/httpclient@4.5.13?type=jar",
+      "dependsOn" : [
+        "pkg:maven/commons-codec/commons-codec@1.11?type=jar",
+        "pkg:maven/commons-logging/commons-logging@1.2?type=jar",
+        "pkg:maven/org.apache.httpcomponents/httpcore@4.4.13?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.apache.httpcomponents/httpcore@4.4.13?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib-common@1.4.10?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@1.4.10?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib-common@1.4.10?type=jar",
+        "pkg:maven/org.jetbrains/annotations@13.0?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.jetbrains/annotations@13.0?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/unspecified/P03_http@unspecified?project_path=%3A",
+      "dependsOn" : [
+        "pkg:maven/com.squareup.okhttp3/okhttp@4.9.3?type=jar",
+        "pkg:maven/org.apache.httpcomponents/httpclient@4.5.13?type=jar"
+      ]
+    }
+  ]
+}

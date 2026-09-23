@@ -1,0 +1,918 @@
+{
+  "bomFormat" : "CycloneDX",
+  "specVersion" : "1.6",
+  "serialNumber" : "urn:uuid:72c4c999-3e8b-4ef5-a9f2-090efb490cad",
+  "version" : 1,
+  "metadata" : {
+    "timestamp" : "2026-09-22T01:05:10Z",
+    "tools" : {
+      "components" : [
+        {
+          "type" : "application",
+          "author" : "CycloneDX",
+          "name" : "cyclonedx-gradle-plugin",
+          "version" : "3.4.1"
+        }
+      ]
+    },
+    "component" : {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/unspecified/P01_web@unspecified?project_path=%3A",
+      "group" : "",
+      "name" : "P01_web",
+      "version" : "unspecified",
+      "purl" : "pkg:maven/unspecified/P01_web@unspecified?project_path=%3A",
+      "modified" : false
+    }
+  },
+  "components" : [
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.13.2?type=jar",
+      "group" : "com.fasterxml.jackson.core",
+      "name" : "jackson-annotations",
+      "version" : "2.13.2",
+      "description" : "Core annotations used for value types, used by Jackson data binding package.",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "2352a291fc39d23cfe5c100728de1ea7"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "ec18851f1976d5b810ae1a5fcc32520d2d38f77a"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "7d3df5aafa2dc61ad1dbad30f411548c0184ed92d94628c63168721f08237cd4"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "8da374687872fe37a0948e6f1b506ae7ad05c75006105c944182b3db8ce676f32794517953eb28beeba100e1ad8a059fd00164b43a19b026d3bf1b9743b5968b"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "88086fb723bdd8630b0798c1068c192da2f3edd470240e2cb7a81fa42c9e4c82"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "b1367a2b6a297fec04eff93808ddb34bc375d044c30c5165c3d55f28660e3b3086c0467ff4160343f62ce6f6bbaf4c90e4656ca72f14df72d03a8bd116931894"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "10a9917d2331845b923f43e723ccd8ad75dd54b03afad1225b06fb04f0670b65857d49f4fef5ff58b5b74eea224f3ae5"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "811a4d45d3ed98e9d0186c7c1b8fc5d47b35ff7b4276ed35816dbd8ed0bec8bbba6614b72e99157f1ace4b89478e1644"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.13.2?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "vcs",
+          "url" : "http://github.com/FasterXML/jackson-annotations"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.13.2?type=jar",
+      "group" : "com.fasterxml.jackson.core",
+      "name" : "jackson-core",
+      "version" : "2.13.2",
+      "description" : "Core Jackson processing abstractions (aka Streaming API), implementation for JSON",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "c56433d75479665998ccbd50678480fa"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "0a6a0e0620d51833feffc67bccb51937b2345763"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "9bfa278ad05179fb68087851caf607652702ca25424bec8358a3716e751405c8"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "c5451f5c22d09f892ff22b840e46929f4d1f5dcd4022b4170f3262d8d85d0819d87432c8eca86215fdce7b5cd10eb99ef4b2cd498af5ff5cf2b48a2701181abc"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "4d05dff4543b8ee7c21c6847dd715c2ca479ea3165c9a8d785204334e224d564"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "961b99eae0b246e505965f43f2826588bfa27a48dad3472d167054491952ee75b6981051ac7208ba4d7518687973f4d288f84da218d6ac0f2bebf1e52d082768"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "b0782e4b1f4486d7ff10cea5dc3e67a4bcc557af770698d41783c91fd023ad00e63ea5af6c1565dee48cfc15d2cfaf06"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "1474a077534ee52eb75c53618bb504ff43d9c1c29e83c036f62edd2a85a98e425ffbc5576b607b9a4f14bde0cbfbad11"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.13.2?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "vcs",
+          "url" : "http://github.com/FasterXML/jackson-core"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.13.2?type=jar",
+      "group" : "com.fasterxml.jackson.core",
+      "name" : "jackson-databind",
+      "version" : "2.13.2",
+      "description" : "General data-binding functionality for Jackson: works on core streaming API",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "307ceaef2394e6ec9cfae77045546778"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "926e48c451166a291f1ce6c6276d9abbefa7c00f"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "0d5459b7f18184c4ce8f07264b1b7feced51529e550a098d6f9e2dfe091138ad"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "533d5f76f80e54cbf2f764af3823c1f5ed6e6a924dddbaf67120c1b29a2df44cce6ffc18bf24bc5d276cbfda39727a3625180ccbb0fc278982dcc5531dfc05ee"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "e29f04f1a9c6c44f85a6e87f45114705dc8dc44fa5df887374bf515e9386e068"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "521ece2d40e3dfd116b16af322905972c23e8e35338ab6f548e8abff5c3fca4b3290eb41cee17311ac689807936628eb8eac87343c3dc53954bea3956fd24d3d"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "b828e6577fa3ec2acf8c17de23fe33a52658d235518e557a30372324f4e6ac7640edccba9443f7adc7146edbb668f85b"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "dae1cbf402d9adc1cd626e1c00a2556e2754e4b755979f2d58b76bed363ee70ef6790fa034cb9de43f6d0dc87d6a512f"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.13.2?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "vcs",
+          "url" : "http://github.com/FasterXML/jackson-databind"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/com.fasterxml.jackson/jackson-bom@2.13.2?type=pom",
+      "publisher" : "FasterXML",
+      "group" : "com.fasterxml.jackson",
+      "name" : "jackson-bom",
+      "version" : "2.13.2",
+      "description" : "Bill of Materials pom for getting full, complete set of compatible versions of Jackson components maintained by FasterXML.com",
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/com.fasterxml.jackson/jackson-bom@2.13.2?type=pom",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "http://fasterxml.com/"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/FasterXML/jackson-bom"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.springframework/spring-aop@5.3.20?type=jar",
+      "publisher" : "Spring IO",
+      "group" : "org.springframework",
+      "name" : "spring-aop",
+      "version" : "5.3.20",
+      "description" : "Spring AOP",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "588d64fb912ed0c637e55c0878c18c4f"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "c82f17997ab18ecafa8d08ce34a7c7aa4a04ef9e"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "00c680bef629e09f0d5fec1fe872452d9e18a14435faaaf284e51b3b1fb77e19"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "3b0339d98ed76d336f1d8abc1d9ee2096de75809efd2fca20958dc7e4c1780126897b881320335f629b2c06c7693d17bbf7da1b13ad8ef7c16c15b8395778225"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "edb5d4624daa9ce15fa8b86cb469d059188fcc1f007e1a6791c146d9b25068a8"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "ac2bca1820350a7554834fe6561120812d23c2a35a176680bb25b7ac3a2fdf10695cf49983141b39e965f04401d0404ff69f47c0f9707cda2add234c0a47d338"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "e2262048392913c4f8f99de7f411d2aaad2d93513238ea2ce1df12528ab2316915cd9555440ab777e93ddd54513b5284"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "c1ce74234dc126f76b77f148b0492655bae664a0d1c9f2166d49e9a88ac0a4d37c52aee52586795f974a545e302429f1"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.springframework/spring-aop@5.3.20?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://spring.io/projects/spring-framework"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/spring-projects/spring-framework/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/spring-projects/spring-framework"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.springframework/spring-beans@5.3.20?type=jar",
+      "publisher" : "Spring IO",
+      "group" : "org.springframework",
+      "name" : "spring-beans",
+      "version" : "5.3.20",
+      "description" : "Spring Beans",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "53515694bf34d29522adf7c9e8b5164c"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "0ab88bd9e3a8307f5c0516c15d295c88ec318659"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "940dc731aedb1b194ab6db0e879437adb9f7c14af825dfa7596ccd3d69bba7e8"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "36ded876e43d4cc67bb45ee9d87b79c1327cacbc01eaf16c4755c8c65e118b2f55cf5cda072c69178602f958ffbbeb8aa2c3cee2ed133fabf84eb2a8ab41d045"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "139665d73171f3cfc1cafa7a5988222b0293ed5de869a4bb7b798d0cdf29b000"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "707625cca672d1b07025b40920bc43ebf991cb3764cf83c76608b3411969c6b2facbc0c70caf778ba93b6bccd07c0c0c68f8f850b0fbcd23237caaed5bb95bd7"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "24cbfc6b9c635c53609db74b0d6a429c0da610f639f5f156d6be654bec31d8841dda19ba72505b597095b4dbe2c1b5a1"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "21b036f1377bfdd2a7f496e5bb566452a56bf9979adfc6810417daab286cfeece162e4490150df0f41635ef5549a39e2"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.springframework/spring-beans@5.3.20?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://spring.io/projects/spring-framework"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/spring-projects/spring-framework/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/spring-projects/spring-framework"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.springframework/spring-context@5.3.20?type=jar",
+      "publisher" : "Spring IO",
+      "group" : "org.springframework",
+      "name" : "spring-context",
+      "version" : "5.3.20",
+      "description" : "Spring Context",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "f54a37b6c4b217cdb0482b286ccf0bf0"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "517a42165221ea944c8b794154c10b69c0128281"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "2b5405c2baeab005300713bfd2ffad228b9cccf4dc8c8f757897831278362eee"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "64539172a926fefbe75ed3aa2b2d8ea6a14baffdb44925cbb3f3dd82799b9642f84f7860c35075b0e404924bfa0b5297e37816245afd6d3d073316044d037a82"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "87c6b2031b6ca2891d748a850a7df4a72377f94d8c4fbc46c35992d06c32c032"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "2882837425ff08bdac4c3f872825574e1174244eb985b5f340cea073a78ca09c7371ff86d292afa786bef8d27943834f05b480fa76399ac31ea04c988d5063f4"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "ee074fdea20e26c999cf271ffbe1bce6b28611bc30189f78aae2827bf0cda7b9f3325c2657a58afe13534e59fcc4ab03"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "47b19beff1097f2d7989ef5ef99126a496d3184b4c6ce4317d3e78160dc7658183b489d23774adfbb2bfe0a3564e2bbe"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.springframework/spring-context@5.3.20?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://spring.io/projects/spring-framework"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/spring-projects/spring-framework/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/spring-projects/spring-framework"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.springframework/spring-core@5.3.20?type=jar",
+      "publisher" : "Spring IO",
+      "group" : "org.springframework",
+      "name" : "spring-core",
+      "version" : "5.3.20",
+      "description" : "Spring Core",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "2716746463c37172898010391db93ef2"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "4b88aa3c401ede3d6c8ac78ea0c646cf326ec24b"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "42d70d78b8822601a3b61c88dadf4be6a0021dde169a772c3fd4a6b8b2b61c90"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "fa8a9366632ffd987f8995387682d82b86eb1efdfab97d60ba220d749e5f90838adda27e833eb19a07b7d07ace13b6fc693541e81ad35c8fc455e96c94b19030"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "372e38bac2adcfbb59936dc87560081e7891a134a08ac2366dfc4cdee95281d3"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "8880ffb99ffd5cdb48b1d97247e9fb21a61fb728fe052b2f96f372b9c8fcd1e0421548bf937e846a4dbc48faca47b925a7c0eb61276a1764faaa460a5abe2cc4"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "748285717a999d090bf44b91a84fd42214128795c0044ccc8a57a2eabe6b2dc44823610e273c2f21384c5f951b5ffb7c"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "17253b24b4928e4a1a9e32115c095d78883cad6dc194705caf2a8c52c070802d5a565e2eaf83657c57259b2a4c98a8a1"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.springframework/spring-core@5.3.20?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://spring.io/projects/spring-framework"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/spring-projects/spring-framework/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/spring-projects/spring-framework"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.springframework/spring-expression@5.3.20?type=jar",
+      "publisher" : "Spring IO",
+      "group" : "org.springframework",
+      "name" : "spring-expression",
+      "version" : "5.3.20",
+      "description" : "Spring Expression Language (SpEL)",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "b37937ea560f8801a31217b93484681f"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "20e179f0dfabf0a46428f22c2150c9c4850fd15d"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "6238aa974f63cd0f92da31446d4abd3fb69496785624cd02c5adaea703b0c5c7"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "71d370475cc5422f8f6aaecd523ca5685931f8caf37795f4c95a17670048f7f35a7deaed70a86b8be8dbd8ecad31f21caa5cb2588ab0e9567d12669d018b8d1e"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "fcea055ead1935b431ca13867a57e7f3d9fe184830341de852cc2785e0b1e5ab"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "1faac31c1937b6d600040c488f7f7ef2ba2232bb7f8679cfd95f18ffaf218df9beccad6e166b983177ce8c3f44ac248a5734fc10acbab7b49052fd6be1af7293"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "bc8cbe736e2e51bde3b3cc9eb09c0d4e4f884792a6f1f5a611b7efacca7e1030561e7284ddd3dfed7ff2e0e979de1ea7"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "e94b8763798afb8cd3190659b4b6793f572c6cb07bb4de12580d74a18d1f8a7c0cebcf016c40ff50025747370e8efc69"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.springframework/spring-expression@5.3.20?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://spring.io/projects/spring-framework"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/spring-projects/spring-framework/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/spring-projects/spring-framework"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.springframework/spring-jcl@5.3.20?type=jar",
+      "publisher" : "Spring IO",
+      "group" : "org.springframework",
+      "name" : "spring-jcl",
+      "version" : "5.3.20",
+      "description" : "Spring Commons Logging Bridge",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "5960098d2253e57c262e243b996de56f"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "35119231d09863699567ce579c21512ddcbc5407"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "fb6c6bf524b19a03103812e0104eaf0bcbc178ae8f425db8b547963b13483e28"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "68985f896d620245d2ffd197525bab65b4cb5941108f4db1b3cf7ec6fcf0246367b7fdb1164da052876af4efce42caeae13c4bcffa634b9c54d0fcd37ef04dfd"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "25078380874b57413763a400f30e4cfcda64eb16907f5784f7c4c4dc06eac12a"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "b8d88ba3926d0aa2cd0430da0f6d4ad692154758f4603bef87b38d01ad63ca4fe64fa1e1c91ddefa225cad4bb4531bd5cbf6f88aad67036316aa87e735e5cacf"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "19b9b73e592d09439c093b022e342bfd430c32a6efc6fe45f8c57756983bbfb447aaf240c2684275274ce4689136ef79"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "c0eed436d9aea3fb17f80156bd04f98bead316a629a3469cd2c7d0e2d35328ff4caab7d4bd1e0cabe42e3a4d87c664ae"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.springframework/spring-jcl@5.3.20?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://spring.io/projects/spring-framework"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/spring-projects/spring-framework/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/spring-projects/spring-framework"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.springframework/spring-web@5.3.20?type=jar",
+      "publisher" : "Spring IO",
+      "group" : "org.springframework",
+      "name" : "spring-web",
+      "version" : "5.3.20",
+      "description" : "Spring Web",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "25d3b11e5febb6c3d06a68b8e07a7e2f"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "3c2fe9363760d62d5b7c9f087bb4255e3377a0b2"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "d6db8d7a8239a0403f4fc2066b765f5209e1b14af58b5bb8215482188ef640bc"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "06d6763f30ffa69de419976176d8b1a920b8a3166c17234d2ffd3db63388ba53e56fb3310be41622954cbd8eb82846534ba1c10223c43c21e832fd2f3d4cd9e4"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "4cd766c5bbdd8d3fa8ec10bd9607d4630345d22b87e65dd529c26a24e410dfe9"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "0a590a7636351a7229b4193de38ebb32e4e421baa0bf9b94b03d8ad4957826093a207ffdf5cac6c52d2425456151a93be90ef46fba4d5036e2f5446bfc84f66c"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "3bc99e0f39d9cb37eb0681beb3b3bc46fa5a6fa05fa658336e13a749ac2a9950de59ce4697fe64c2f89641cd9f3074d3"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "36f882d47a503019de3b80997989656aa49f8839ff41a5c3504be631444be40d55cc865a328a1eb6a4a7a93b36cde9ed"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.springframework/spring-web@5.3.20?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://spring.io/projects/spring-framework"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/spring-projects/spring-framework/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/spring-projects/spring-framework"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.springframework/spring-webmvc@5.3.20?type=jar",
+      "publisher" : "Spring IO",
+      "group" : "org.springframework",
+      "name" : "spring-webmvc",
+      "version" : "5.3.20",
+      "description" : "Spring Web MVC",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "136b8022b6ffda56891422bda4c008a9"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "8ac1b72a1f5c41fdc2cb3340cd94f795af260301"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "c48ed223170af7efc363e6ee917e25448b5a6015b36dff3bc4e685858179c89c"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "cc0d63116d17cf2801d46b9a1588b2cab535f30b7ec72e3691d77c50d2180f116151050fb4f6174329ebefafe06fbe7d53508a183153b404e184aa63434a1b30"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "ed546a1342965e0e47f33e877853ecef424b83a5482ca127c202ff49ead0d71a"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "e968af5abb7722269350b21b98088fd8a0c14afac6ad061e5d9a53c7ce579e40700a35a4d83bcfa63608209ad40419dee0ef39ea7852864433210218bdbda2dd"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "eeea8361111c97100f0f47cd4fdbd8084963a954373017f06dc5e628ef68b98dc325ced5c4669912fafbfb7e1ac333b1"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "8f9bf9fd14d7884107e15f419c00e5d4a7632ed18332c8ffdcc7ece7aafcf3f78583c3d8e5590adb32d076f39aca636a"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.springframework/spring-webmvc@5.3.20?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://spring.io/projects/spring-framework"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/spring-projects/spring-framework/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/spring-projects/spring-framework"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    }
+  ],
+  "dependencies" : [
+    {
+      "ref" : "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.13.2?type=jar",
+      "dependsOn" : [
+        "pkg:maven/com.fasterxml.jackson/jackson-bom@2.13.2?type=pom"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.13.2?type=jar",
+      "dependsOn" : [
+        "pkg:maven/com.fasterxml.jackson/jackson-bom@2.13.2?type=pom"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.13.2?type=jar",
+      "dependsOn" : [
+        "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.13.2?type=jar",
+        "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.13.2?type=jar",
+        "pkg:maven/com.fasterxml.jackson/jackson-bom@2.13.2?type=pom"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/com.fasterxml.jackson/jackson-bom@2.13.2?type=pom",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/org.springframework/spring-aop@5.3.20?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.springframework/spring-beans@5.3.20?type=jar",
+        "pkg:maven/org.springframework/spring-core@5.3.20?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.springframework/spring-beans@5.3.20?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.springframework/spring-core@5.3.20?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.springframework/spring-context@5.3.20?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.springframework/spring-aop@5.3.20?type=jar",
+        "pkg:maven/org.springframework/spring-beans@5.3.20?type=jar",
+        "pkg:maven/org.springframework/spring-core@5.3.20?type=jar",
+        "pkg:maven/org.springframework/spring-expression@5.3.20?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.springframework/spring-core@5.3.20?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.springframework/spring-jcl@5.3.20?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.springframework/spring-expression@5.3.20?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.springframework/spring-core@5.3.20?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.springframework/spring-jcl@5.3.20?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/org.springframework/spring-web@5.3.20?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.springframework/spring-beans@5.3.20?type=jar",
+        "pkg:maven/org.springframework/spring-core@5.3.20?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.springframework/spring-webmvc@5.3.20?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.springframework/spring-aop@5.3.20?type=jar",
+        "pkg:maven/org.springframework/spring-beans@5.3.20?type=jar",
+        "pkg:maven/org.springframework/spring-context@5.3.20?type=jar",
+        "pkg:maven/org.springframework/spring-core@5.3.20?type=jar",
+        "pkg:maven/org.springframework/spring-expression@5.3.20?type=jar",
+        "pkg:maven/org.springframework/spring-web@5.3.20?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/unspecified/P01_web@unspecified?project_path=%3A",
+      "dependsOn" : [
+        "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.13.2?type=jar",
+        "pkg:maven/org.springframework/spring-webmvc@5.3.20?type=jar"
+      ]
+    }
+  ]
+}

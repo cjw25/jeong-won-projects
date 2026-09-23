@@ -1,0 +1,63 @@
+{
+  "project_id": "P09_template",
+  "condition": "direct",
+  "queried_at_utc": "2026-09-22T01:07:03.815234+00:00",
+  "source": "https://api.osv.dev/v1/querybatch",
+  "packages": [
+    {
+      "group": "org.freemarker",
+      "artifact": "freemarker",
+      "version": "2.3.31"
+    },
+    {
+      "group": "org.thymeleaf",
+      "artifact": "thymeleaf",
+      "version": "3.0.15.RELEASE"
+    }
+  ],
+  "api_response": {
+    "results": [
+      {},
+      {
+        "vulns": [
+          {
+            "id": "GHSA-c9ph-gxww-7744",
+            "modified": "2026-05-13T17:02:46.716315Z"
+          },
+          {
+            "id": "GHSA-r4v4-5mwr-2fwr",
+            "modified": "2026-05-05T16:10:40.722195Z"
+          },
+          {
+            "id": "GHSA-xjw8-8c5c-9r79",
+            "modified": "2026-05-05T16:12:18.897503Z"
+          }
+        ]
+      }
+    ]
+  },
+  "analysis": {
+    "vulnerable_components": [
+      "org.thymeleaf:thymeleaf:3.0.15.RELEASE"
+    ],
+    "vulnerability_ids": [
+      "GHSA-c9ph-gxww-7744",
+      "GHSA-r4v4-5mwr-2fwr",
+      "GHSA-xjw8-8c5c-9r79"
+    ],
+    "component_results": [
+      {
+        "component": "org.freemarker:freemarker:2.3.31",
+        "vulnerability_ids": []
+      },
+      {
+        "component": "org.thymeleaf:thymeleaf:3.0.15.RELEASE",
+        "vulnerability_ids": [
+          "GHSA-c9ph-gxww-7744",
+          "GHSA-r4v4-5mwr-2fwr",
+          "GHSA-xjw8-8c5c-9r79"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "started_at_utc": "2026-09-22T01:06:42.560873+00:00",
+  "osv_endpoint": "https://api.osv.dev/v1/querybatch",
+  "project_count": 10,
+  "conditions": [
+    "direct",
+    "sbom_all"
+  ],
+  "finished_at_utc": "2026-09-22T01:07:07.654419+00:00"
+}

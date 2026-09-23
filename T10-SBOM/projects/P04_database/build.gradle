@@ -1,0 +1,13 @@
+plugins {
+    id 'java'
+    id 'org.cyclonedx.bom' version '3.4.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.h2database:h2:2.1.210'
+    implementation 'org.postgresql:postgresql:42.3.3'
+}

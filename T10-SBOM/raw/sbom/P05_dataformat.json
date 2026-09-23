@@ -1,0 +1,171 @@
+{
+  "bomFormat" : "CycloneDX",
+  "specVersion" : "1.6",
+  "serialNumber" : "urn:uuid:9493ba4d-a8e6-4f43-931c-36a1dd79090b",
+  "version" : 1,
+  "metadata" : {
+    "timestamp" : "2026-09-22T01:05:50Z",
+    "tools" : {
+      "components" : [
+        {
+          "type" : "application",
+          "author" : "CycloneDX",
+          "name" : "cyclonedx-gradle-plugin",
+          "version" : "3.4.1"
+        }
+      ]
+    },
+    "component" : {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/unspecified/P05_dataformat@unspecified?project_path=%3A",
+      "group" : "",
+      "name" : "P05_dataformat",
+      "version" : "unspecified",
+      "purl" : "pkg:maven/unspecified/P05_dataformat@unspecified?project_path=%3A",
+      "modified" : false
+    }
+  },
+  "components" : [
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/com.google.code.gson/gson@2.8.9?type=jar",
+      "group" : "com.google.code.gson",
+      "name" : "gson",
+      "version" : "2.8.9",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "e67627f67e03301092dc7de0a2d7cef8"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "8a432c1d6825781e21a02db2e2c33c5fde2833b9"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "d3999291855de495c94c743761b8ab5176cfeabe281a5ab0d8e8d45326fd703e"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "46501e4dd34c9a6f33ff63aeeec45b049579365c5273490e5dfd5ea4effaeced907d0fc728204c619aa136e867ad826204582ff9ba3080d06693c1c675c8473f"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "e82ae9fa3a783ee683880d219ab529bb3d0b45ea721d002ee948fad99a67b4f0"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "25cfe43039c6d41344434f89e9a8ad6f93a341512baf93e894a14a9dfd3af1cb0f0afaed4ade6db3c719f910fd9dfbeb7bec8bcfd7f49ac572ab217bce9e595e"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "2f2897912784595e52d3f8e57741aed7dd866f16a69562d57e0604d85e2fef08b2a32e58afd00d264f66cc6ec775dc79"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "3ce084f79191afdbdb0a9aa83073b128f620cf585b65c2e81ba98080fd91e9f327db3f0952903094b7dd387bc802b5ba"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0",
+            "url" : "https://www.apache.org/licenses/LICENSE-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/com.google.code.gson/gson@2.8.9?type=jar",
+      "modified" : false,
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.yaml/snakeyaml@1.30?type=jar",
+      "group" : "org.yaml",
+      "name" : "snakeyaml",
+      "version" : "1.30",
+      "description" : "YAML 1.1 parser and emitter for Java",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "ba063b8ef3a8bfd591a1b56451166b14"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "8fde7fe2586328ac3c68db92045e1c8759125000"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "f43a4e40a946b8cdfd0321bc1c9a839bc3f119c57e4ca84fb87c367f51c8b2b3"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "b00f52326cae804d0dbb48c0ed7f3a98cdebbce9b145f685c616e4049b65183a18e98ca29b7b0275971f9ece52138d0015bb9771902532084cb2cc07a264cfc6"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "4a3c20ddae5c74b381476c491716e01f847e76e28fe82dc46819e9ef122c70fa"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "d1e848c74efd4dd2ba5d4878c0f9df6144926b1d413f44ba2881614cc557a18479eb74c8f1c3392375cc166c94acf2adb7f211f902a7e5acfd7b2966bec70f26"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "aa4f7b90b3a2a83274664f78ca54b523e26ea2f96750c336a8802a6f68fc0842e3e8d36ce4f7e277e7d959aba3bb3246"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "d3cd269127dca6042237f66cf3c3557f87f395d0286712e74da908d11ffb5d4ee7c4960e29e61db346a8376e515d59af"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.yaml/snakeyaml@1.30?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "issue-tracker",
+          "url" : "https://bitbucket.org/snakeyaml/snakeyaml/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://bitbucket.org/snakeyaml/snakeyaml/src"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    }
+  ],
+  "dependencies" : [
+    {
+      "ref" : "pkg:maven/com.google.code.gson/gson@2.8.9?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/org.yaml/snakeyaml@1.30?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/unspecified/P05_dataformat@unspecified?project_path=%3A",
+      "dependsOn" : [
+        "pkg:maven/com.google.code.gson/gson@2.8.9?type=jar",
+        "pkg:maven/org.yaml/snakeyaml@1.30?type=jar"
+      ]
+    }
+  ]
+}

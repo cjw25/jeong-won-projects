@@ -1,0 +1,110 @@
+{
+  "project_id": "P06_security",
+  "condition": "direct",
+  "queried_at_utc": "2026-09-22T01:06:57.050096+00:00",
+  "source": "https://api.osv.dev/v1/querybatch",
+  "packages": [
+    {
+      "group": "org.bouncycastle",
+      "artifact": "bcprov-jdk15on",
+      "version": "1.70"
+    },
+    {
+      "group": "org.springframework.security",
+      "artifact": "spring-security-web",
+      "version": "5.6.3"
+    }
+  ],
+  "api_response": {
+    "results": [
+      {
+        "vulns": [
+          {
+            "id": "GHSA-4h8f-2wvx-gg5w",
+            "modified": "2026-09-10T03:50:13.465694Z"
+          },
+          {
+            "id": "GHSA-8xfc-gm6g-vgpv",
+            "modified": "2026-09-10T03:49:19.252779Z"
+          },
+          {
+            "id": "GHSA-hr8g-6v94-x4m9",
+            "modified": "2026-09-10T03:49:42.995735Z"
+          },
+          {
+            "id": "GHSA-v435-xc8x-wvr9",
+            "modified": "2026-09-10T03:50:14.807195Z"
+          },
+          {
+            "id": "GHSA-wjxj-5m7g-mg7q",
+            "modified": "2026-09-10T03:50:04.576771Z"
+          }
+        ]
+      },
+      {
+        "vulns": [
+          {
+            "id": "GHSA-293q-567p-wmwq",
+            "modified": "2026-09-10T03:51:07.677957Z"
+          },
+          {
+            "id": "GHSA-c4q5-6c82-3qpw",
+            "modified": "2026-09-10T03:50:19.827744Z"
+          },
+          {
+            "id": "GHSA-hh32-7344-cg2f",
+            "modified": "2024-10-04T20:33:08.794410Z"
+          },
+          {
+            "id": "GHSA-mf92-479x-3373",
+            "modified": "2026-09-10T03:50:40.172563Z"
+          },
+          {
+            "id": "GHSA-x2r2-rvhq-2mqv",
+            "modified": "2026-09-10T03:50:51.322499Z"
+          }
+        ]
+      }
+    ]
+  },
+  "analysis": {
+    "vulnerable_components": [
+      "org.bouncycastle:bcprov-jdk15on:1.70",
+      "org.springframework.security:spring-security-web:5.6.3"
+    ],
+    "vulnerability_ids": [
+      "GHSA-293q-567p-wmwq",
+      "GHSA-4h8f-2wvx-gg5w",
+      "GHSA-8xfc-gm6g-vgpv",
+      "GHSA-c4q5-6c82-3qpw",
+      "GHSA-hh32-7344-cg2f",
+      "GHSA-hr8g-6v94-x4m9",
+      "GHSA-mf92-479x-3373",
+      "GHSA-v435-xc8x-wvr9",
+      "GHSA-wjxj-5m7g-mg7q",
+      "GHSA-x2r2-rvhq-2mqv"
+    ],
+    "component_results": [
+      {
+        "component": "org.bouncycastle:bcprov-jdk15on:1.70",
+        "vulnerability_ids": [
+          "GHSA-4h8f-2wvx-gg5w",
+          "GHSA-8xfc-gm6g-vgpv",
+          "GHSA-hr8g-6v94-x4m9",
+          "GHSA-v435-xc8x-wvr9",
+          "GHSA-wjxj-5m7g-mg7q"
+        ]
+      },
+      {
+        "component": "org.springframework.security:spring-security-web:5.6.3",
+        "vulnerability_ids": [
+          "GHSA-293q-567p-wmwq",
+          "GHSA-c4q5-6c82-3qpw",
+          "GHSA-hh32-7344-cg2f",
+          "GHSA-mf92-479x-3373",
+          "GHSA-x2r2-rvhq-2mqv"
+        ]
+      }
+    ]
+  }
+}

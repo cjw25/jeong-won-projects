@@ -1,0 +1,13 @@
+plugins {
+    id 'java'
+    id 'org.cyclonedx.bom' version '3.4.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.thymeleaf:thymeleaf:3.0.15.RELEASE'
+    implementation 'org.freemarker:freemarker:2.3.31'
+}

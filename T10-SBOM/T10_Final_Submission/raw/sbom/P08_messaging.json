@@ -1,0 +1,453 @@
+{
+  "bomFormat" : "CycloneDX",
+  "specVersion" : "1.6",
+  "serialNumber" : "urn:uuid:3b30d797-9242-4bce-bc2b-caf8d56ceb65",
+  "version" : 1,
+  "metadata" : {
+    "timestamp" : "2026-09-22T01:06:20Z",
+    "tools" : {
+      "components" : [
+        {
+          "type" : "application",
+          "author" : "CycloneDX",
+          "name" : "cyclonedx-gradle-plugin",
+          "version" : "3.4.1"
+        }
+      ]
+    },
+    "component" : {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/unspecified/P08_messaging@unspecified?project_path=%3A",
+      "group" : "",
+      "name" : "P08_messaging",
+      "version" : "unspecified",
+      "purl" : "pkg:maven/unspecified/P08_messaging@unspecified?project_path=%3A",
+      "modified" : false
+    }
+  },
+  "components" : [
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/com.github.luben/zstd-jni@1.5.0-4?type=jar",
+      "publisher" : "com.github.luben",
+      "group" : "com.github.luben",
+      "name" : "zstd-jni",
+      "version" : "1.5.0-4",
+      "description" : "JNI bindings for Zstd native library that provides fast and high compression lossless algorithm for Java and all JVM languages.",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "d32c93ce31a478789a58130e074aee21"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "338d83645fb93afc9e8b38a12d9d16d41d0819b3"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "f0664f9034c518465e90c0528d0904648e504919ea50aee900684d879403d375"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "920084f05e16291cb930b4ccdfbb51bd32d27abd80283895d7136b386a27bb96c2cfe8a056e3dab6bfd58663217eec4fd8f7914afc0b427d02e94a0629ef89e8"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "56ea03647d9058c68bf67f62b67851f80a502698caf77a07ac11017ed6eb67a5"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "6c32530dbec71ebe05dc594fc07274a195942b8c1ec643c0ce43e882aa0e6811421221207b4046efea3bb786e77bdb8ae2b87fc8fdfe15b4bfa2c3320a096eea"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "735134d49e2deea3ec7b4eff60a60cbd5609e19ed7260cfa981168ba02fd81db4ddf73db626c4e4d62676ffd2556a71b"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "9f7ec775ad3d6121b2437b63011d2225da0e30b1ca925597879e29914983ff50ce90762976b540487d2d6b04600e9f2b"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "BSD-2-Clause"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/com.github.luben/zstd-jni@1.5.0-4?type=jar",
+      "modified" : false,
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/com.rabbitmq/amqp-client@5.14.2?type=jar",
+      "publisher" : "VMware, Inc. or its affiliates.",
+      "group" : "com.rabbitmq",
+      "name" : "amqp-client",
+      "version" : "5.14.2",
+      "description" : "The RabbitMQ Java client library allows Java applications to interface with RabbitMQ.",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "ccd122d0e55b9a3e9f230292294b9856"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "a8093a297829385ff3dec39aa1c8730a2af1fdc2"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "f0e6b21c232cd8f9ea9fdd4d485b38e7329b28444a1131fb78a85bb34ac6ec96"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "51e72bb558764ea0938b9a0b5f1e99a8fdaa333adddab009f022939fcb1bf16acc9852d973ce820a173a474b0742f4e9cefc35c858ddf2914c24b63253c5928e"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "93e9e285b28146ae4a4b0ce0d221b7af67a8ca4851a3e129729d3039587f5e52"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "3217a6d726b78be152680937c23dafeb55b19ea7838c7da53d0e1ed447fd27a3e517361650ca56f7aa9ebe98330c1301b2c280d7e3a4d4f1befb44812eb75b58"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "b97190a2dd1fc4c17f7bacfd03099313717dc434f747a1eb3c84bb926f0129fc213f2e272e1792fdcf82003b7d38424c"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "170f28bc38c131374a61680c78287675d4718987cd8d10561e8dece334215106b9c647e4a6ff19dcec4ce2d6c8f6b571"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "name" : "ASL 2.0",
+            "url" : "https://www.apache.org/licenses/LICENSE-2.0.html"
+          }
+        },
+        {
+          "license" : {
+            "id" : "GPL-2.0-only"
+          }
+        },
+        {
+          "license" : {
+            "id" : "MPL-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/com.rabbitmq/amqp-client@5.14.2?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://www.rabbitmq.com"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/rabbitmq/rabbitmq-java-client"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.apache.kafka/kafka-clients@3.1.0?type=jar",
+      "group" : "org.apache.kafka",
+      "name" : "kafka-clients",
+      "version" : "3.1.0",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "c0c34d53b440083433d26596fa0c301d"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "af924560e38c0a6dbf270bc2d361b2dfab0e03ec"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "5d671395c61c7d5e1921d4daf0f3f32e767674452cbf090c9fe997e640797851"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "a3b0020bbaa986704aaa9f92f8da3c73f7e7efd6898e68b72ce448c3ca0b6e764b36f58aa234af660d80d660f7d4d2b554f78bbee10cbe51cd268808cc087249"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "43213f1490741b4d679f0fca3b13f1a0030a3fafe14ea7cacff82e8b2ca059ee"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "02dc30ca916b69af9e15376c92025a053e9574b1ba31a182032ca65e05673c8bcf888842170d45d9e9c732f063444f1fe4979b5c8f389aee0faec4ff044a3dbf"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "8aa9ecef4d8715b5d581cfc096423178420b3d8f7de494d2c6d98dee7352220ce280c77468717a569fc1f57b760dfc7d"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "e0aa00216215760ab5cf312739191cf439082a320eda93886298ea6b29f9380ac490c5f7c6172b17222a78c48f45b761"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.apache.kafka/kafka-clients@3.1.0?type=jar",
+      "modified" : false,
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.lz4/lz4-java@1.8.0?type=jar",
+      "group" : "org.lz4",
+      "name" : "lz4-java",
+      "version" : "1.8.0",
+      "description" : "Java ports and bindings of the LZ4 compression algorithm and the xxHash hashing algorithm",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "936a927700aa8fc3b75d21d7571171f6"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "4b986a99445e49ea5fbf5d149c4b63f6ed6c6780"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "d74a3334fb35195009b338a951f918203d6bbca3d1d359033dc33edd1cadc9ef"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "98d59086a6021ca571d9c1d64b715e43044c730e1ac563f514c40cf44302615d30378b6d5cc69990446522de6260dc8e7b303e3990a3139dc326d058dfb6dbd9"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "7be684c102891105f66d378b61ea1297a392c1618b5aebf7e0b281f55217c206"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "0b2294570ea2bfbb50ced21dfa4bad956467ca447e9ab2dd602a3478371bcd0e9f13d2dff74d06827a28882409612cdde00bd91267be05bd3510c68268bf3166"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "8e3f2acdbb41a00c4d9cc5f328e63fb626ac7c6c84e1bf9502e2fcc76a591b2b819b2d27b29925ff986b95c297b30e2c"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "ec0d6a00760d0a4ecba13a41785d6ae57a64552b1687eaa3e292b3054bb1348e49ab8a938197ff126f9218c6cb96ee1c"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.lz4/lz4-java@1.8.0?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "vcs",
+          "url" : "git://github.com/lz4/lz4-java.git"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.slf4j/slf4j-api@1.7.32?type=jar",
+      "group" : "org.slf4j",
+      "name" : "slf4j-api",
+      "version" : "1.7.32",
+      "description" : "The slf4j API",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "fbcf58513bc25b80f075d812aad3e3cf"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "cdcff33940d9f2de763bc41ea05a0be5941176c3"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "3624f8474c1af46d75f98bc097d7864a323c81b3808aa43689a6e1c601c027be"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "4ca4045775a879c3ce3021908db7b4778235a322fd8e2567da960156f24b9da86e6812a4956c8dc19920cd83e4c61141168c580829f43f10bbac925d465c3fd1"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "f6a3b253b2c5a06a9559fd9f21e36d04198e660d4e9437ddeb78245969f03fe4"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "0a45c046c106cf88a510bde208b1ac92d7b3dc547b2516583afdbb829219ec31b0bba9fc4b7fd240d2ef859abb722ce307f9572d87409d261887130a5df6827d"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "c95aa5a652533b3b54e721b7f20c4ef19a022ac6c8cd353b032bfd65f636b1adc3eb2e5ca0b409f19456e265cbfd3cb0"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "b08f2d668d9233a3380c37c028486014db65000e918aa1c59e2db35fb5661b3a40183e51677b73a5d96a308f9c2346c0"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "MIT",
+            "url" : "https://opensource.org/license/mit/"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.slf4j/slf4j-api@1.7.32?type=jar",
+      "modified" : false,
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.xerial.snappy/snappy-java@1.1.8.4?type=jar",
+      "publisher" : "xerial.org",
+      "group" : "org.xerial.snappy",
+      "name" : "snappy-java",
+      "version" : "1.1.8.4",
+      "description" : "snappy-java: A fast compression/decompression library",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "3aca6cae2cada8442809bc79be3df269"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "66f0d56454509f6e36175f2331572e250e04a6cc"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "24c4d1fc1e89e078331ab8f401a99cad68599bde4a2e4516042cb548c51b1c3e"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "522e98415b6e53721cb837696dc23576bd63d75af643df7983c1cb6b6e6b5a8650d395962467b6c651a66f5850eaf039f2b37545215fcfc5f4aa031f632c4cae"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "51b5f74ef2f303aab17a1396afada54c581bd18204c8d3fe136ed9fd05ac577e"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "ca3133b812890dad36943599d6a7af0a8aab9aff645376afbfe7348996654298c3473d3fc7a1aab542b4e3a7dd1d44a897572b8e14ceec99333c048ea9e2274c"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "9edb73d6304344fa85c21c858d80cb5bdf7a612b7d0dd55ee1ca8e43ddbbfa7344114e93d1beda84cdd076a9d752407c"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "8c6e457f5e9e0d8099a91659ac09d3cd5a953ff11e386738049e0bfbe3449f4657a7c8ccbcdf9c50e73ebdbf01d6aafc"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0",
+            "url" : "https://www.apache.org/licenses/LICENSE-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.xerial.snappy/snappy-java@1.1.8.4?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://github.com/xerial/snappy-java"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/xerial/snappy-java"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    }
+  ],
+  "dependencies" : [
+    {
+      "ref" : "pkg:maven/com.github.luben/zstd-jni@1.5.0-4?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/com.rabbitmq/amqp-client@5.14.2?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.slf4j/slf4j-api@1.7.32?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.apache.kafka/kafka-clients@3.1.0?type=jar",
+      "dependsOn" : [
+        "pkg:maven/com.github.luben/zstd-jni@1.5.0-4?type=jar",
+        "pkg:maven/org.lz4/lz4-java@1.8.0?type=jar",
+        "pkg:maven/org.slf4j/slf4j-api@1.7.32?type=jar",
+        "pkg:maven/org.xerial.snappy/snappy-java@1.1.8.4?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.lz4/lz4-java@1.8.0?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/org.slf4j/slf4j-api@1.7.32?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/org.xerial.snappy/snappy-java@1.1.8.4?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/unspecified/P08_messaging@unspecified?project_path=%3A",
+      "dependsOn" : [
+        "pkg:maven/com.rabbitmq/amqp-client@5.14.2?type=jar",
+        "pkg:maven/org.apache.kafka/kafka-clients@3.1.0?type=jar"
+      ]
+    }
+  ]
+}

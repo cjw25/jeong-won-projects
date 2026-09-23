@@ -1,0 +1,483 @@
+{
+  "bomFormat" : "CycloneDX",
+  "specVersion" : "1.6",
+  "serialNumber" : "urn:uuid:f3997dbd-ac99-4e1e-8f86-cc595803697c",
+  "version" : 1,
+  "metadata" : {
+    "timestamp" : "2026-09-22T01:06:10Z",
+    "tools" : {
+      "components" : [
+        {
+          "type" : "application",
+          "author" : "CycloneDX",
+          "name" : "cyclonedx-gradle-plugin",
+          "version" : "3.4.1"
+        }
+      ]
+    },
+    "component" : {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/unspecified/P07_network@unspecified?project_path=%3A",
+      "group" : "",
+      "name" : "P07_network",
+      "version" : "unspecified",
+      "purl" : "pkg:maven/unspecified/P07_network@unspecified?project_path=%3A",
+      "modified" : false
+    }
+  },
+  "components" : [
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/io.netty/netty-buffer@4.1.77.Final?type=jar",
+      "group" : "io.netty",
+      "name" : "netty-buffer",
+      "version" : "4.1.77.Final",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "e4d870093f5464a55ec314b909ef9c03"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "d97571f99e5e739d86824d0df99f35d295276b5f"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "41b7ddc4dd124c7e75af33a13a426fda4e1ec87c387cd234971e7df4c0b51c26"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "1dd3fed4151605ebf87d10e150b691116bdbd11aa5d33bdb53a926e1111dbb859f546832b28e488e46092f5e1470e50341aa1286b250a65c499c8b0a3d0da51c"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "4348dafbbf9267e37fcd16ab8aa4e5540b4d0207cc5af5766cafd5f716a938e7"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "dc64e1f3bba2da20a6d5a48a1148cc863930371773047cc3a30969592667f2e08e459cc1a033f1ef4702f17adce9883839f4a490012a7af511c042e84cde3551"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "0aeadaf63ff5f160405dfcc4a6eccbcf13fbcb0129c211540d2607b927a9d520ec3a8a09812875d1ff03f632f5c9d4fa"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "63110fedcfb44ed35c864a3ac475dfbf3cec144060fdecde1907b9e3ba21bb3342000cad768ae82dec891e36a2a18cab"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/io.netty/netty-buffer@4.1.77.Final?type=jar",
+      "modified" : false,
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/io.netty/netty-codec-http@4.1.77.Final?type=jar",
+      "group" : "io.netty",
+      "name" : "netty-codec-http",
+      "version" : "4.1.77.Final",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "1a0e4e1e33d2dc29006649da84dac2d2"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "c5ac5afa9af5b4dc0e8bdbfd686979af77ebdb3c"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "96f6726f1f47273415665e8bf18f3b4ae28572fcb8845a7fe6e6d7ffdb8c48d2"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "37c847ae5b03fb2dd239c21d400169e11fe017bacde1e6bab4357dff23a1e73ab9662eca1e09c9762395d26cd6834b27b20738bc5078959e8f35784f35c8a730"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "adacd375c681c102f97dc7121b433158e5260eb4840715fc2e37f261ccdfc8fa"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "0f2324a6f765d295c03b7bf09ee029ded05eb80f61f1395beed805631e5d7f8f1e3813abed0744c4196df3e9385871a543cd9bb1c24f8742491706c578b0108a"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "854217a9e9fdd61541f548c904d7a1579378beb66da9ab7feb76533ea0a02113b52c5d296c785e0dd19f2b679e55319f"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "eeb3e2658de9a933f213b1fcb47b0a61085ce7289f09cdeaed95cd56a76f4d230d8ef735c7318be88f110f19d9bc6963"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/io.netty/netty-codec-http@4.1.77.Final?type=jar",
+      "modified" : false,
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/io.netty/netty-codec@4.1.77.Final?type=jar",
+      "group" : "io.netty",
+      "name" : "netty-codec",
+      "version" : "4.1.77.Final",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "7df4d0e74385504a639ed8c9ffbf8336"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "4efc5f59335301d6ba0d7cd31dd10651119b03c8"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "84e4e01dd5b345311e971289b5bc08c0dfd6054a28d16853f0416943c9a3e458"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "e0d752e1ece8e1463e0f9880f66429f902c166d3a7018d97e91c972f4ac2e0de7884f996aa39325d77ec6de286b83ad3f303ce30b46b726f86bcb8415d6b61ec"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "7908c2732effcc01b7779a74be9d9232eb3608ef211ae2a279e1bdd30adc7880"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "eff268521256ac617f95b9909b3f7337c5f57ae9c4aa0cea0d4954a17e73e35680196b24dd0e934bd95e315e8997552cf37ac1c0a792ebf973f952d238c2e01e"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "721a526f8879f821d2abccca9773c90740d35d0abca11fb50eb0858a5b7982159e788d397de73d7d598b258ed06409ae"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "77b6965de8ca73feeb52db776a952261c92e2f3e21f07723224e9bf5c7553f13ab6892eff0056b7d750beb698049cff9"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/io.netty/netty-codec@4.1.77.Final?type=jar",
+      "modified" : false,
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/io.netty/netty-common@4.1.77.Final?type=jar",
+      "group" : "io.netty",
+      "name" : "netty-common",
+      "version" : "4.1.77.Final",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "c0fe65266d70074e8a82e48db581a848"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "ea0fc20f4e6178966b9d62017b7fcb83dfe0e713"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "40dd9b5ef14878f050a1f7f4d5647d53473f134e349665b47243bde56de7a51f"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "92c4b6ab13152b0261200f72e6ee0f2fb598346a25495549eabdcb01ae8d6dfb9e0e9b4e4d8b8142f850bfcd303baddf537f0ae554fe7ec0d7eca27a14c4ec47"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "ee6d76a5205487260860f421690d0efeecbe41f264f83acb33c79304149fb80f"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "835bd315d42ed6b2c71755f966d1dd79df2ed65367aebb3b4feca417ea697ba2dd43dfd4cccb5c30515ee82b66fc07a7059bd396719ade3cfccbf398c5825c57"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "0eb854949f7fcb549289338f39fd8673024d36566d5fb54413bbbdf6ee80bfb97ce36f472ffed3ff2294be7e77f10170"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "a6bf879c3f85eb9553af3c56451abcd0b229bb5dcb4dc80a6f31c3bd609080ac4e1cf1e5936245af3f98110a13559ae2"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/io.netty/netty-common@4.1.77.Final?type=jar",
+      "modified" : false,
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/io.netty/netty-handler@4.1.77.Final?type=jar",
+      "group" : "io.netty",
+      "name" : "netty-handler",
+      "version" : "4.1.77.Final",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "a11c1ffacef7002473eff817f4907041"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "47a81089de03635a27f509f3e4e13386ae1db275"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "7911becd4850ff3fc3d93b4be7c468a2f6444fb48c17eec03c807856faf11e0a"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "15ddf0084f5565252fe0abedffc229c628b13148fbc619c0257443502906b45b44e68b70a6a9e10e9ca1eea45d30849c127455f5ff12ca46734ad2f68e5237d0"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "0c3692eb8dd347afe1cf6d82a44731e19c4b1b28d148683c1af67ae66e47b3ee"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "2d2575ae9f3bb047d7da2714d6e125f8d003505c9b5bd4c657a9e1f12e0b7f2eee8bb1938685f49f4aa3857dab8fe3c9b6ecdde09729caa11e0d9dbbdefa209d"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "a8afdd94971334ce1ab9aba61ff0f8075b2acec5ff28eebb7e38f56cd589cd82ef669286513c231578f85ef8277642ac"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "0e21898bdd22648a47ef5d4288b5ff9ce0af9da6a98e7b558960110d72ea7bb96ad977e146f395c77cb70c23180e34a8"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/io.netty/netty-handler@4.1.77.Final?type=jar",
+      "modified" : false,
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/io.netty/netty-resolver@4.1.77.Final?type=jar",
+      "group" : "io.netty",
+      "name" : "netty-resolver",
+      "version" : "4.1.77.Final",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "ed36d0e6f0696b6d676387b499a0f403"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "4a239dbf8d8bb5f98aa51462c35011c0516395fd"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "0161cfe9544b3656ed0de67d8937828101859e94bcd0caaf58d21ac7011eabd4"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "0f9907d0727d4bbc7d39390d2aef514b04e8f5705da8d387754b749f449002e208618d5574e091c04e4dd6c6a02ef1d735b635d795ce3dfdf1fb604239d00884"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "e0873cc089abc3775126eb549c6c39cd7fd9d1e6820a504fe35489dc6b2e52dd"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "41fabe7a8c665ea671b0b7c032c0fe33819a536a92ba77b21106f924b16886cd3a96abb475de7755a06314c5b4d834677193aa709ca48358fed713084e8f2e0c"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "41c23723a54cd716d19465fb5784c19b3b13a713eb86e0be421bc5c44f6347f04ba1c7fc12c351fc74e211ffeeb0a97e"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "eb34d8854fe72904615fb1c7c5621c3069be1fddde191199ebd26a0e1d705510dcbfb90e3381c028a0fade0460ad0d74"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/io.netty/netty-resolver@4.1.77.Final?type=jar",
+      "modified" : false,
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/io.netty/netty-transport@4.1.77.Final?type=jar",
+      "group" : "io.netty",
+      "name" : "netty-transport",
+      "version" : "4.1.77.Final",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "fbecfcb90b7e178dfd0795d3a4b24b54"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "2a3373bbd20d520c821f210bd5ee886788512043"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "034cdf7d81feaad9977c3d8b4fc05611952bc9861dfb9085b8962e2c1de582aa"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "958dda791e227d9b05a0e35009724d7e1030f3c122d4660a37ddb5392160f7108eeb807ed43fef7c9bf488808cf936fc9b6aa1b72e21c4a93aa569855e01734a"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "2106127bcf1eafd90841ed1d5c6f99a93c86543542fa151ae6859319226c7de6"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "854bd12ea9cc576ccca7d4d542c3bc01ed90863f26c61328e372ace1af53f327ba8533e9a8501ef7dbc1ec6a0a5e3eac219548b085aa11529718b4d694ff8664"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "7aa7222888ff485d1fe93f4d2e58e96c926fa62020f66cc099c25d50a21c85a70bbd18efe37fe576cf2cacd4b7444e84"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "1064db449c553ea80f89b77d61da9de36a467131b17740b0f832f46d5638b5f8216944f6d1d53a69b64a34ddf10375db"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/io.netty/netty-transport@4.1.77.Final?type=jar",
+      "modified" : false,
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    }
+  ],
+  "dependencies" : [
+    {
+      "ref" : "pkg:maven/io.netty/netty-buffer@4.1.77.Final?type=jar",
+      "dependsOn" : [
+        "pkg:maven/io.netty/netty-common@4.1.77.Final?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/io.netty/netty-codec-http@4.1.77.Final?type=jar",
+      "dependsOn" : [
+        "pkg:maven/io.netty/netty-buffer@4.1.77.Final?type=jar",
+        "pkg:maven/io.netty/netty-codec@4.1.77.Final?type=jar",
+        "pkg:maven/io.netty/netty-common@4.1.77.Final?type=jar",
+        "pkg:maven/io.netty/netty-handler@4.1.77.Final?type=jar",
+        "pkg:maven/io.netty/netty-transport@4.1.77.Final?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/io.netty/netty-codec@4.1.77.Final?type=jar",
+      "dependsOn" : [
+        "pkg:maven/io.netty/netty-buffer@4.1.77.Final?type=jar",
+        "pkg:maven/io.netty/netty-common@4.1.77.Final?type=jar",
+        "pkg:maven/io.netty/netty-transport@4.1.77.Final?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/io.netty/netty-common@4.1.77.Final?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/io.netty/netty-handler@4.1.77.Final?type=jar",
+      "dependsOn" : [
+        "pkg:maven/io.netty/netty-buffer@4.1.77.Final?type=jar",
+        "pkg:maven/io.netty/netty-codec@4.1.77.Final?type=jar",
+        "pkg:maven/io.netty/netty-common@4.1.77.Final?type=jar",
+        "pkg:maven/io.netty/netty-resolver@4.1.77.Final?type=jar",
+        "pkg:maven/io.netty/netty-transport@4.1.77.Final?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/io.netty/netty-resolver@4.1.77.Final?type=jar",
+      "dependsOn" : [
+        "pkg:maven/io.netty/netty-common@4.1.77.Final?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/io.netty/netty-transport@4.1.77.Final?type=jar",
+      "dependsOn" : [
+        "pkg:maven/io.netty/netty-buffer@4.1.77.Final?type=jar",
+        "pkg:maven/io.netty/netty-common@4.1.77.Final?type=jar",
+        "pkg:maven/io.netty/netty-resolver@4.1.77.Final?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/unspecified/P07_network@unspecified?project_path=%3A",
+      "dependsOn" : [
+        "pkg:maven/io.netty/netty-codec-http@4.1.77.Final?type=jar",
+        "pkg:maven/io.netty/netty-handler@4.1.77.Final?type=jar"
+      ]
+    }
+  ]
+}

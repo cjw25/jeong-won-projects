@@ -1,0 +1,214 @@
+{
+  "project_id": "P08_messaging",
+  "condition": "sbom_all",
+  "queried_at_utc": "2026-09-22T01:07:02.780755+00:00",
+  "source": "https://api.osv.dev/v1/querybatch",
+  "packages": [
+    {
+      "group": "com.github.luben",
+      "artifact": "zstd-jni",
+      "version": "1.5.0-4"
+    },
+    {
+      "group": "com.rabbitmq",
+      "artifact": "amqp-client",
+      "version": "5.14.2"
+    },
+    {
+      "group": "org.apache.kafka",
+      "artifact": "kafka-clients",
+      "version": "3.1.0"
+    },
+    {
+      "group": "org.lz4",
+      "artifact": "lz4-java",
+      "version": "1.8.0"
+    },
+    {
+      "group": "org.slf4j",
+      "artifact": "slf4j-api",
+      "version": "1.7.32"
+    },
+    {
+      "group": "org.xerial.snappy",
+      "artifact": "snappy-java",
+      "version": "1.1.8.4"
+    }
+  ],
+  "api_response": {
+    "results": [
+      {},
+      {
+        "vulns": [
+          {
+            "id": "GHSA-5m9f-rphj-c435",
+            "modified": "2026-09-10T03:51:13.150501Z"
+          },
+          {
+            "id": "GHSA-5xwg-cfvj-gff5",
+            "modified": "2026-09-10T03:51:13.134044Z"
+          },
+          {
+            "id": "GHSA-68mj-5wr7-6fgg",
+            "modified": "2026-09-10T03:51:13.151154Z"
+          },
+          {
+            "id": "GHSA-6g32-pxv4-2wfj",
+            "modified": "2026-09-10T03:51:13.214436Z"
+          },
+          {
+            "id": "GHSA-93j5-89vc-pph4",
+            "modified": "2026-09-10T03:51:13.771990Z"
+          },
+          {
+            "id": "GHSA-jh4v-gfqj-7rhx",
+            "modified": "2026-09-17T15:00:06.805894Z"
+          },
+          {
+            "id": "GHSA-mm8h-8587-p46h",
+            "modified": "2026-09-10T03:50:03.942059Z"
+          },
+          {
+            "id": "GHSA-qx7j-jv8m-fppr",
+            "modified": "2026-09-10T03:50:54.002021Z"
+          }
+        ]
+      },
+      {
+        "vulns": [
+          {
+            "id": "GHSA-2x2g-32r7-p4x8",
+            "modified": "2026-09-10T03:50:20.287310Z"
+          },
+          {
+            "id": "GHSA-5qcv-4rpc-jp93",
+            "modified": "2026-09-10T03:50:43.225742Z"
+          },
+          {
+            "id": "GHSA-vgq5-3255-v292",
+            "modified": "2026-09-10T03:50:25.468399Z"
+          },
+          {
+            "id": "GHSA-wf66-mphr-4c4r",
+            "modified": "2026-09-10T03:50:44.906549Z"
+          }
+        ]
+      },
+      {
+        "vulns": [
+          {
+            "id": "GHSA-cmp6-m4wj-q63q",
+            "modified": "2026-09-10T03:50:58.809735Z"
+          },
+          {
+            "id": "GHSA-vqf4-7m7x-wgfc",
+            "modified": "2026-09-10T03:50:58.551985Z"
+          },
+          {
+            "id": "GHSA-xx22-p4ch-683r",
+            "modified": "2026-09-10T03:51:12.782091Z"
+          }
+        ]
+      },
+      {},
+      {
+        "vulns": [
+          {
+            "id": "GHSA-55g7-9cwv-5qfv",
+            "modified": "2026-09-10T03:49:57.806661Z"
+          },
+          {
+            "id": "GHSA-fjpj-2g6w-x25r",
+            "modified": "2026-09-10T03:50:02.338471Z"
+          },
+          {
+            "id": "GHSA-pqr6-cmr2-h8hf",
+            "modified": "2026-09-10T03:50:08.421776Z"
+          },
+          {
+            "id": "GHSA-qcwq-55hx-v3vh",
+            "modified": "2026-09-10T03:50:08.419674Z"
+          }
+        ]
+      }
+    ]
+  },
+  "analysis": {
+    "vulnerable_components": [
+      "com.rabbitmq:amqp-client:5.14.2",
+      "org.apache.kafka:kafka-clients:3.1.0",
+      "org.lz4:lz4-java:1.8.0",
+      "org.xerial.snappy:snappy-java:1.1.8.4"
+    ],
+    "vulnerability_ids": [
+      "GHSA-2x2g-32r7-p4x8",
+      "GHSA-55g7-9cwv-5qfv",
+      "GHSA-5m9f-rphj-c435",
+      "GHSA-5qcv-4rpc-jp93",
+      "GHSA-5xwg-cfvj-gff5",
+      "GHSA-68mj-5wr7-6fgg",
+      "GHSA-6g32-pxv4-2wfj",
+      "GHSA-93j5-89vc-pph4",
+      "GHSA-cmp6-m4wj-q63q",
+      "GHSA-fjpj-2g6w-x25r",
+      "GHSA-jh4v-gfqj-7rhx",
+      "GHSA-mm8h-8587-p46h",
+      "GHSA-pqr6-cmr2-h8hf",
+      "GHSA-qcwq-55hx-v3vh",
+      "GHSA-qx7j-jv8m-fppr",
+      "GHSA-vgq5-3255-v292",
+      "GHSA-vqf4-7m7x-wgfc",
+      "GHSA-wf66-mphr-4c4r",
+      "GHSA-xx22-p4ch-683r"
+    ],
+    "component_results": [
+      {
+        "component": "com.github.luben:zstd-jni:1.5.0-4",
+        "vulnerability_ids": []
+      },
+      {
+        "component": "com.rabbitmq:amqp-client:5.14.2",
+        "vulnerability_ids": [
+          "GHSA-5m9f-rphj-c435",
+          "GHSA-5xwg-cfvj-gff5",
+          "GHSA-68mj-5wr7-6fgg",
+          "GHSA-6g32-pxv4-2wfj",
+          "GHSA-93j5-89vc-pph4",
+          "GHSA-jh4v-gfqj-7rhx",
+          "GHSA-mm8h-8587-p46h",
+          "GHSA-qx7j-jv8m-fppr"
+        ]
+      },
+      {
+        "component": "org.apache.kafka:kafka-clients:3.1.0",
+        "vulnerability_ids": [
+          "GHSA-2x2g-32r7-p4x8",
+          "GHSA-5qcv-4rpc-jp93",
+          "GHSA-vgq5-3255-v292",
+          "GHSA-wf66-mphr-4c4r"
+        ]
+      },
+      {
+        "component": "org.lz4:lz4-java:1.8.0",
+        "vulnerability_ids": [
+          "GHSA-cmp6-m4wj-q63q",
+          "GHSA-vqf4-7m7x-wgfc",
+          "GHSA-xx22-p4ch-683r"
+        ]
+      },
+      {
+        "component": "org.slf4j:slf4j-api:1.7.32",
+        "vulnerability_ids": []
+      },
+      {
+        "component": "org.xerial.snappy:snappy-java:1.1.8.4",
+        "vulnerability_ids": [
+          "GHSA-55g7-9cwv-5qfv",
+          "GHSA-fjpj-2g6w-x25r",
+          "GHSA-pqr6-cmr2-h8hf",
+          "GHSA-qcwq-55hx-v3vh"
+        ]
+      }
+    ]
+  }
+}

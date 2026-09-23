@@ -1,0 +1,194 @@
+{
+  "project_id": "P01_web",
+  "condition": "direct",
+  "queried_at_utc": "2026-09-22T01:06:46.054972+00:00",
+  "source": "https://api.osv.dev/v1/querybatch",
+  "packages": [
+    {
+      "group": "com.fasterxml.jackson.core",
+      "artifact": "jackson-databind",
+      "version": "2.13.2"
+    },
+    {
+      "group": "org.springframework",
+      "artifact": "spring-webmvc",
+      "version": "5.3.20"
+    }
+  ],
+  "api_response": {
+    "results": [
+      {
+        "vulns": [
+          {
+            "id": "GHSA-3wrr-7qpf-2prh",
+            "modified": "2026-09-10T03:50:55.377810Z"
+          },
+          {
+            "id": "GHSA-57j2-w4cx-62h2",
+            "modified": "2026-09-10T03:49:13.050028Z"
+          },
+          {
+            "id": "GHSA-5jmj-h7xm-6q6v",
+            "modified": "2026-09-10T03:51:08.069993Z"
+          },
+          {
+            "id": "GHSA-hgj6-7826-r7m5",
+            "modified": "2026-09-10T03:50:49.909813Z"
+          },
+          {
+            "id": "GHSA-j3rv-43j4-c7qm",
+            "modified": "2026-09-10T03:50:50.187641Z"
+          },
+          {
+            "id": "GHSA-jjjh-jjxp-wpff",
+            "modified": "2026-09-10T03:49:49.858752Z"
+          },
+          {
+            "id": "GHSA-rgv9-q543-rqg4",
+            "modified": "2026-09-10T03:49:46.655422Z"
+          },
+          {
+            "id": "GHSA-rmj7-2vxq-3g9f",
+            "modified": "2026-09-11T15:45:08.499771Z"
+          }
+        ]
+      },
+      {
+        "vulns": [
+          {
+            "id": "GHSA-3chg-m5w7-qfv5",
+            "modified": "2026-09-10T03:50:55.485813Z"
+          },
+          {
+            "id": "GHSA-4773-3jfm-qmx3",
+            "modified": "2026-09-10T03:50:37.345211Z"
+          },
+          {
+            "id": "GHSA-6hcq-hmm3-jj3c",
+            "modified": "2026-09-10T03:51:00.075344Z"
+          },
+          {
+            "id": "GHSA-6p4f-wcwh-5vvm",
+            "modified": "2026-09-10T03:50:43.783544Z"
+          },
+          {
+            "id": "GHSA-72pg-x5f8-j25j",
+            "modified": "2026-09-10T03:50:49.015129Z"
+          },
+          {
+            "id": "GHSA-7phw-cxx7-q9vq",
+            "modified": "2025-09-23T20:05:07.575478Z"
+          },
+          {
+            "id": "GHSA-957g-f97v-vppc",
+            "modified": "2026-09-10T03:50:49.221153Z"
+          },
+          {
+            "id": "GHSA-cjpg-rgq5-fr37",
+            "modified": "2026-09-10T03:51:08.751198Z"
+          },
+          {
+            "id": "GHSA-cx7f-g6mp-7hqm",
+            "modified": "2026-09-10T03:50:19.091945Z"
+          },
+          {
+            "id": "GHSA-g5vr-rgqm-vf78",
+            "modified": "2025-05-28T14:22:33Z"
+          },
+          {
+            "id": "GHSA-h3qp-gqrc-q736",
+            "modified": "2026-09-10T03:50:49.910720Z"
+          },
+          {
+            "id": "GHSA-mq64-j8f9-9gcj",
+            "modified": "2026-09-10T03:51:09.434155Z"
+          },
+          {
+            "id": "GHSA-r936-gwx5-v52f",
+            "modified": "2026-09-10T03:50:27.662656Z"
+          },
+          {
+            "id": "GHSA-w3c8-7r8f-9jp8",
+            "modified": "2025-05-09T21:35:47Z"
+          },
+          {
+            "id": "GHSA-wg35-8jpf-2xv3",
+            "modified": "2026-09-10T03:51:04.065980Z"
+          },
+          {
+            "id": "GHSA-x23c-287f-qqv5",
+            "modified": "2026-09-10T03:50:51.456648Z"
+          }
+        ]
+      }
+    ]
+  },
+  "analysis": {
+    "vulnerable_components": [
+      "com.fasterxml.jackson.core:jackson-databind:2.13.2",
+      "org.springframework:spring-webmvc:5.3.20"
+    ],
+    "vulnerability_ids": [
+      "GHSA-3chg-m5w7-qfv5",
+      "GHSA-3wrr-7qpf-2prh",
+      "GHSA-4773-3jfm-qmx3",
+      "GHSA-57j2-w4cx-62h2",
+      "GHSA-5jmj-h7xm-6q6v",
+      "GHSA-6hcq-hmm3-jj3c",
+      "GHSA-6p4f-wcwh-5vvm",
+      "GHSA-72pg-x5f8-j25j",
+      "GHSA-7phw-cxx7-q9vq",
+      "GHSA-957g-f97v-vppc",
+      "GHSA-cjpg-rgq5-fr37",
+      "GHSA-cx7f-g6mp-7hqm",
+      "GHSA-g5vr-rgqm-vf78",
+      "GHSA-h3qp-gqrc-q736",
+      "GHSA-hgj6-7826-r7m5",
+      "GHSA-j3rv-43j4-c7qm",
+      "GHSA-jjjh-jjxp-wpff",
+      "GHSA-mq64-j8f9-9gcj",
+      "GHSA-r936-gwx5-v52f",
+      "GHSA-rgv9-q543-rqg4",
+      "GHSA-rmj7-2vxq-3g9f",
+      "GHSA-w3c8-7r8f-9jp8",
+      "GHSA-wg35-8jpf-2xv3",
+      "GHSA-x23c-287f-qqv5"
+    ],
+    "component_results": [
+      {
+        "component": "com.fasterxml.jackson.core:jackson-databind:2.13.2",
+        "vulnerability_ids": [
+          "GHSA-3wrr-7qpf-2prh",
+          "GHSA-57j2-w4cx-62h2",
+          "GHSA-5jmj-h7xm-6q6v",
+          "GHSA-hgj6-7826-r7m5",
+          "GHSA-j3rv-43j4-c7qm",
+          "GHSA-jjjh-jjxp-wpff",
+          "GHSA-rgv9-q543-rqg4",
+          "GHSA-rmj7-2vxq-3g9f"
+        ]
+      },
+      {
+        "component": "org.springframework:spring-webmvc:5.3.20",
+        "vulnerability_ids": [
+          "GHSA-3chg-m5w7-qfv5",
+          "GHSA-4773-3jfm-qmx3",
+          "GHSA-6hcq-hmm3-jj3c",
+          "GHSA-6p4f-wcwh-5vvm",
+          "GHSA-72pg-x5f8-j25j",
+          "GHSA-7phw-cxx7-q9vq",
+          "GHSA-957g-f97v-vppc",
+          "GHSA-cjpg-rgq5-fr37",
+          "GHSA-cx7f-g6mp-7hqm",
+          "GHSA-g5vr-rgqm-vf78",
+          "GHSA-h3qp-gqrc-q736",
+          "GHSA-mq64-j8f9-9gcj",
+          "GHSA-r936-gwx5-v52f",
+          "GHSA-w3c8-7r8f-9jp8",
+          "GHSA-wg35-8jpf-2xv3",
+          "GHSA-x23c-287f-qqv5"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "bomFormat" : "CycloneDX",
+  "specVersion" : "1.6",
+  "serialNumber" : "urn:uuid:ab94c956-bb52-4d56-88bf-e57f23cebe12",
+  "version" : 1,
+  "metadata" : {
+    "timestamp" : "2026-09-22T01:05:41Z",
+    "tools" : {
+      "components" : [
+        {
+          "type" : "application",
+          "author" : "CycloneDX",
+          "name" : "cyclonedx-gradle-plugin",
+          "version" : "3.4.1"
+        }
+      ]
+    },
+    "component" : {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/unspecified/P04_database@unspecified?project_path=%3A",
+      "group" : "",
+      "name" : "P04_database",
+      "version" : "unspecified",
+      "purl" : "pkg:maven/unspecified/P04_database@unspecified?project_path=%3A",
+      "modified" : false
+    }
+  },
+  "components" : [
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/com.h2database/h2@2.1.210?type=jar",
+      "group" : "com.h2database",
+      "name" : "h2",
+      "version" : "2.1.210",
+      "description" : "H2 Database Engine",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "af4adae008b4f91819f078c55dbef025"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "a7395ae43062f9237eb441137b789c518c7d4c2f"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "edc57299926297fd9315e04de75f8538c4cb5fe97fd3da2a1e5cee6a4c98b5cd"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "6d5b866769869ab2e792a4f2f50b57a60878f7af2b33c8e56ea88c53cebb92efb53801054c60cbb179776fb92ccc504000dd56c1cad7be694aa52067452fe0e8"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "eaf0afc882e396a076ae72b97bbf3ae5044e38cc680547c40356c1a668561d2b"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "971c015af086cb7280e5fd89f90c5da2231538bea9e3baf825259941c7e19af776ff7eedf79479f14daee000194802a0458886df6ff28ff6c1057751cef4e23b"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "0f3a5534a07a462ffa9c36c35be64550876119a4268c2a717efe2f6309bcffe75fd2fb5763e4a34afbda1b2fbcd2978a"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "f6e817cbb643104439d8e7f89f905433f9270d925df92114c01add0004cf86d2ea4a02d019a5f7d01b2bbecdf3209409"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "MPL-2.0"
+          }
+        },
+        {
+          "license" : {
+            "name" : "EPL 1.0",
+            "url" : "https://opensource.org/licenses/eclipse-1.0.php"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/com.h2database/h2@2.1.210?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/h2database/h2database"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.checkerframework/checker-qual@3.5.0?type=jar",
+      "group" : "org.checkerframework",
+      "name" : "checker-qual",
+      "version" : "3.5.0",
+      "description" : "Checker Qual is the set of annotations (qualifiers) and supporting classes used by the Checker Framework to type check Java source code. Please see artifact: org.checkerframework:checker",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "4464def1ed5c10f248ebfe1bccbedf1a"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "2f50520c8abea66fbd8d26e481d3aef5c673b510"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "729990b3f18a95606fc2573836b6958bcdb44cb52bfbd1b7aa9c339cff35a5a4"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "407d0ac59b02cbef7d93f25c8b287cd587232aa5ddfee6d2c7ba34d712565b0a5adfe52b5daa20d3e6c3ab1e7a5f8b08698078d9179185a1b35ada1eb92213bf"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "4fbe95b196e75e549f66831e9b1f8f46cfe1793f4fda350857f5f24349d74af1"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "2c84365b1fcd16a765e49c5d8f30f28c3fe7cfe868ac32be726d8b9351c9053ffea23cfa1db9fb5c59c9928d22ad01c3c894d798e115bc446447228c7c4b24c6"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "01fb1d7a7440f807b2bdb697c709dfa5897edc0755152c0fef465cf77dd820623fccb410ad033e3d52d4b0bc57409ecf"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "626beff2173578c3a2ad732c81c48a9b091c9ffdea7d50f4b812fd14cd8299ab7a726b052808490b1022faca69aa6e91"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "MIT"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.checkerframework/checker-qual@3.5.0?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/typetools/checker-framework.git"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.postgresql/postgresql@42.3.3?type=jar",
+      "publisher" : "PostgreSQL Global Development Group",
+      "group" : "org.postgresql",
+      "name" : "postgresql",
+      "version" : "42.3.3",
+      "description" : "PostgreSQL JDBC Driver Postgresql",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "bef0b2e1c6edcd8647c24bed31e1a4ac"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "6f639af368afda4c5a3e77a6299262c501e67076"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "eed0604f512ba44817954de99a07e2a5470aa4bfcb481d4e63a93e0ff0e0aede"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "5e2490e14080b7a7a7377bd2d5e3b873736ea78df938d7cc62fb2e3d4f18bec56f1a3468431fb99d928323087c4b39360c4fea6b5bb67934e647229f43aaae4e"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "cb3c08fd92e85d0d4cadeb452e155873ba736e493f8398aff60f4ca4824e8211"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "680a198fe24899074efa3210206ce3535ec3cf1a3e15ef74992e3c29830bf6a2084452b423b12bc705ee1fa5b3757105341e2dd66b85afab17f8c637eb3bd94b"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "a3e7f4847a3e4cd902c458e3aa1d620fad050adb595cb02906a4984e159b74bd397b58d56d7d3b847ed39ec6405dd950"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "7540fa0ce94ef05039e8b1f03647c5e1543d79536ed446d896efaa17ee2cea8ea9a846dfc09f49aafcb4a440fe4bdbf9"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "BSD-2-Clause",
+            "url" : "https://opensource.org/licenses/BSD-2-Clause"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.postgresql/postgresql@42.3.3?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://jdbc.postgresql.org/"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/pgjdbc/pgjdbc/issues"
+        },
+        {
+          "type" : "mailing-list",
+          "url" : "https://www.postgresql.org/list/pgsql-jdbc/"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/pgjdbc/pgjdbc"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    }
+  ],
+  "dependencies" : [
+    {
+      "ref" : "pkg:maven/com.h2database/h2@2.1.210?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/org.checkerframework/checker-qual@3.5.0?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/org.postgresql/postgresql@42.3.3?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.checkerframework/checker-qual@3.5.0?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/unspecified/P04_database@unspecified?project_path=%3A",
+      "dependsOn" : [
+        "pkg:maven/com.h2database/h2@2.1.210?type=jar",
+        "pkg:maven/org.postgresql/postgresql@42.3.3?type=jar"
+      ]
+    }
+  ]
+}

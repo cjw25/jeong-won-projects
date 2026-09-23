@@ -1,0 +1,575 @@
+{
+  "bomFormat" : "CycloneDX",
+  "specVersion" : "1.6",
+  "serialNumber" : "urn:uuid:1e59c75f-7cc0-46b9-988e-3158ef3fa5aa",
+  "version" : 1,
+  "metadata" : {
+    "timestamp" : "2026-09-22T01:06:30Z",
+    "tools" : {
+      "components" : [
+        {
+          "type" : "application",
+          "author" : "CycloneDX",
+          "name" : "cyclonedx-gradle-plugin",
+          "version" : "3.4.1"
+        }
+      ]
+    },
+    "component" : {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/unspecified/P09_template@unspecified?project_path=%3A",
+      "group" : "",
+      "name" : "P09_template",
+      "version" : "unspecified",
+      "purl" : "pkg:maven/unspecified/P09_template@unspecified?project_path=%3A",
+      "modified" : false
+    }
+  },
+  "components" : [
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/ognl/ognl@3.1.26?type=jar",
+      "publisher" : "OpenSymphony",
+      "group" : "ognl",
+      "name" : "ognl",
+      "version" : "3.1.26",
+      "description" : "OGNL - Object Graph Navigation Library",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "c309667d632d808b2627f66a33aa05c7"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "922d3d922b8aa40146d842114c184c8b403d2f4f"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "807277276d4b9d5231139ad50885995ba1a6631498e6c1cf61e6e156d15872f5"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "a133a0cd00ae877fe6009f6003b2076ed4d3d30bcb9897554f625770e90efb44379a9b6bc7021baedb96277d85fb23165a2ed59b7fc121cb5e4fa0aa7b19a9de"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "35d94519169043bc8373f698ab694bc31925ac31096a06e82235b7d8eadfa1e7"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "ad59a72bf039018cb93db4f6e2b2fa64f4cfaeebff446cccff330a626242ab9f2dc16749d28c402c490e732a4c0196bb6e16e0fac38b315e79ca8712232bfe6e"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "f773467684ce4ae6a27011224362447cafc7aa21913495b335777835f9cc160f5179c34614e5a06af4ecda4e74669eef"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "c38e3e34dffd9a57a56801f36399bc639f24f4e262fce15299f8a0dfcbe8be98994d83adc68853aab64dbce22e32cf88"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/ognl/ognl@3.1.26?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "http://www.opensymphony.com"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "http://jira.opensymphony.com/browse/OGNL"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.attoparser/attoparser@2.0.5.RELEASE?type=jar",
+      "publisher" : "The ATTOPARSER team",
+      "group" : "org.attoparser",
+      "name" : "attoparser",
+      "version" : "2.0.5.RELEASE",
+      "description" : "Powerful, fast and easy to use HTML and XML parser for Java",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "546b814a33d40124427225d6d1df8fd2"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "a93ad36df9560de3a5312c1d14f69d938099fa64"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "d4015d56147f696ed0a90078675bc940529f907e7b2dfc1fad754e8033da8796"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "91b2eaadab67420252e47e52b4460ec13bb8c38a3a9b89a924974a4e2e411f0537a758e924800e4355b83aae5db6925f7e002fb5e0200735c69910d56b216524"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "6c7ed8d6ffb74f247dab1582f1f03de6adf28246c6957292a5cdc3edbd153b24"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "41e8040d0dcf7adc5ebd3c2bfa04026d8b404f23d25982eb50c885fc7152e3f48f68aa7b095f0b92e985cafee517b789deab9891c83aaeda090b42056bdfdb69"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "34555574940d91fea7d83b57f82479091789f113d75813225fe1bd4040f4c98bc259d0fd4544f44181b462bca1554b50"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "99045ffa7ccb7bdce7f0186239b6d6b8bb205c07051c509fe2232d84ce5830f6c392266bc614d87f864e8910b0a6f186"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.attoparser/attoparser@2.0.5.RELEASE?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "http://www.attoparser.org"
+        },
+        {
+          "type" : "distribution",
+          "url" : "http://oss.sonatype.org/service/local/staging/deploy/maven2"
+        },
+        {
+          "type" : "vcs",
+          "url" : "scm:git:git@github.com:attoparser/attoparser.git"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.freemarker/freemarker@2.3.31?type=jar",
+      "publisher" : "Apache Software Foundation",
+      "group" : "org.freemarker",
+      "name" : "freemarker",
+      "version" : "2.3.31",
+      "description" : "FreeMarker is a \"template engine\"; a generic tool to generate text output based on templates.",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "962b1ff657a58cb26a9bbccb2a84d2bd"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "cd4fc0942b4a8bdb19f3b669aa42136fb54feb55"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "68ecb4c5aa4934b7b50c38b0e495d7589e52dfb9d28b964ac2008b72090bfaae"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "b1df51867cd32450a90d27ea1b91322cf04c8637e1a2f5ac90ddf364cfc0661c1eacc3d6f19c455a941e7f1e99c95c061313a0e480ec0cecc855ae0f7d0d0995"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "0fa3a0bbca3cd417e4a52cb866ae2d35a6162a8bad8a640a56c982005ebfd50c"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "16e214e554f847a75d92632f84afe4bbb0d95e645df4fb5c37036a7836d4b90ae756482b4ff0e6acefcd2d089f234ae6d18f24c7cb11a3d466945418aa0e59e8"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "83fcf9a1f8a21a929d9dcd60e3e9d50348243be75a81aab73c46bc493b0446042b86528bf1c691e777d520d9cd921e1f"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "9e3bc5746e89e37bc8ddf66a4b8c9c48bc9f46c28c5f5ce928990cf1dd0d68318d52086bd448038570c64015159b2a7f"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.freemarker/freemarker@2.3.31?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "http://apache.org"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://issues.apache.org/jira/browse/FREEMARKER/"
+        },
+        {
+          "type" : "mailing-list",
+          "url" : "http://mail-archives.apache.org/mod_mbox/freemarker-dev/"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://git-wip-us.apache.org/repos/asf?p=freemarker.git"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.javassist/javassist@3.20.0-GA?type=jar",
+      "publisher" : "Shigeru Chiba, www.javassist.org",
+      "group" : "org.javassist",
+      "name" : "javassist",
+      "version" : "3.20.0-GA",
+      "description" : "Javassist (JAVA programming ASSISTant) makes Java bytecode manipulation simple. It is a class library for editing bytecodes in Java.",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "a89dd7907d76e061ec2c07e762a74256"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "a9cbcdfb7e9f86fbc74d3afae65f2248bfbf82a0"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "d7691062fb779c2381640c8f72acba2c23873b01c243866d41c15dc4c8848ea2"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "9a7b212f2f953a8a0bf21fd2ab9606b8d372e778189abdaf758cf4e7ca3a4287505d3e8c567a6f68446432f7403b1cca6960992442322e58cdb69f3e8169f464"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "7ad76a90d1eca501157005e39ba81905b7dab9aab0a2b6e4cb008e23af1ab1ab"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "4b6c99837b886a1501bd0e771622aa26354c451dcb06a9a9be6f9da2f37f372ead141e0da3d37f01af820637b0e21c75d9541eb9d8ae5bbf3955d76bfc1f788c"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "a31e22ff81f02e0841c7f13a9dbb788dc563b7ac52f06b80ac193830664db0812c58b0499efc3f702a1978011fb69865"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "6d619d3c09375846b1a7a548eec02f83afa02874c2acf8c169e1d4b4e91985bf855d02921d286dedacb101cf5cca4ec6"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "MPL-1.1"
+          }
+        },
+        {
+          "license" : {
+            "id" : "LGPL-2.1-only"
+          }
+        },
+        {
+          "license" : {
+            "id" : "Apache-2.0",
+            "url" : "https://www.apache.org/licenses/LICENSE-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.javassist/javassist@3.20.0-GA?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "distribution",
+          "url" : "https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://jira.jboss.org/jira/browse/JASSIST/"
+        },
+        {
+          "type" : "vcs",
+          "url" : "scm:git:git@github.com:jboss-javassist/javassist.git"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.slf4j/slf4j-api@1.7.25?type=jar",
+      "group" : "org.slf4j",
+      "name" : "slf4j-api",
+      "version" : "1.7.25",
+      "description" : "The slf4j API",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "caafe376afb7086dcbee79f780394ca3"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "da76ca59f6a57ee3102f8f9bd9cee742973efa8a"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "18c4a0095d5c1da6b817592e767bb23d29dd2f560ad74df75ff3961dbde25b79"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "5dd6271fd5b34579d8e66271bab75c89baca8b2ebeaa9966de391284bd08f2d720083c6e0e1edda106ecf8a04e9a32116de6873f0f88c19c049c0fe27e5d820b"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "abb590301fbb93baf4f7afe227f230ee7992d9a56f7034ef2c37447ac8c52a9b"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "c025c503db0d09d0d435c1c96f0e7165f08375abc58eb4e4bf52b0b4689801019a7e966fa5372c03b0697083a992a0baceb7ab5d18659d262f5db4c9bca26584"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "f2791380e87fccb18519efd016c03be11206984f4765586d348e57e2f33756b21ed51a95fa09679e1473a5bf5d2d76e1"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "d621071a8bca1a32ac3603a816721fd93180a29e520d16a1c655686b169605f679818d6acc0000470ebe25265bdc9962"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "MIT",
+            "url" : "https://opensource.org/license/mit/"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.slf4j/slf4j-api@1.7.25?type=jar",
+      "modified" : false,
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.thymeleaf/thymeleaf@3.0.15.RELEASE?type=jar",
+      "publisher" : "The THYMELEAF team",
+      "group" : "org.thymeleaf",
+      "name" : "thymeleaf",
+      "version" : "3.0.15.RELEASE",
+      "description" : "Modern server-side Java template engine for both web and standalone environments",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "60c7ebe364a6b704ddf0348476a438ea"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "13e3296a03d8a597b734d832ed8656139bf9cdd8"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "9ea400b29d938eec670684eaa706a4fc11cd6c6ba58fd39b8ea9e13cb0177d75"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "e88a93caff7a153c26bc03c596a55b174e9eb5f10ce79c5293dec6f7c7f910150c0f2e7e523c79395a5eb4290ba5705cd378ea24cb010352fa4fc8572b1fa751"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "b34a4ec47482923cdec326d10c76c89a17b55041b9d30ad98b6273f428155419"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "73574c4cb7aae72294d192b9977ab1cbd080f7891d2349b7d45b6a5a590168ae438c966a8cd21880b361dcccffdb3f7c483830f70572b0008307f2e6ae53b7d8"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "a29b4451a3e6453acbe61f49dc0c1f02a3795d3d6f0115df6e4300697e6f18ee3601260dbb3671e04adcf09f8e2297fb"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "4e1b81af85aa55fb5181cd3f263dd5e7ecc9dff65ed7b1321027c687de68f6aac1c3af21a86b38a8d3d5eb22d618a2ea"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.thymeleaf/thymeleaf@3.0.15.RELEASE?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "http://www.thymeleaf.org"
+        },
+        {
+          "type" : "distribution",
+          "url" : "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+        },
+        {
+          "type" : "vcs",
+          "url" : "scm:git:git@github.com:thymeleaf/thymeleaf.git"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.unbescape/unbescape@1.1.6.RELEASE?type=jar",
+      "publisher" : "The UNBESCAPE team",
+      "group" : "org.unbescape",
+      "name" : "unbescape",
+      "version" : "1.1.6.RELEASE",
+      "description" : "Advanced yet easy-to-use escape/unescape library for Java",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "d95ed94e1624e307a1958ee105ccbf39"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "7b90360afb2b860e09e8347112800d12c12b2a13"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "597cf87d5b1a4f385b9d1cec974b7b483abb3ee85fc5b3f8b62af8e4bec95c2c"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "6918e9579b06721942fdcd91e401f5b996fb4eac13056dbafdf594661f355a34874eb5266784bc2c4f82df9fdd9e219d71a96f52945a354f01665f85f8166bb3"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "a190c9bedccff959d08db12fe7080437fb4e98f05516b39d6540be718e151cc6"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "5d7b5edc0c2a0d47c9625936c14b4122330b96cdf54260fe2a6468289c2f4cbc4ee19770c1144acfa702f2f058a81544b4aea9258fe0e15166a1a331736d7b77"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "1b808b67c784b69afea64364ba4c0d433c7f042c512f5c18f07d5388fe7ac4741913f696424bd8fbde147383cfb3d8f9"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "6525bd20a12ff43a0089c0d59369574ae6c01e2b4b1aacf466847d4433ae403db08404a9b59be397c3034f972bcd6b06"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.unbescape/unbescape@1.1.6.RELEASE?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "http://www.unbescape.org"
+        },
+        {
+          "type" : "distribution",
+          "url" : "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+        },
+        {
+          "type" : "vcs",
+          "url" : "scm:git:git@github.com:unbescape/unbescape.git"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    }
+  ],
+  "dependencies" : [
+    {
+      "ref" : "pkg:maven/ognl/ognl@3.1.26?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.javassist/javassist@3.20.0-GA?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.attoparser/attoparser@2.0.5.RELEASE?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/org.freemarker/freemarker@2.3.31?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/org.javassist/javassist@3.20.0-GA?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/org.slf4j/slf4j-api@1.7.25?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/org.thymeleaf/thymeleaf@3.0.15.RELEASE?type=jar",
+      "dependsOn" : [
+        "pkg:maven/ognl/ognl@3.1.26?type=jar",
+        "pkg:maven/org.attoparser/attoparser@2.0.5.RELEASE?type=jar",
+        "pkg:maven/org.slf4j/slf4j-api@1.7.25?type=jar",
+        "pkg:maven/org.unbescape/unbescape@1.1.6.RELEASE?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.unbescape/unbescape@1.1.6.RELEASE?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/unspecified/P09_template@unspecified?project_path=%3A",
+      "dependsOn" : [
+        "pkg:maven/org.freemarker/freemarker@2.3.31?type=jar",
+        "pkg:maven/org.thymeleaf/thymeleaf@3.0.15.RELEASE?type=jar"
+      ]
+    }
+  ]
+}

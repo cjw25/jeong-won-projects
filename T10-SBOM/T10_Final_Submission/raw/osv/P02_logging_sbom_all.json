@@ -1,0 +1,161 @@
+{
+  "project_id": "P02_logging",
+  "condition": "sbom_all",
+  "queried_at_utc": "2026-09-22T01:06:49.611345+00:00",
+  "source": "https://api.osv.dev/v1/querybatch",
+  "packages": [
+    {
+      "group": "ch.qos.logback",
+      "artifact": "logback-classic",
+      "version": "1.2.10"
+    },
+    {
+      "group": "ch.qos.logback",
+      "artifact": "logback-core",
+      "version": "1.2.10"
+    },
+    {
+      "group": "org.apache.logging.log4j",
+      "artifact": "log4j-api",
+      "version": "2.17.1"
+    },
+    {
+      "group": "org.apache.logging.log4j",
+      "artifact": "log4j-core",
+      "version": "2.17.1"
+    },
+    {
+      "group": "org.slf4j",
+      "artifact": "slf4j-api",
+      "version": "1.7.32"
+    }
+  ],
+  "api_response": {
+    "results": [
+      {
+        "vulns": [
+          {
+            "id": "GHSA-vmq6-5m68-f53m",
+            "modified": "2026-09-10T03:50:04.518871Z"
+          }
+        ]
+      },
+      {
+        "vulns": [
+          {
+            "id": "GHSA-25qh-j22f-pwp8",
+            "modified": "2026-09-10T03:50:29.081250Z"
+          },
+          {
+            "id": "GHSA-6v67-2wr5-gvf4",
+            "modified": "2026-09-10T03:50:21.323991Z"
+          },
+          {
+            "id": "GHSA-jhq6-gfmj-v8fx",
+            "modified": "2026-09-10T03:50:50.074688Z"
+          },
+          {
+            "id": "GHSA-p47f-322f-whfh",
+            "modified": "2026-09-10T03:50:47.152421Z"
+          },
+          {
+            "id": "GHSA-pr98-23f8-jwxv",
+            "modified": "2026-09-10T03:50:21.783184Z"
+          },
+          {
+            "id": "GHSA-qqpg-mvqg-649v",
+            "modified": "2026-09-10T03:50:33.725359Z"
+          },
+          {
+            "id": "GHSA-vmq6-5m68-f53m",
+            "modified": "2026-09-10T03:50:04.518871Z"
+          }
+        ]
+      },
+      {
+        "vulns": [
+          {
+            "id": "GHSA-qv9r-c865-cp47",
+            "modified": "2026-09-10T03:50:52.972700Z"
+          }
+        ]
+      },
+      {
+        "vulns": [
+          {
+            "id": "GHSA-3pxv-7cmr-fjr4",
+            "modified": "2026-09-10T03:50:42.492278Z"
+          },
+          {
+            "id": "GHSA-6hg6-v5c8-fphq",
+            "modified": "2026-09-10T03:50:43.570169Z"
+          },
+          {
+            "id": "GHSA-vc5p-v9hr-52mj",
+            "modified": "2026-09-10T03:50:32.126499Z"
+          }
+        ]
+      },
+      {}
+    ]
+  },
+  "analysis": {
+    "vulnerable_components": [
+      "ch.qos.logback:logback-classic:1.2.10",
+      "ch.qos.logback:logback-core:1.2.10",
+      "org.apache.logging.log4j:log4j-api:2.17.1",
+      "org.apache.logging.log4j:log4j-core:2.17.1"
+    ],
+    "vulnerability_ids": [
+      "GHSA-25qh-j22f-pwp8",
+      "GHSA-3pxv-7cmr-fjr4",
+      "GHSA-6hg6-v5c8-fphq",
+      "GHSA-6v67-2wr5-gvf4",
+      "GHSA-jhq6-gfmj-v8fx",
+      "GHSA-p47f-322f-whfh",
+      "GHSA-pr98-23f8-jwxv",
+      "GHSA-qqpg-mvqg-649v",
+      "GHSA-qv9r-c865-cp47",
+      "GHSA-vc5p-v9hr-52mj",
+      "GHSA-vmq6-5m68-f53m"
+    ],
+    "component_results": [
+      {
+        "component": "ch.qos.logback:logback-classic:1.2.10",
+        "vulnerability_ids": [
+          "GHSA-vmq6-5m68-f53m"
+        ]
+      },
+      {
+        "component": "ch.qos.logback:logback-core:1.2.10",
+        "vulnerability_ids": [
+          "GHSA-25qh-j22f-pwp8",
+          "GHSA-6v67-2wr5-gvf4",
+          "GHSA-jhq6-gfmj-v8fx",
+          "GHSA-p47f-322f-whfh",
+          "GHSA-pr98-23f8-jwxv",
+          "GHSA-qqpg-mvqg-649v",
+          "GHSA-vmq6-5m68-f53m"
+        ]
+      },
+      {
+        "component": "org.apache.logging.log4j:log4j-api:2.17.1",
+        "vulnerability_ids": [
+          "GHSA-qv9r-c865-cp47"
+        ]
+      },
+      {
+        "component": "org.apache.logging.log4j:log4j-core:2.17.1",
+        "vulnerability_ids": [
+          "GHSA-3pxv-7cmr-fjr4",
+          "GHSA-6hg6-v5c8-fphq",
+          "GHSA-vc5p-v9hr-52mj"
+        ]
+      },
+      {
+        "component": "org.slf4j:slf4j-api:1.7.32",
+        "vulnerability_ids": []
+      }
+    ]
+  }
+}

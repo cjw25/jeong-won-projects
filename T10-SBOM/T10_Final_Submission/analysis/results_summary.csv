@@ -1,0 +1,8 @@
+﻿metric,value
+project_count,10
+total_direct_vulnerable_components,17
+total_sbom_vulnerable_components,38
+total_additional_vulnerable_components,21
+projects_with_additional_findings,7
+mean_additional_vulnerable_components,2.1
+median_additional_vulnerable_components,2.0

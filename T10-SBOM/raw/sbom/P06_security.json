@@ -1,0 +1,903 @@
+{
+  "bomFormat" : "CycloneDX",
+  "specVersion" : "1.6",
+  "serialNumber" : "urn:uuid:975f5bab-ae05-4964-9e66-296d1fd565fc",
+  "version" : 1,
+  "metadata" : {
+    "timestamp" : "2026-09-22T01:06:00Z",
+    "tools" : {
+      "components" : [
+        {
+          "type" : "application",
+          "author" : "CycloneDX",
+          "name" : "cyclonedx-gradle-plugin",
+          "version" : "3.4.1"
+        }
+      ]
+    },
+    "component" : {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/unspecified/P06_security@unspecified?project_path=%3A",
+      "group" : "",
+      "name" : "P06_security",
+      "version" : "unspecified",
+      "purl" : "pkg:maven/unspecified/P06_security@unspecified?project_path=%3A",
+      "modified" : false
+    }
+  },
+  "components" : [
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.bouncycastle/bcprov-jdk15on@1.70?type=jar",
+      "group" : "org.bouncycastle",
+      "name" : "bcprov-jdk15on",
+      "version" : "1.70",
+      "description" : "The Bouncy Castle Crypto package is a Java implementation of cryptographic algorithms. This jar contains JCE provider and lightweight API for the Bouncy Castle Cryptography APIs for JDK 1.5 and up.",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "1809d0449a6374279c01fdd3be26cd92"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "4636a0d01f74acaf28082fb62b317f1080118371"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "8f3c20e3e2d565d26f33e8d4857a37d0d7f8ac39b62a7026496fcab1bdac30d4"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "7dccfc636ee4df1487615818cfa99c69941081df95e8ef1eaf4bca165594dff9547e3774fd70de3418abace77d2c45889f70bcd2e6823f8539f359e68eaf36d1"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "10a3572e42d29f609721d795116e3e5d0f6f03efef84bb979ce72e26908d242b"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "a0761cb6deeb86c94b96850c72c0a0eaf516ca849f4b8268f9f60c9ed2a6730e692c15098d47e617da294e931113c6cbcaddec8957c9f029fa595b5f14ff35ac"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "a0b35d204cd962f1d246fa94b6e8b0fcee1a7c3f37b7e87cda742f2124a25b48794ce11a903ea8d12009c86227b6808d"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "980d81d3d9906764bbf2ae9b3b364ea58628b485ce1dc3d06734e10495d79f2be2e7cc7df61ac88cd67c1104c7af9393"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "name" : "Bouncy Castle Licence",
+            "url" : "https://www.bouncycastle.org/licence.html"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.bouncycastle/bcprov-jdk15on@1.70?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/bcgit/bc-java/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/bcgit/bc-java"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.springframework.security/spring-security-core@5.6.3?type=jar",
+      "publisher" : "Pivotal Software, Inc.",
+      "group" : "org.springframework.security",
+      "name" : "spring-security-core",
+      "version" : "5.6.3",
+      "description" : "Spring Security",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "530d76f8d8617f168f7bebbe54f7e59f"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "30174aca1818d0cd8e8ac932eb7c7c67f9243a84"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "582e8f566391fb1e03ae9ac40879be734b7393b4543965ea1a7428d5a561e7a1"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "325ec5248cc73aeea322579a1f59b88ff4f23573dcd628bce32dded6ce2a71f3c96a35694ceea41647e9eb07048cc0e37e55c924f61c5a4c4103bbe9e1443179"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "038b7e1a286073c46e1a6e28f030f5de0e6693101259c2f7fdf2c18a49024eee"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "3fdf163fc64e4e0920772b931d2993b5cb4a991897d1615898e2343dbd6cedfa6425b45223977b39e12c986fa7206be511a6d27c82b129d888d5e1f6ed467632"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "0633286f8da576979bd2c40720769191e720036bf07004c397c58d25af8455544dd3f9c00c9104459c50dad062e9a7e0"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "b67eb9900bb48c50c0e83a907a5bb2aaccccc3ecae9c79163c844b3d3f2723fd8c0332bc6f1237d124ced64db9bfdb19"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.springframework.security/spring-security-core@5.6.3?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://spring.io"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/spring-projects/spring-security/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/spring-projects/spring-security"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.springframework.security/spring-security-crypto@5.6.3?type=jar",
+      "publisher" : "Pivotal Software, Inc.",
+      "group" : "org.springframework.security",
+      "name" : "spring-security-crypto",
+      "version" : "5.6.3",
+      "description" : "Spring Security",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "f088d97c2e30f5262930c867cac86d2d"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "2233c052b2e92cfd4f4bd741f2bacd2721982606"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "6a09c032e1253f914271f5203adfe7fed15fcd9d008adc8e3a3a1eabb446cc72"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "064dc0df2405029295259006e5b9bf0521a27a64358ca48e0514af4ae57b8ae3f886eb56b62d831189a86951d304e1b96f3a67213eb220701fc90a8a632a08c8"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "0eb3b55bbb027d39edd7851891c645e5d0848f49e9df48c265d1335259cda186"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "1cfab768a6bca0a652d4f8848d048ccd8ede6065e54a5e3b137ada581704617b9317ff05531697c96a49a2c15c3e957de8fbdb297b952ea724daee5c53048ff7"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "75b4f64d2535feddc6f8e4fdd5ae6f87aa3e72ef0db7032e1de9e971624d512631bf7cf03f2e9af4b92aade93f7b74df"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "7563ce4a876db6a99e1d37c94dd264e37c7b5b5f0a69431e4bb4d14e751ca2b4f038717f5873f83241939a0dc628ff8b"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.springframework.security/spring-security-crypto@5.6.3?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://spring.io"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/spring-projects/spring-security/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/spring-projects/spring-security"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.springframework.security/spring-security-web@5.6.3?type=jar",
+      "publisher" : "Pivotal Software, Inc.",
+      "group" : "org.springframework.security",
+      "name" : "spring-security-web",
+      "version" : "5.6.3",
+      "description" : "Spring Security",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "71e95f30b3d7fc65418e7c2732914fce"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "067db612f39c74268561fab887e2385f2b6cf324"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "fa572e891ffae92c4806e29f3789146e4b43085b95834a181a6d98a03622cd36"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "fca974302d77e02fe0f97e070254a3a6f21fd17a7eaabfa5d7321cb1cd208d60c247f41993f97199dc90f8cdf0d6e3bd013f9892684bb735d17e7bff84baa471"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "6ecb649a099f0edf58848b32b6dcc906b1663f5d3bee71ae9a8f9824b362d567"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "6bd9d571090aaeed6d85e6593ec47da6c0efe5a292f645e91f668cee225b9a059ae0c69caddda74466dfe304e3ba87e65362a8c7532f0c56cc4bb22bb254482d"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "9797f85452635e6dc5e416d9420eec0ac59439711a996c42e7ced1ef11d885199b61e2909418c2f8668dc3bf860a481a"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "af110df723bcab4fbe427c458029084c23aa46aaa87328b6976635722f49923a8b92ceaa62a95748939955501f80ce30"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.springframework.security/spring-security-web@5.6.3?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://spring.io"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/spring-projects/spring-security/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/spring-projects/spring-security"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.springframework/spring-aop@5.3.19?type=jar",
+      "publisher" : "Spring IO",
+      "group" : "org.springframework",
+      "name" : "spring-aop",
+      "version" : "5.3.19",
+      "description" : "Spring AOP",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "bddf130f57d39282b3e41bab6d33b79d"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "339b0ad295a7af51ac716bd89d36a4fb0febaf5d"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "4fe45bc5b2f396c83934ce3041087cdc5ecbdccab883e343e9615e33450fdce9"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "5076939bac9b4394ca54c7c52f6e06fd1c7c3309f01a2434682ec34081aa2ec0c8ab9fb1d3884d779dcae397e8da13bc611b224c6daad91da4637487d0fb4bf3"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "77fc73ef5d95aec6768cfef3150c98d8d4f79934ae79bee893f564dad7edbda6"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "e8a3f0f6dbb0c12aa5b0ee6eea58e3568ba16a387fa7773f6ca7fdaa18deed637d99720015d9097609618019fe32f8011c167d83915775bf55c08e9e5518b46b"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "0d3e668c7f2aa947302049d89cc092459a38ee2818ff95a68363168cc221d067bf34dbc0b0605f4137bd3b3fe76190a0"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "2d887fc1bcb1bd1e3cdee96032a57f158d87a3d5b3625648f145f7f3a5315a1dbdeee6ee3a7d1c2190e54b7fe0625913"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.springframework/spring-aop@5.3.19?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://spring.io/projects/spring-framework"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/spring-projects/spring-framework/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/spring-projects/spring-framework"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.springframework/spring-beans@5.3.19?type=jar",
+      "publisher" : "Spring IO",
+      "group" : "org.springframework",
+      "name" : "spring-beans",
+      "version" : "5.3.19",
+      "description" : "Spring Beans",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "8047873a7cd11ad616848a596b0dd46e"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "4bc68c392ed320c9ab5dc439d7f2deb83f03fe76"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "fe80777b5d5aea9fd92bdb697616058d551c751a98f19bf9b5e725a43274a8fe"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "949cd7e0668917ea1ba26da511af79a5f7792ff8550d964a70460847b56b5427c0ee4030ac692391138ad519e502bd8bb68146a7c8e364fcbafc4034a2911c16"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "21f6f9b9ac4d964f3e23903876774165651cece9c850790162b12c8d79fb8910"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "e4075204f45729f7c83c3f0b59d89f6631f83ce2a04ee9409dda7623079d998dbf9eac8631fd3d4c319f1166f3681a066ee77cf684b32cddd7f369b5999b58b2"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "cb8ac7f16fbbb0ad05b60c9b77745efe2f2d777a16893ab771941f6ee510ad56e0996be4bbdcc1b27b94324b53b589e9"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "d75c144bd0595976a9df1cf7d0b2ec404239f7ca696ce15ccf21766f31af423cc71760265c81fdeafa1b0df7e3b44335"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.springframework/spring-beans@5.3.19?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://spring.io/projects/spring-framework"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/spring-projects/spring-framework/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/spring-projects/spring-framework"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.springframework/spring-context@5.3.19?type=jar",
+      "publisher" : "Spring IO",
+      "group" : "org.springframework",
+      "name" : "spring-context",
+      "version" : "5.3.19",
+      "description" : "Spring Context",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "b6257ac34775995e21fc15a9bcc45871"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "d663259767f8fb66229209db0422d65978235525"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "74e575519bd7b5ccb5eea7309b3fb17d2032ed8cf99f0bf33781bbd54c501410"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "0888be8f29fb828705deb2732d0abec5a6b86913ee70c78a91afcc549854675c99e7d5a7c4df67c9162dd46ca5978e18857533cc99f809b02f283f5d6e42ff0d"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "af02935ae8db90eaae0c8d5df611bd645cfa4c1ba09931bade3149797debd671"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "fcb9d77b59b88b2277c2d318079d167d275f56b511e967e9bbc9e91915360a095728e0b63095a144dd7996db0db2cd346a2a6b013bafca67ef1849eafde850c3"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "5657ab02eacf3cb20fb41d9ff6002716b038e5dbf4ae6d7f3bc2e92b3312090269785fd57e70ee532043f681d6f6cc94"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "f2fcf34b08e2f1996ac76217cebe1bd6ffa955fd7d429d62756fdd4835647437b30fd5344e8a587f8d4d154ccee50985"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.springframework/spring-context@5.3.19?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://spring.io/projects/spring-framework"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/spring-projects/spring-framework/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/spring-projects/spring-framework"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.springframework/spring-core@5.3.19?type=jar",
+      "publisher" : "Spring IO",
+      "group" : "org.springframework",
+      "name" : "spring-core",
+      "version" : "5.3.19",
+      "description" : "Spring Core",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "9d436606f18d36651a025688793e0836"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "344ff3b291d7fdfdb08e865f26238a6caa86acc5"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "1af06bd4123873c3cbc9dda4cd5df014b13be253ed313ba81ad3c48e3d0a7992"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "b26338f1fec772c1d4ee89a1e482055e3c638294c228985277f6c6ef59fae411e79e5490e6e8634e4abb857b4432e39dbf8dd8588cbd0b85a7eb897e6d18249b"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "4027fbb0c01da584586b3fa2053f1549d4fed9daea93d78eb88bd3a8a2b64c1a"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "1ad1c7ed1662f266d10d33b18f660b217a8d5118f5598066086cfaa0602dd73b54f102f1123d62ea63fec3b2bb83fbbce2a4fdbc63867ab78966242ffeae6e93"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "f67ed757c5bfe68880d6ee55cfd9aa72c611c16cc7419ddc73da0729d53dd381b19bbcf460d02ccbcc263b6faeff4ff0"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "7e55539a7eafa022791bb1f2d47b87d2ca4bba647c30f3e30cea5e9705097d7a782289cf1fd5ceaa51d23da3318164c8"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.springframework/spring-core@5.3.19?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://spring.io/projects/spring-framework"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/spring-projects/spring-framework/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/spring-projects/spring-framework"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.springframework/spring-expression@5.3.19?type=jar",
+      "publisher" : "Spring IO",
+      "group" : "org.springframework",
+      "name" : "spring-expression",
+      "version" : "5.3.19",
+      "description" : "Spring Expression Language (SpEL)",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "2b3401928185503ff8c92ba2febe4b3a"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "14346b7b84721f61d2b23d3c8baa60c6655527a6"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "4ad36ad63ce3ed2b04bba407c431bdac06a67aff41fb127b8993772ddc4b7432"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "0fd8ed32a5df2071183f5296ea30168c5b3f37ef66dad8ec54986fd0c56ea6970b9793d6c7d9569468254c21c89e376bb2e47246268067cda6e9039d8e326930"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "4dce8e5d23843baf5504849e1a4cfc888e944194214cd1532a33bd418774560e"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "98829574736a5f4ccd7e6128fdf82f5de39d093c5d9a64a70abd3c545174ac2b8027ea6313275c31927f3050e5b903a60c26c9994774be75788bebba2fb34999"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "fa8df7a0cd1d939da9733ac0dd0ce12d9bc029a8427ff3b1b18491b451bc2a1044d488b34c128bc0d3f01112e703d8c2"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "c8f549da9877cf76b74b1c0d6fd28e32285f76b3627b3d652e198876d6c3e1133aaafafaa9134e6b10434a1d2bf9a1d2"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.springframework/spring-expression@5.3.19?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://spring.io/projects/spring-framework"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/spring-projects/spring-framework/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/spring-projects/spring-framework"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.springframework/spring-jcl@5.3.19?type=jar",
+      "publisher" : "Spring IO",
+      "group" : "org.springframework",
+      "name" : "spring-jcl",
+      "version" : "5.3.19",
+      "description" : "Spring Commons Logging Bridge",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "0636997785265af380bdc019f5c68daa"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "eae3d8b8728133782d9e41f9b3ecbd19a4146114"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "68b37cd1a37ced08724804c3e343569518faf69f992a4d6a12f85d5ecc070ac8"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "99a9aeb291a2e78adf6788be2e8096137994e557bb30385bfcd73774f559e01ea45dee7f6c92a2628b279832e9c916185b17472d80b5986c93525ae9c9343914"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "6d8e6a22dc4ffc217d6c4fdffaa7cf6f9f75ae5337456541852ea15028446af1"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "640d0e14a8b7a7868fb147c45beefad451c93aa3a869975a8824f03267d7da65402933415964887871b8d7357514f0fabe475e80de2b94d97f4f587b5ab13a7f"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "c7b81f9d0e481008e3a70547d144680653aad099d00a6fbbd932ae90d431bbe892b8267cd8b75c54b68c1d073bcbc66f"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "c2b9222e8a7e47d01646f03f5df4e6335caa178aaac7a8be1a02ba6ac0b2e2ebee5dc1148aaba5b9d91491c65c0c1cbd"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.springframework/spring-jcl@5.3.19?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://spring.io/projects/spring-framework"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/spring-projects/spring-framework/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/spring-projects/spring-framework"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.springframework/spring-web@5.3.19?type=jar",
+      "publisher" : "Spring IO",
+      "group" : "org.springframework",
+      "name" : "spring-web",
+      "version" : "5.3.19",
+      "description" : "Spring Web",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "af0ba70bac79aadceb87c70e9df3569d"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "cdffc649d28d360d5891244e45277aa135ac647d"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "df65b8ce1066d2f640a547c5adade2625ff2a58371db60d50f89e1168b1fe08b"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "fb814b2624b632d65b1f95fbbc45044d15f691d306ae58b28840e882ca31e6b2e4bdb851ff3677c8f6faafc4f15335c55d2ee8b52fe44b6261ed0015895eeeee"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "33d0fad799c92c949b1001ebba62fdbaf7e30de225a42b160b659005609846a8"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "7a46d161dc01071fbfebf5b449eaf7d74cc44406362d6e902527083e533d754a4cd43880faf3a1b70f72c1e434beb752a1b387a89776230d78fc14082310d151"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "b5946793b4eba73936b6ec342cb47f189815f4fdbde9f2548c0b847812e06dae7697ed8225206b207769d0160f88025c"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "c71cf4138a7b6b724fe76c3b40fbf63d75a4acf69d0b6d3809321d76fe0f0bfca5958310aa06b6df46006673fe2a795c"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "id" : "Apache-2.0"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.springframework/spring-web@5.3.19?type=jar",
+      "modified" : false,
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://spring.io/projects/spring-framework"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/spring-projects/spring-framework/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/spring-projects/spring-framework"
+        }
+      ],
+      "properties" : [
+        {
+          "name" : "cdx:maven:package:test",
+          "value" : "false"
+        }
+      ]
+    }
+  ],
+  "dependencies" : [
+    {
+      "ref" : "pkg:maven/org.bouncycastle/bcprov-jdk15on@1.70?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/org.springframework.security/spring-security-core@5.6.3?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.springframework.security/spring-security-crypto@5.6.3?type=jar",
+        "pkg:maven/org.springframework/spring-aop@5.3.19?type=jar",
+        "pkg:maven/org.springframework/spring-beans@5.3.19?type=jar",
+        "pkg:maven/org.springframework/spring-context@5.3.19?type=jar",
+        "pkg:maven/org.springframework/spring-core@5.3.19?type=jar",
+        "pkg:maven/org.springframework/spring-expression@5.3.19?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.springframework.security/spring-security-crypto@5.6.3?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/org.springframework.security/spring-security-web@5.6.3?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.springframework.security/spring-security-core@5.6.3?type=jar",
+        "pkg:maven/org.springframework/spring-aop@5.3.19?type=jar",
+        "pkg:maven/org.springframework/spring-beans@5.3.19?type=jar",
+        "pkg:maven/org.springframework/spring-context@5.3.19?type=jar",
+        "pkg:maven/org.springframework/spring-core@5.3.19?type=jar",
+        "pkg:maven/org.springframework/spring-expression@5.3.19?type=jar",
+        "pkg:maven/org.springframework/spring-web@5.3.19?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.springframework/spring-aop@5.3.19?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.springframework/spring-beans@5.3.19?type=jar",
+        "pkg:maven/org.springframework/spring-core@5.3.19?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.springframework/spring-beans@5.3.19?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.springframework/spring-core@5.3.19?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.springframework/spring-context@5.3.19?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.springframework/spring-aop@5.3.19?type=jar",
+        "pkg:maven/org.springframework/spring-beans@5.3.19?type=jar",
+        "pkg:maven/org.springframework/spring-core@5.3.19?type=jar",
+        "pkg:maven/org.springframework/spring-expression@5.3.19?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.springframework/spring-core@5.3.19?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.springframework/spring-jcl@5.3.19?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.springframework/spring-expression@5.3.19?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.springframework/spring-core@5.3.19?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/org.springframework/spring-jcl@5.3.19?type=jar",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "pkg:maven/org.springframework/spring-web@5.3.19?type=jar",
+      "dependsOn" : [
+        "pkg:maven/org.springframework/spring-beans@5.3.19?type=jar",
+        "pkg:maven/org.springframework/spring-core@5.3.19?type=jar"
+      ]
+    },
+    {
+      "ref" : "pkg:maven/unspecified/P06_security@unspecified?project_path=%3A",
+      "dependsOn" : [
+        "pkg:maven/org.bouncycastle/bcprov-jdk15on@1.70?type=jar",
+        "pkg:maven/org.springframework.security/spring-security-web@5.6.3?type=jar"
+      ]
+    }
+  ]
+}

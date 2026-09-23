@@ -1,0 +1,113 @@
+{
+  "project_id": "P09_template",
+  "condition": "sbom_all",
+  "queried_at_utc": "2026-09-22T01:07:04.931363+00:00",
+  "source": "https://api.osv.dev/v1/querybatch",
+  "packages": [
+    {
+      "group": "ognl",
+      "artifact": "ognl",
+      "version": "3.1.26"
+    },
+    {
+      "group": "org.attoparser",
+      "artifact": "attoparser",
+      "version": "2.0.5.RELEASE"
+    },
+    {
+      "group": "org.freemarker",
+      "artifact": "freemarker",
+      "version": "2.3.31"
+    },
+    {
+      "group": "org.javassist",
+      "artifact": "javassist",
+      "version": "3.20.0-GA"
+    },
+    {
+      "group": "org.slf4j",
+      "artifact": "slf4j-api",
+      "version": "1.7.25"
+    },
+    {
+      "group": "org.thymeleaf",
+      "artifact": "thymeleaf",
+      "version": "3.0.15.RELEASE"
+    },
+    {
+      "group": "org.unbescape",
+      "artifact": "unbescape",
+      "version": "1.1.6.RELEASE"
+    }
+  ],
+  "api_response": {
+    "results": [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "vulns": [
+          {
+            "id": "GHSA-c9ph-gxww-7744",
+            "modified": "2026-05-13T17:02:46.716315Z"
+          },
+          {
+            "id": "GHSA-r4v4-5mwr-2fwr",
+            "modified": "2026-05-05T16:10:40.722195Z"
+          },
+          {
+            "id": "GHSA-xjw8-8c5c-9r79",
+            "modified": "2026-05-05T16:12:18.897503Z"
+          }
+        ]
+      },
+      {}
+    ]
+  },
+  "analysis": {
+    "vulnerable_components": [
+      "org.thymeleaf:thymeleaf:3.0.15.RELEASE"
+    ],
+    "vulnerability_ids": [
+      "GHSA-c9ph-gxww-7744",
+      "GHSA-r4v4-5mwr-2fwr",
+      "GHSA-xjw8-8c5c-9r79"
+    ],
+    "component_results": [
+      {
+        "component": "ognl:ognl:3.1.26",
+        "vulnerability_ids": []
+      },
+      {
+        "component": "org.attoparser:attoparser:2.0.5.RELEASE",
+        "vulnerability_ids": []
+      },
+      {
+        "component": "org.freemarker:freemarker:2.3.31",
+        "vulnerability_ids": []
+      },
+      {
+        "component": "org.javassist:javassist:3.20.0-GA",
+        "vulnerability_ids": []
+      },
+      {
+        "component": "org.slf4j:slf4j-api:1.7.25",
+        "vulnerability_ids": []
+      },
+      {
+        "component": "org.thymeleaf:thymeleaf:3.0.15.RELEASE",
+        "vulnerability_ids": [
+          "GHSA-c9ph-gxww-7744",
+          "GHSA-r4v4-5mwr-2fwr",
+          "GHSA-xjw8-8c5c-9r79"
+        ]
+      },
+      {
+        "component": "org.unbescape:unbescape:1.1.6.RELEASE",
+        "vulnerability_ids": []
+      }
+    ]
+  }
+}

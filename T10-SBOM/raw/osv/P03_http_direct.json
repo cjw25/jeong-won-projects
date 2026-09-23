@@ -1,0 +1,38 @@
+{
+  "project_id": "P03_http",
+  "condition": "direct",
+  "queried_at_utc": "2026-09-22T01:06:50.619636+00:00",
+  "source": "https://api.osv.dev/v1/querybatch",
+  "packages": [
+    {
+      "group": "com.squareup.okhttp3",
+      "artifact": "okhttp",
+      "version": "4.9.3"
+    },
+    {
+      "group": "org.apache.httpcomponents",
+      "artifact": "httpclient",
+      "version": "4.5.13"
+    }
+  ],
+  "api_response": {
+    "results": [
+      {},
+      {}
+    ]
+  },
+  "analysis": {
+    "vulnerable_components": [],
+    "vulnerability_ids": [],
+    "component_results": [
+      {
+        "component": "com.squareup.okhttp3:okhttp:4.9.3",
+        "vulnerability_ids": []
+      },
+      {
+        "component": "org.apache.httpcomponents:httpclient:4.5.13",
+        "vulnerability_ids": []
+      }
+    ]
+  }
+}

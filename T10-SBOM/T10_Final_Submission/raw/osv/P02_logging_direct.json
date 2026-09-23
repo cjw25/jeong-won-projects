@@ -1,0 +1,74 @@
+{
+  "project_id": "P02_logging",
+  "condition": "direct",
+  "queried_at_utc": "2026-09-22T01:06:48.453279+00:00",
+  "source": "https://api.osv.dev/v1/querybatch",
+  "packages": [
+    {
+      "group": "ch.qos.logback",
+      "artifact": "logback-classic",
+      "version": "1.2.10"
+    },
+    {
+      "group": "org.apache.logging.log4j",
+      "artifact": "log4j-core",
+      "version": "2.17.1"
+    }
+  ],
+  "api_response": {
+    "results": [
+      {
+        "vulns": [
+          {
+            "id": "GHSA-vmq6-5m68-f53m",
+            "modified": "2026-09-10T03:50:04.518871Z"
+          }
+        ]
+      },
+      {
+        "vulns": [
+          {
+            "id": "GHSA-3pxv-7cmr-fjr4",
+            "modified": "2026-09-10T03:50:42.492278Z"
+          },
+          {
+            "id": "GHSA-6hg6-v5c8-fphq",
+            "modified": "2026-09-10T03:50:43.570169Z"
+          },
+          {
+            "id": "GHSA-vc5p-v9hr-52mj",
+            "modified": "2026-09-10T03:50:32.126499Z"
+          }
+        ]
+      }
+    ]
+  },
+  "analysis": {
+    "vulnerable_components": [
+      "ch.qos.logback:logback-classic:1.2.10",
+      "org.apache.logging.log4j:log4j-core:2.17.1"
+    ],
+    "vulnerability_ids": [
+      "GHSA-3pxv-7cmr-fjr4",
+      "GHSA-6hg6-v5c8-fphq",
+      "GHSA-vc5p-v9hr-52mj",
+      "GHSA-vmq6-5m68-f53m"
+    ],
+    "component_results": [
+      {
+        "component": "ch.qos.logback:logback-classic:1.2.10",
+        "vulnerability_ids": [
+          "GHSA-vmq6-5m68-f53m"
+        ]
+      },
+      {
+        "component": "org.apache.logging.log4j:log4j-core:2.17.1",
+        "vulnerability_ids": [
+          "GHSA-3pxv-7cmr-fjr4",
+          "GHSA-6hg6-v5c8-fphq",
+          "GHSA-vc5p-v9hr-52mj"
+        ]
+      }
+    ]
+  }
+}

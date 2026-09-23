@@ -1,0 +1,138 @@
+{
+  "project_id": "P03_http",
+  "condition": "sbom_all",
+  "queried_at_utc": "2026-09-22T01:06:51.744696+00:00",
+  "source": "https://api.osv.dev/v1/querybatch",
+  "packages": [
+    {
+      "group": "com.squareup.okhttp3",
+      "artifact": "okhttp",
+      "version": "4.9.3"
+    },
+    {
+      "group": "com.squareup.okio",
+      "artifact": "okio",
+      "version": "2.8.0"
+    },
+    {
+      "group": "commons-codec",
+      "artifact": "commons-codec",
+      "version": "1.11"
+    },
+    {
+      "group": "commons-logging",
+      "artifact": "commons-logging",
+      "version": "1.2"
+    },
+    {
+      "group": "org.apache.httpcomponents",
+      "artifact": "httpclient",
+      "version": "4.5.13"
+    },
+    {
+      "group": "org.apache.httpcomponents",
+      "artifact": "httpcore",
+      "version": "4.4.13"
+    },
+    {
+      "group": "org.jetbrains.kotlin",
+      "artifact": "kotlin-stdlib-common",
+      "version": "1.4.10"
+    },
+    {
+      "group": "org.jetbrains.kotlin",
+      "artifact": "kotlin-stdlib",
+      "version": "1.4.10"
+    },
+    {
+      "group": "org.jetbrains",
+      "artifact": "annotations",
+      "version": "13.0"
+    }
+  ],
+  "api_response": {
+    "results": [
+      {},
+      {
+        "vulns": [
+          {
+            "id": "GHSA-w33c-445m-f8w7",
+            "modified": "2026-09-10T03:49:54.860062Z"
+          }
+        ]
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "vulns": [
+          {
+            "id": "GHSA-2qp4-g3q3-f92w",
+            "modified": "2026-09-10T03:49:16.774455Z"
+          },
+          {
+            "id": "GHSA-cqj8-47ch-rvvq",
+            "modified": "2026-09-10T03:49:38.478412Z"
+          }
+        ]
+      },
+      {}
+    ]
+  },
+  "analysis": {
+    "vulnerable_components": [
+      "com.squareup.okio:okio:2.8.0",
+      "org.jetbrains.kotlin:kotlin-stdlib:1.4.10"
+    ],
+    "vulnerability_ids": [
+      "GHSA-2qp4-g3q3-f92w",
+      "GHSA-cqj8-47ch-rvvq",
+      "GHSA-w33c-445m-f8w7"
+    ],
+    "component_results": [
+      {
+        "component": "com.squareup.okhttp3:okhttp:4.9.3",
+        "vulnerability_ids": []
+      },
+      {
+        "component": "com.squareup.okio:okio:2.8.0",
+        "vulnerability_ids": [
+          "GHSA-w33c-445m-f8w7"
+        ]
+      },
+      {
+        "component": "commons-codec:commons-codec:1.11",
+        "vulnerability_ids": []
+      },
+      {
+        "component": "commons-logging:commons-logging:1.2",
+        "vulnerability_ids": []
+      },
+      {
+        "component": "org.apache.httpcomponents:httpclient:4.5.13",
+        "vulnerability_ids": []
+      },
+      {
+        "component": "org.apache.httpcomponents:httpcore:4.4.13",
+        "vulnerability_ids": []
+      },
+      {
+        "component": "org.jetbrains.kotlin:kotlin-stdlib-common:1.4.10",
+        "vulnerability_ids": []
+      },
+      {
+        "component": "org.jetbrains.kotlin:kotlin-stdlib:1.4.10",
+        "vulnerability_ids": [
+          "GHSA-2qp4-g3q3-f92w",
+          "GHSA-cqj8-47ch-rvvq"
+        ]
+      },
+      {
+        "component": "org.jetbrains:annotations:13.0",
+        "vulnerability_ids": []
+      }
+    ]
+  }
+}

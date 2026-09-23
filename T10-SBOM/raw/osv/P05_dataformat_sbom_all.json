@@ -1,0 +1,87 @@
+{
+  "project_id": "P05_dataformat",
+  "condition": "sbom_all",
+  "queried_at_utc": "2026-09-22T01:06:55.972470+00:00",
+  "source": "https://api.osv.dev/v1/querybatch",
+  "packages": [
+    {
+      "group": "com.google.code.gson",
+      "artifact": "gson",
+      "version": "2.8.9"
+    },
+    {
+      "group": "org.yaml",
+      "artifact": "snakeyaml",
+      "version": "1.30"
+    }
+  ],
+  "api_response": {
+    "results": [
+      {},
+      {
+        "vulns": [
+          {
+            "id": "GHSA-3mc7-4q67-w48m",
+            "modified": "2026-09-10T03:49:45.081110Z"
+          },
+          {
+            "id": "GHSA-98wm-3w3q-mw94",
+            "modified": "2026-09-10T03:49:45.311849Z"
+          },
+          {
+            "id": "GHSA-9w3m-gqgf-c4p9",
+            "modified": "2026-09-10T03:49:45.319354Z"
+          },
+          {
+            "id": "GHSA-c4r9-r8fh-9vj2",
+            "modified": "2026-09-10T03:49:45.518714Z"
+          },
+          {
+            "id": "GHSA-hhhw-99gj-p3c3",
+            "modified": "2026-09-10T03:49:45.766537Z"
+          },
+          {
+            "id": "GHSA-mjmj-j48q-9wg2",
+            "modified": "2026-09-10T03:49:50.365884Z"
+          },
+          {
+            "id": "GHSA-w37g-rhq8-7m4j",
+            "modified": "2026-09-10T03:50:07.647199Z"
+          }
+        ]
+      }
+    ]
+  },
+  "analysis": {
+    "vulnerable_components": [
+      "org.yaml:snakeyaml:1.30"
+    ],
+    "vulnerability_ids": [
+      "GHSA-3mc7-4q67-w48m",
+      "GHSA-98wm-3w3q-mw94",
+      "GHSA-9w3m-gqgf-c4p9",
+      "GHSA-c4r9-r8fh-9vj2",
+      "GHSA-hhhw-99gj-p3c3",
+      "GHSA-mjmj-j48q-9wg2",
+      "GHSA-w37g-rhq8-7m4j"
+    ],
+    "component_results": [
+      {
+        "component": "com.google.code.gson:gson:2.8.9",
+        "vulnerability_ids": []
+      },
+      {
+        "component": "org.yaml:snakeyaml:1.30",
+        "vulnerability_ids": [
+          "GHSA-3mc7-4q67-w48m",
+          "GHSA-98wm-3w3q-mw94",
+          "GHSA-9w3m-gqgf-c4p9",
+          "GHSA-c4r9-r8fh-9vj2",
+          "GHSA-hhhw-99gj-p3c3",
+          "GHSA-mjmj-j48q-9wg2",
+          "GHSA-w37g-rhq8-7m4j"
+        ]
+      }
+    ]
+  }
+}

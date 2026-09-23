@@ -1,0 +1,90 @@
+{
+  "project_id": "P04_database",
+  "condition": "sbom_all",
+  "queried_at_utc": "2026-09-22T01:06:53.830946+00:00",
+  "source": "https://api.osv.dev/v1/querybatch",
+  "packages": [
+    {
+      "group": "com.h2database",
+      "artifact": "h2",
+      "version": "2.1.210"
+    },
+    {
+      "group": "org.checkerframework",
+      "artifact": "checker-qual",
+      "version": "3.5.0"
+    },
+    {
+      "group": "org.postgresql",
+      "artifact": "postgresql",
+      "version": "42.3.3"
+    }
+  ],
+  "api_response": {
+    "results": [
+      {
+        "vulns": [
+          {
+            "id": "GHSA-22wj-vf5f-wrvj",
+            "modified": "2026-09-10T03:49:46.817709Z"
+          }
+        ]
+      },
+      {},
+      {
+        "vulns": [
+          {
+            "id": "GHSA-24rp-q3w6-vc56",
+            "modified": "2026-09-10T03:50:05.363063Z"
+          },
+          {
+            "id": "GHSA-562r-vg33-8x8h",
+            "modified": "2025-11-04T17:02:36.787297Z"
+          },
+          {
+            "id": "GHSA-98qh-xjc8-98pq",
+            "modified": "2026-09-10T03:51:05.114618Z"
+          },
+          {
+            "id": "GHSA-r38f-c4h4-hqq2",
+            "modified": "2026-09-10T03:49:45.309500Z"
+          }
+        ]
+      }
+    ]
+  },
+  "analysis": {
+    "vulnerable_components": [
+      "com.h2database:h2:2.1.210",
+      "org.postgresql:postgresql:42.3.3"
+    ],
+    "vulnerability_ids": [
+      "GHSA-22wj-vf5f-wrvj",
+      "GHSA-24rp-q3w6-vc56",
+      "GHSA-562r-vg33-8x8h",
+      "GHSA-98qh-xjc8-98pq",
+      "GHSA-r38f-c4h4-hqq2"
+    ],
+    "component_results": [
+      {
+        "component": "com.h2database:h2:2.1.210",
+        "vulnerability_ids": [
+          "GHSA-22wj-vf5f-wrvj"
+        ]
+      },
+      {
+        "component": "org.checkerframework:checker-qual:3.5.0",
+        "vulnerability_ids": []
+      },
+      {
+        "component": "org.postgresql:postgresql:42.3.3",
+        "vulnerability_ids": [
+          "GHSA-24rp-q3w6-vc56",
+          "GHSA-562r-vg33-8x8h",
+          "GHSA-98qh-xjc8-98pq",
+          "GHSA-r38f-c4h4-hqq2"
+        ]
+      }
+    ]
+  }
+}
