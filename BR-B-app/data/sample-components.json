@@ -1,0 +1,40 @@
+{
+  "description": "BR-B SBOM 비교용 예시 데이터",
+  "components": [
+    {
+      "name": "web-framework",
+      "dependencyType": "direct",
+      "vulnerable": true
+    },
+    {
+      "name": "database-driver",
+      "dependencyType": "direct",
+      "vulnerable": false
+    },
+    {
+      "name": "json-parser",
+      "dependencyType": "direct",
+      "vulnerable": true
+    },
+    {
+      "name": "logging-core",
+      "dependencyType": "transitive",
+      "vulnerable": true
+    },
+    {
+      "name": "xml-helper",
+      "dependencyType": "transitive",
+      "vulnerable": true
+    },
+    {
+      "name": "utility-core",
+      "dependencyType": "transitive",
+      "vulnerable": false
+    },
+    {
+      "name": "legacy-codec",
+      "dependencyType": "transitive",
+      "vulnerable": true
+    }
+  ]
+}
