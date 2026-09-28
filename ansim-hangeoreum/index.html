@@ -171,7 +171,7 @@
         <div class="page-intro">
             <p class="eyebrow">링크 · 문자 · 메신저 · 이메일</p>
             <h1 id="messages-title" tabindex="-1">링크를 열기 전에, 일부 위험 신호를 자동으로 확인해요.</h1>
-            <p>전체 메시지는 붙여넣지 마세요. 공유해도 괜찮은 웹 주소만 선택적으로 분석할 수 있고, 발신자나 메시지 맥락은 자동 판별하지 않습니다.</p>
+            <p>전체 메시지는 붙여넣지 마세요. 공유해도 괜찮은 웹 주소를 입력하면 자동으로 형식 분석을 시작합니다. 발신자나 메시지 맥락은 자동 판별하지 않습니다.</p>
         </div>
 
         <div class="notice-card notice-card--warm">
@@ -181,22 +181,22 @@
 
         <section class="link-checker" aria-labelledby="link-checker-heading">
             <div class="link-checker-heading">
-                <p class="eyebrow">주소 형식 자동 분석 · 네트워크 요청 없음</p>
+                <p class="eyebrow">입력 감지 자동 분석 · 네트워크 요청 없음</p>
                 <h2 id="link-checker-heading">링크 자동 분석</h2>
-                <p>HTTP 연결, 주소에 포함된 로그인 정보, IP 주소, 일부 단축 주소·다국어 도메인 같은 확인 신호를 살펴봅니다.</p>
+                <p>웹 주소를 입력하거나 붙여넣고 잠시 멈추면 HTTP 연결, 주소에 포함된 로그인 정보, IP 주소, 일부 단축 주소·다국어 도메인 신호를 자동으로 살펴봅니다.</p>
             </div>
             <form id="link-check-form" class="link-check-form" autocomplete="off" novalidate>
                 <label for="link-input">확인할 웹 주소</label>
                 <input id="link-input" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="link-input-help" placeholder="예: https://example.com">
-                <p class="link-input-help" id="link-input-help">주소를 열거나 다른 서버로 보내지 않습니다. 분석 후 입력과 결과를 지우려면 아래 버튼을 누르세요.</p>
+                <p class="link-input-help" id="link-input-help">입력이 멈춘 뒤 약 0.65초 후 자동 분석합니다. 주소를 열거나 다른 서버로 보내지 않습니다. 입력과 결과는 아래 버튼으로 지울 수 있습니다.</p>
                 <div class="link-form-actions">
-                    <button class="button-primary" type="submit">이 기기에서 분석</button>
+                    <button class="button-primary" type="submit">지금 분석</button>
                     <button class="button-secondary" id="clear-link-check" type="button">입력과 결과 지우기</button>
                 </div>
             </form>
             <div class="result-box link-result" id="link-analysis-result" role="status" aria-live="polite" aria-atomic="true">
                 <strong>아직 분석하지 않았어요.</strong>
-                <p>공유해도 괜찮은 웹 주소만 입력한 뒤 분석 버튼을 누르세요.</p>
+                <p>공유 가능한 웹 주소를 입력하면 잠시 후 이 기기에서 자동으로 분석합니다.</p>
             </div>
             <p class="plain-limit">위험 신호가 없다고 안전한 링크라는 뜻은 아닙니다. 이 기능은 링크 평판 조회, 사기 확정, 자동 차단을 하지 않습니다.</p>
         </section>
