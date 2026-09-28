@@ -1,0 +1,242 @@
+
+/* ==========================================
+   최종 자동화 대시보드
+========================================== */
+
+.final-dashboard {
+
+  margin-top: 1.1rem;
+
+  padding: clamp(1rem, 3vw, 1.45rem);
+
+  border: 1px solid var(--line, #dce6e6);
+
+  border-radius: 1rem;
+
+  background: var(--surface, #fff);
+
+  box-shadow: var(
+    --shadow,
+    0 12px 32px rgba(28, 57, 68, .07)
+  );
+}
+
+/* ==========================================
+   헤더
+========================================== */
+
+.final-dashboard-head,
+.final-report-head,
+.final-actions {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: .75rem;
+
+  flex-wrap: wrap;
+}
+
+.final-dashboard h2 {
+
+  margin: .2rem 0;
+
+  font-size: 1.35rem;
+}
+
+.final-dashboard h3 {
+
+  margin: 0 0 .4rem;
+
+  font-size: 1rem;
+}
+
+/* ==========================================
+   분석 상태 배지
+========================================== */
+
+.final-pill {
+
+  display: inline-block;
+
+  padding: .35rem .7rem;
+
+  border-radius: 999px;
+
+  background: #e4f4f0;
+
+  color: #075e57;
+
+  font-size: .82rem;
+
+  font-weight: 750;
+}
+
+.final-pill--warning {
+
+  background: #fff0d7;
+
+  color: #68470b;
+}
+
+/* ==========================================
+   자동 점검 통계
+========================================== */
+
+.final-stats {
+
+  display: grid;
+
+  grid-template-columns: repeat(
+    3,
+    minmax(0, 1fr)
+  );
+
+  gap: .65rem;
+
+  margin: 1.15rem 0;
+}
+
+.final-stats > div {
+
+  padding: .9rem .65rem;
+
+  text-align: center;
+
+  border: 1px solid var(--line, #dce6e6);
+
+  background: #f7faf9;
+
+  border-radius: .75rem;
+}
+
+.final-stats strong {
+
+  display: block;
+
+  font-size: 1.5rem;
+
+  color: var(--brand-dark, #075e57);
+}
+
+.final-stats span {
+
+  display: block;
+
+  font-size: .8rem;
+
+  color: var(--muted, #536879);
+}
+
+/* ==========================================
+   자동 대응 안내
+========================================== */
+
+.final-guidance {
+
+  padding: .95rem;
+
+  border-radius: .7rem;
+
+  background: #f1f8f6;
+
+  border: 1px solid #cfe6dd;
+}
+
+.final-guidance p {
+
+  margin: 0;
+
+  line-height: 1.6;
+}
+
+/* ==========================================
+   자동 보고서
+========================================== */
+
+.final-report-head {
+
+  margin: 1.25rem 0 .6rem;
+}
+
+.final-report-head p,
+.final-note {
+
+  margin: 0;
+
+  color: var(--muted, #536879);
+
+  font-size: .82rem;
+
+  line-height: 1.55;
+}
+
+.final-report-preview {
+
+  max-height: 17rem;
+
+  overflow: auto;
+
+  padding: 1rem;
+
+  margin: 0 0 1rem;
+
+  border: 1px solid var(--line, #dce6e6);
+
+  border-radius: .7rem;
+
+  color: var(--ink, #172b3c);
+
+  background: #f8fafb;
+
+  font: .83rem/1.65
+    ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+
+  white-space: pre-wrap;
+
+  overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   버튼
+========================================== */
+
+.final-actions {
+
+  justify-content: flex-start;
+}
+
+.final-note {
+
+  margin-top: .9rem;
+}
+
+/* ==========================================
+   모바일 반응형
+========================================== */
+
+@media (max-width: 540px) {
+
+  .final-stats {
+
+    grid-template-columns: 1fr;
+  }
+
+  .final-actions {
+
+    align-items: stretch;
+
+    flex-direction: column;
+  }
+
+  .final-actions button {
+
+    width: 100%;
+  }
+}
