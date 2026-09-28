@@ -530,9 +530,52 @@
     runAutoChecksButton.addEventListener("click", runAutomaticChecks);
   }
 
+  // Analyze after the user stops typing; do not open or transmit the URL.
+  let linkAnalysisTimer = null;
+  let isComposingLink = false;
+
+  function clearLinkAnalysis() {
+    if (!linkAnalysisResult) return;
+    linkAnalysisResult.className = "result-box link-result";
+    linkAnalysisResult.replaceChildren();
+    const title = document.createElement("strong");
+    title.textContent = "아직 분석하지 않았어요.";
+    const detail = document.createElement("p");
+    detail.textContent = "공유 가능한 웹 주소를 입력하면 잠시 후 이 기기에서 자동으로 분석합니다.";
+    linkAnalysisResult.append(title, detail);
+  }
+
+  function scheduleLinkAnalysis() {
+    window.clearTimeout(linkAnalysisTimer);
+    if (!linkInput) return;
+    if (!linkInput.value.trim()) {
+      clearLinkAnalysis();
+      return;
+    }
+    linkAnalysisTimer = window.setTimeout(() => {
+      if (!isComposingLink) analyzeLink(linkInput.value);
+    }, 650);
+  }
+
+  if (linkInput) {
+    linkInput.addEventListener("input", () => {
+      if (!isComposingLink) scheduleLinkAnalysis();
+    });
+    linkInput.addEventListener("compositionstart", () => {
+      isComposingLink = true;
+      window.clearTimeout(linkAnalysisTimer);
+    });
+    linkInput.addEventListener("compositionend", () => {
+      isComposingLink = false;
+      scheduleLinkAnalysis();
+    });
+    // Pasted URLs trigger the input event too; no separate clipboard permission needed.
+  }
+
   if (linkCheckForm) {
     linkCheckForm.addEventListener("submit", (event) => {
       event.preventDefault();
+      window.clearTimeout(linkAnalysisTimer);
       analyzeLink(linkInput ? linkInput.value : "");
     });
   }
@@ -543,15 +586,8 @@
         linkInput.value = "";
         linkInput.focus();
       }
-      if (linkAnalysisResult) {
-        linkAnalysisResult.className = "result-box link-result";
-        linkAnalysisResult.replaceChildren();
-        const title = document.createElement("strong");
-        title.textContent = "아직 분석하지 않았어요.";
-        const detail = document.createElement("p");
-        detail.textContent = "공유해도 괜찮은 웹 주소만 입력한 뒤 분석 버튼을 누르세요.";
-        linkAnalysisResult.append(title, detail);
-      }
+      window.clearTimeout(linkAnalysisTimer);
+      clearLinkAnalysis();
     });
   }
 
